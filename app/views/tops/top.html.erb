@@ -1,12 +1,8 @@
-<table class= "table">
-  <thead>
-    <th>エクセル形式</th>
-    <th></th>
-  </thead>
-  <% 2.upto(@xlsx.last_row) do |row| %>
-  <tbody>
-    <td><%= @xlsx.cell(row, 2) %></td>
-    <td><%= @xlsx.cell(row, 3) %></td>
-  </tbody>
-  <% end %>
-</table>
+<% 2.upto(@xlsx.last_row) do |row| %>
+   <p><%= @xlsx.cell(row, 2) %> : <%= @xlsx.cell(row, 3) %></p>
+<% end %>
+
+<% @lines.each do | line | %>
+  <% item = line.chomp.split("/", 2) %>
+  <p><%= item[0] %></p>
+<% end %>
