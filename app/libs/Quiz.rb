@@ -7,16 +7,25 @@ class Quiz
     end
 
     def self.generate
-        questions = []   
-        a =[]
-        Fileloader.get_lines.each do |p|  
-            b= p.chomp.split("/", 2)
-            a.push(b[1])
-        end
+        questions, i = [], 0,
+        lines = Fileloader.get_lines 
 
-        Fileloader.get_lines.each do |line|    
-            item = line.chomp.split("/", 2) 
-            questions.push(Quiz.new(item[0],[item[1], a[rand(100)], a[rand(100)], a[rand(100)]],item[1]))
+        while i < lines.length do
+            # 98なのは+1したときにindexがオーバーしないようにする
+            choice_array = Array.new(3){ rand 98 }
+            item = []
+            item.push(lines[i].chomp.split("/", 2))
+            for j in choice_array do
+                if j != i
+                    item.push(lines[j].chomp.split("/", 2))
+                else
+                    #  同じ選択肢が入らないように
+                    item.push(lines[j+1].chomp.split("/", 2)) 
+                end
+            end
+            # shuffleで選択肢をばらばらにする
+            questions.push(Quiz.new(item[0][0],[item[0][1], item[1][1], item[2][1], item[3][1]].shuffle,item[0][1]))
+            i += 1
         end
         questions
     end
