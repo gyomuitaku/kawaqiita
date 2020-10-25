@@ -1,3 +1,7 @@
+<% 2.upto(@xlsx.last_row) do |row| %>
+   <p><%= @xlsx.cell(row, 2) %> : <%= @xlsx.cell(row, 3) %></p>
+<% end %>
+
 <% @lines.each do | line | %>
   <% item = line.chomp.split("/", 2) %>
   <p><%= item[0] %></p>
