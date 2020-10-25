@@ -1,0 +1,50 @@
+// Place all the styles related to the Tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+div.is-hidden {
+  display: none;
+}
+
+div.is-visible {
+  display: block;
+}
+
+.game {
+  display: none;
+}
+
+.result {
+  display: none;
+}
+
+li {
+  list-style: none;
+}
+
+.screen {
+  width: 60%;
+  margin: 32px auto;
+  text-align: center;
+}
+
+.screen button {
+  display: inline-block;
+}
+
+#listAnswer {
+  margin-top: 24px;
+}
+
+.questionChoice {
+  margin-top: 12px;
+}
+
+.questionChoice:hover {
+  cursor: pointer;
+}

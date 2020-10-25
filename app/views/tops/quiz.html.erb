@@ -1,0 +1,113 @@
+<div id="sceneTop" class="top screen">
+    <h1>４択クイズ</h1>
+    <button id="btnStart">Game Start</button>
+</div>
+
+<div id="sceneGame" class="game screen">
+    <h1>ゲーム画面</h1>
+    <p id="textQuestion"></p>
+    <ul id="listAnswer"></ul>
+</div>
+
+<div id="sceneResult" class="result screen">
+    <h1>リザルト画面</h1>
+    <p>正解数は<span id="numResult"></span>問です。</p>
+    <button id="btnReset">Reset</button>
+</div>
+
+<script>
+(function() {
+  const sceneTop = document.getElementById("sceneTop");
+  const sceneGame = document.getElementById("sceneGame");
+  const sceneResult = document.getElementById("sceneResult");
+  const textQuestion = document.getElementById("textQuestion");
+  const listAnswer = document.getElementById("listAnswer");
+  const numResult = document.getElementById("numResult");
+  const btnStart = document.getElementById("btnStart");
+  const btnReset = document.getElementById("btnReset");
+//use gon
+  const question = gon.questions;
+
+  let state = {
+    answer: "",
+    gameCount: 0,
+    success: 0
+  };
+
+  function init() {
+    state.gameCount = 0;
+    state.success = 0;
+    changeScene(sceneResult, sceneTop);
+
+    btnStart.addEventListener("click", gameStart, false);
+  }
+
+  function changeScene(hiddenScene, visibleScene) {
+    hiddenScene.classList.add("is-hidden");
+    hiddenScene.classList.remove("is-visible");
+    visibleScene.classList.add("is-visible");
+  }
+
+  function showQuestion() {
+    var str = "";
+    question[state.gameCount].choice.forEach(function(value) {
+      str += '<li class="questionChoice">' + value + "</li>";
+    });
+    textQuestion.innerHTML = question[state.gameCount].text;
+    listAnswer.innerHTML = str;
+  }
+
+  function choiceQuestion() {
+    let questionChoice = document.querySelectorAll(".questionChoice");
+    questionChoice.forEach(function(choice) {
+      choice.addEventListener(
+        "click",
+        function() {
+          state.answer = this.textContent;
+          checkAnswer(question[state.gameCount].answer);
+        },
+        false
+      );
+    });
+  }
+
+  function checkAnswer(answer) {
+    if (answer === state.answer) {
+      correctAnswer();
+    } else {
+      incorrectAnswer();
+    }
+    state.gameCount++;
+    if (state.gameCount < question.length) {
+      showQuestion();
+      choiceQuestion();
+    } else {
+      gameEnd();
+    }
+  }
+
+  function correctAnswer() {
+    state.success++;
+    console.log("正解");
+  }
+
+  function incorrectAnswer() {
+    console.log("不正解");
+  }
+
+
+  function gameStart() {
+    changeScene(sceneTop, sceneGame);
+    showQuestion();
+    choiceQuestion();
+  }
+
+  function gameEnd() {
+    changeScene(sceneGame, sceneResult);
+    numResult.innerHTML = state.success;
+    btnReset.addEventListener("click", init, false);
+  }
+
+  init();
+})();
+</script>
