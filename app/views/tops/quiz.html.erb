@@ -12,17 +12,11 @@
     <div id="btn" class="disabled">Next</div>
 </div>
 
-
-
-
 <section id="result" class="hidden">
-    <p></p>
-    <button id="btnReset">Reset?</button>
+<p></p>
 </section>
 
 <div id="sceneResult" class="result screen">
-    <h1>リザルト画面</h1>
-    <p>正解数は<span id="numResult"></span>問です。</p>
     <button id="btnReset">Reset</button>
 </div>
 
@@ -42,7 +36,6 @@
         const result = document.getElementById('result');
         const scoreLabel = document.querySelector('#result > p');
         let isAnswered;
-
         //use gon
         const question = gon.questions;
 
@@ -50,18 +43,30 @@
             answer: "",
             gameCount: 0,
             totalCount: 0,
-            success: 0
+            success: 0,
+            correctInArray: []
         };
 
         function init() {
             state.gameCount = 0;
             state.success = 0;
+            state.totalCount = 0;
+            state.correctInArray = []
             changeScene(sceneResult, sceneTop);
             result.classList.add('hidden');
             // 非同期なので引数は特殊
-            btnStart10.addEventListener("click", {count: 10, handleEvent: gameStart}, false);
-            btnStart30.addEventListener("click", {count: 30, handleEvent: gameStart}, false);
-            btnStart100.addEventListener("click", {count: 100, handleEvent: gameStart}, false);
+            btnStart10.addEventListener("click", {
+                count: 10,
+                handleEvent: gameStart
+            }, false);
+            btnStart30.addEventListener("click", {
+                count: 30,
+                handleEvent: gameStart
+            }, false);
+            btnStart100.addEventListener("click", {
+                count: 100,
+                handleEvent: gameStart
+            }, false);
         }
 
         function changeScene(hiddenScene, visibleScene) {
@@ -101,7 +106,7 @@
             if (answer === state.answer) {
                 correctAnswer(choice);
             } else {
-                incorrectAnswer(choice);
+                incorrectAnswer(choice, answer);
             }
             state.gameCount++;
             if (state.gameCount < state.totalCount) {
@@ -132,7 +137,14 @@
             choice.classList.add('correct');
         }
 
-        function incorrectAnswer(choice) {
+        function incorrectAnswer(choice, answer) {
+            state.correctInArray = document.getElementsByClassName("questionChoice");
+            for (let i = 0; i < state.correctInArray.length; i++) {
+                if (state.correctInArray[i].textContent === answer) {
+                    state.correctInArray[i].classList.add('correct');
+                    break
+                }
+            }
             choice.classList.add('wrong');
         }
 
