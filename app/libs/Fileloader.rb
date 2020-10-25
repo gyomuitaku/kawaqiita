@@ -1,8 +1,9 @@
 class Fileloader
-    
+
     def self.get_lines
-        file = open("./word/word_test.txt")
-        file.read().split("\n")
+        xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
+        xlsx.default_sheet = xlsx.sheets[0]
+        return xlsx
     end
 
 end
