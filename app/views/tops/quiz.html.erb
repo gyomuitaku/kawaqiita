@@ -39,7 +39,7 @@
     state.success = 0;
     changeScene(sceneResult, sceneTop);
 
-    btnStart.addEventListener("click", gameStart, false);
+    btnStart.addEventListener("click", gameStart(10), false);
   }
 
   function changeScene(hiddenScene, visibleScene) {
@@ -96,7 +96,7 @@
   }
 
 
-  function gameStart() {
+  function gameStart(num) {
     changeScene(sceneTop, sceneGame);
     showQuestion();
     choiceQuestion();
