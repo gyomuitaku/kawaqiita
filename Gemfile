@@ -63,3 +63,5 @@ gem 'devise'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+
+gem 'gon'
