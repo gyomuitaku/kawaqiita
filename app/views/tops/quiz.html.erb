@@ -13,11 +13,12 @@
 </div>
 
 <section id="result" class="hidden">
-<p></p>
+    <p></p>
 </section>
 
 <div id="sceneResult" class="result screen">
     <button id="btnReset">Reset</button>
+    <p id ="showQuizResult"></p>
 </div>
 
 <script>
@@ -34,6 +35,7 @@
         const btnReset = document.getElementById("btnReset");
         const btn = document.getElementById('btn');
         const result = document.getElementById('result');
+        const showQuizResult = document.getElementById('showQuizResult');
         const scoreLabel = document.querySelector('#result > p');
         let isAnswered;
         //use gon
@@ -44,14 +46,37 @@
             gameCount: 0,
             totalCount: 0,
             success: 0,
-            correctInArray: []
+            correctInArray: [],
         };
+        // --------------------------------------------
+        // let quizResult = {
+        //     en_word: "",
+        //     user_answer: "",
+        //     answer: "",
+        //     status: 0,
+        //     user_id: 0,
+        // };
 
+        let quizResult = function() {
+            this.en_word = "";
+            this.user_answer = "";
+            this.answer = "";
+            this.status = 0;
+            this.user_id = 0;
+        }
+
+        let quizResults = [];
+        // -------------------------------------------------
         function init() {
             state.gameCount = 0;
             state.success = 0;
             state.totalCount = 0;
-            state.correctInArray = []
+            state.correctInArray = [];
+
+            // quizResult.en_word = "";
+            // quizResult.user_answer = "";
+            // quizResult.answer = "";
+
             changeScene(sceneResult, sceneTop);
             result.classList.add('hidden');
             // 非同期なので引数は特殊
@@ -95,20 +120,34 @@
                         }
                         isAnswered = true;
                         state.answer = this.textContent;
-                        checkAnswer(question[state.gameCount].answer, choice);
+                        // quiz.en_word = question[state.gameCount].text;
+                        checkAnswer(question[state.gameCount], choice);
                     },
                     false
                 );
             });
         }
 
-        function checkAnswer(answer, choice) {
-            if (answer === state.answer) {
+        function checkAnswer(question, choice) {
+            let quiz = new quizResult();
+            if (question.answer === state.answer) {
                 correctAnswer(choice);
+                quiz.status = 1;
             } else {
-                incorrectAnswer(choice, answer);
+                incorrectAnswer(choice, question.answer);
+                quiz.status = 0;
             }
             state.gameCount++;
+            // ---------------------------
+            quiz.en_word = question.text;
+            quiz.user_answer = state.answer;
+            quiz.answer = question.answer;
+            // quizResult.user_id
+
+            quizResults.push(quiz)
+
+
+            // ---------------------------
             if (state.gameCount < state.totalCount) {
                 btn.classList.remove('disabled');
             } else {
@@ -159,8 +198,38 @@
             scoreLabel.textContent = `Score: ${state.success} / ${state.totalCount}`;
             result.classList.remove('hidden');
             changeScene(sceneGame, sceneResult);
-            btnReset.addEventListener("click", init, false);
+            btnReset.addEventListener("click", {
+                viewQuizResults: quizResults,
+                handleEvent: showResult
+            }, false);
+
+            // btnReset.addEventListener("click", init, false);
         }
+        // let quizResult = {
+        //             en_word: "",
+        //             user_answer: "",
+        //             answer: "",
+        //             status: 0,
+        //             user_id: 0,
+        //         };
+        // let hash = {
+        //   key0: "value0",
+        //   key1: "value1"
+        // };
+
+        // for (let key in hash) {
+        //   alert('key:' + key + ' value:' + hash[key]);
+        // }
+
+        function showResult(e) {
+            var str = "";
+            for (let i = 0; i < this.viewQuizResults.length; i++) {
+                for (let key in this.viewQuizResults[i]) {
+                    str += this.viewQuizResults[i][key] + "\n";
+                }
+            };
+            showQuizResult.innerHTML = str;
+        };
 
         init();
     })();
