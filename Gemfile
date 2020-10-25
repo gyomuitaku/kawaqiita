@@ -64,4 +64,5 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem "pry-byebug"
+gem 'roo'
 gem 'gon'
