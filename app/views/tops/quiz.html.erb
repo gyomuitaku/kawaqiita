@@ -1,13 +1,18 @@
 <div id="sceneTop" class="top screen">
     <h1>４択クイズ</h1>
-    <button id="btnStart">Game Start</button>
+    <button id="btnStart" class="blbtn">Game Start</button>
 </div>
 
-<div id="sceneGame" class="game screen">
-    <h1>ゲーム画面</h1>
+<div id="sceneGame" class="game screen container">
     <p id="textQuestion"></p>
     <ul id="listAnswer"></ul>
+    <div id="btn" class="disabled">Next</div>
 </div>
+
+<section id="result" class="hidden">
+    <p></p>
+    <button id="btnReset">Reset?</button>
+</section>
 
 <div id="sceneResult" class="result screen">
     <h1>リザルト画面</h1>
@@ -16,98 +21,132 @@
 </div>
 
 <script>
-(function() {
-  const sceneTop = document.getElementById("sceneTop");
-  const sceneGame = document.getElementById("sceneGame");
-  const sceneResult = document.getElementById("sceneResult");
-  const textQuestion = document.getElementById("textQuestion");
-  const listAnswer = document.getElementById("listAnswer");
-  const numResult = document.getElementById("numResult");
-  const btnStart = document.getElementById("btnStart");
-  const btnReset = document.getElementById("btnReset");
-//use gon
-  const question = gon.questions;
+    (function() {
+        const sceneTop = document.getElementById("sceneTop");
+        const sceneGame = document.getElementById("sceneGame");
+        const sceneResult = document.getElementById("sceneResult");
+        const textQuestion = document.getElementById("textQuestion");
+        const listAnswer = document.getElementById("listAnswer");
+        const numResult = document.getElementById("numResult");
+        const btnStart = document.getElementById("btnStart");
+        const btnReset = document.getElementById("btnReset");
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+        const scoreLabel = document.querySelector('#result > p');
 
-  let state = {
-    answer: "",
-    gameCount: 0,
-    success: 0
-  };
+        let isAnswered;
 
-  function init() {
-    state.gameCount = 0;
-    state.success = 0;
-    changeScene(sceneResult, sceneTop);
+        //use gon
+        const question = gon.questions;
 
-    btnStart.addEventListener("click", gameStart, false);
-  }
+        let state = {
+            answer: "",
+            gameCount: 0,
+            success: 0
+        };
 
-  function changeScene(hiddenScene, visibleScene) {
-    hiddenScene.classList.add("is-hidden");
-    hiddenScene.classList.remove("is-visible");
-    visibleScene.classList.add("is-visible");
-  }
+        function init() {
+            state.gameCount = 0;
+            state.success = 0;
+            changeScene(sceneResult, sceneTop);
+            result.classList.add('hidden');
 
-  function showQuestion() {
-    var str = "";
-    question[state.gameCount].choice.forEach(function(value) {
-      str += '<li class="questionChoice">' + value + "</li>";
-    });
-    textQuestion.innerHTML = question[state.gameCount].text;
-    listAnswer.innerHTML = str;
-  }
+            btnStart.addEventListener("click", gameStart, false);
+        }
 
-  function choiceQuestion() {
-    let questionChoice = document.querySelectorAll(".questionChoice");
-    questionChoice.forEach(function(choice) {
-      choice.addEventListener(
-        "click",
-        function() {
-          state.answer = this.textContent;
-          checkAnswer(question[state.gameCount].answer);
-        },
-        false
-      );
-    });
-  }
+        function changeScene(hiddenScene, visibleScene) {
+            hiddenScene.classList.add("is-hidden");
+            hiddenScene.classList.remove("is-visible");
+            visibleScene.classList.add("is-visible");
+        }
 
-  function checkAnswer(answer) {
-    if (answer === state.answer) {
-      correctAnswer();
-    } else {
-      incorrectAnswer();
-    }
-    state.gameCount++;
-    if (state.gameCount < question.length) {
-      showQuestion();
-      choiceQuestion();
-    } else {
-      gameEnd();
-    }
-  }
+        function showQuestion() {
+            var str = "";
+            question[state.gameCount].choice.forEach(function(value) {
+                str += '<li class="questionChoice">' + value + "</li>";
+            });
+            textQuestion.innerHTML = question[state.gameCount].text;
+            listAnswer.innerHTML = str;
+        }
 
-  function correctAnswer() {
-    state.success++;
-    console.log("正解");
-  }
+        function choiceQuestion() {
+            let questionChoice = document.querySelectorAll(".questionChoice");
+            questionChoice.forEach(function(choice) {
+                choice.addEventListener(
+                    "click",
+                    function() {
+                        if (isAnswered) {
+                            return;
+                        }
+                        isAnswered = true;
+                        state.answer = this.textContent;
+                        checkAnswer(question[state.gameCount].answer, choice);
+                    },
+                    false
+                );
+            });
+        }
 
-  function incorrectAnswer() {
-    console.log("不正解");
-  }
+        function checkAnswer(answer, choice) {
+            if (answer === state.answer) {
+                correctAnswer(choice);
+            } else {
+                incorrectAnswer(choice);
+            }
+            state.gameCount++;
+            if (state.gameCount < question.length) {
+                btn.classList.remove('disabled');
+            } else {
+                btn.textContent = 'Show Score';
+                btn.classList.remove('disabled');
 
+            }
+        }
 
-  function gameStart() {
-    changeScene(sceneTop, sceneGame);
-    showQuestion();
-    choiceQuestion();
-  }
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('disabled')) {
+                return;
+            }
+            isAnswered = false;
+            btn.classList.add('disabled');
+            if (state.gameCount >= question.length) {
+                gameEnd()
+            } else {
+                showQuestion();
+                choiceQuestion();
+            }
+        });
 
-  function gameEnd() {
-    changeScene(sceneGame, sceneResult);
-    numResult.innerHTML = state.success;
-    btnReset.addEventListener("click", init, false);
-  }
+        function correctAnswer(choice) {
+            state.success++;
+            choice.classList.add('correct');
+        }
 
-  init();
-})();
+        function incorrectAnswer(choice) {
+            choice.classList.add('wrong');
+        }
+
+        function gameStart() {
+            changeScene(sceneTop, sceneGame);
+            showQuestion();
+            choiceQuestion();
+        }
+
+        function gameEnd() {
+            scoreLabel.textContent = `Score: ${state.success} / ${question.length}`;
+            result.classList.remove('hidden');
+            changeScene(sceneGame, sceneResult);
+            btnReset.addEventListener("click", init, false);
+        }
+
+        init();
+    })();
 </script>
+
+<style>
+    body {
+        background: #efdec1;
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+    }
+</style>
