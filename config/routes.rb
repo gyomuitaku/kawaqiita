@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root :to => 'tops#home'
   get "top" => "tops#top"
   get "quiz" => "tops#quiz"
+  get "kakutan" => "tops#kakutan"
 end

@@ -14,4 +14,9 @@ class TopsController < ApplicationController
     gon.questions = Quiz.generate
   end
 
+  def kakutan
+    gon.words = Word.generate
+    # binding.pry
+  end
+
 end
