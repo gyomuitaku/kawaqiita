@@ -20,8 +20,8 @@
     <button id="btnResult">結果を見る</>
 </div>
 
-<section id ="indexResult">
-    <a href = "#">Reset</a>
+<section id="indexResult">
+    <a href="#">Reset</a>
     <table border="1" id="targetTable">
         <thead>
             <tr>
@@ -204,6 +204,21 @@
             scoreLabel.textContent = `Score: ${state.success} / ${state.totalCount}`;
             result.classList.remove('hidden');
             changeScene(sceneGame, sceneResult);
+            $.ajax({
+                // 実行したいactionへのpathに置き換えてください。
+                // 例えば users_controller の create アクションなどの場合は
+                // /users/create などとなると思います。
+                url: '/quiz',
+                // GET, POST, PUT, DELETEなどを設定します。
+                type: 'POST',
+                // urlにつけるパラメータを指定します。
+                data: {
+                    // JSの変数の中のデータをRailsに渡します。
+                    // Rails からは parmas[:hoge] で受け取れます。
+                    quizResults: quizResults
+                },
+            })
+
             btnResult.addEventListener("click", {
                 viewQuizResults: quizResults,
                 handleEvent: showResult
@@ -244,7 +259,6 @@
 
         init();
     })();
-
 </script>
 
 <style>
