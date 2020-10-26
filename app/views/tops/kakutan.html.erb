@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col-xs-2">
+		gyomuitaku
+	</div>
+	<div class="col-xs-6">
+		<table id="table" class="table table-striped", border="2">
+		</table>
+	</div>
+</div>
+<script>
+	{
+		const tbody = document.createElement('tbody');
+        const word = gon.words;
+		for (let i = 0; i < 50; i++) {
+			let tr = document.createElement('tr');
+			for (let j = 0; j < 2; j++) {
+				if(i === 0){
+					let th = document.createElement('th');
+					if(j % 2 == 0) {
+						th.textContent = "英語";
+					}else{
+						th.textContent = "日本語";
+					}
+	                tr.appendChild(th);
+				}else{
+					if(j % 2 == 0) {
+						let td = document.createElement('td');
+						td.textContent = word[i].english;
+					 	tr.appendChild(td);
+					}else{
+						let td = document.createElement('td')
+						td.textContent = word[i].japanese;
+						tr.appendChild(td);
+					}
+				}
+			}
+		    tbody.appendChild(tr);
+		}
+		document.getElementById('table').appendChild(tbody);
+	}
+</script>
