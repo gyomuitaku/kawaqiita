@@ -22,4 +22,9 @@ class TopsController < ApplicationController
   def select
   end
 
+  def kakutan
+    gon.words = Word.generate
+    # binding.pry
+  end
+
 end
