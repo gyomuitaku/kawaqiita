@@ -17,11 +17,11 @@
 </section>
 
 <div id="sceneResult" class="result screen">
-    <button id="btnReset">Reset</button>
+    <button id="btnResult">結果を見る</>
 </div>
 
-<section>
-    <p id="showQuizResult"></p>
+<section id ="indexResult">
+    <a href = "#">Reset</a>
     <table border="1" id="targetTable">
         <thead>
             <tr>
@@ -57,10 +57,10 @@
         const btnStart10 = document.getElementById("btnStart-10");
         const btnStart30 = document.getElementById("btnStart-30");
         const btnStart100 = document.getElementById("btnStart-100");
-        const btnReset = document.getElementById("btnReset");
+        const btnResult = document.getElementById("btnResult");
+        const indexResult = document.getElementById("indexResult");
         const btn = document.getElementById('btn');
         const result = document.getElementById('result');
-        const showQuizResult = document.getElementById('showQuizResult');
         const scoreLabel = document.querySelector('#result > p');
         let isAnswered;
         //use gon
@@ -93,6 +93,7 @@
             changeScene(sceneResult, sceneTop);
             result.classList.add('hidden');
             table.classList.add('hidden');
+            indexResult.classList.add('hidden');
             // 非同期なので引数は特殊
             btnStart10.addEventListener("click", {
                 count: 10,
@@ -193,7 +194,7 @@
         }
 
         function gameStart(e) {
-            state.totalCount = this.count
+            state.totalCount = this.count;
             changeScene(sceneTop, sceneGame);
             showQuestion();
             choiceQuestion();
@@ -203,12 +204,12 @@
             scoreLabel.textContent = `Score: ${state.success} / ${state.totalCount}`;
             result.classList.remove('hidden');
             changeScene(sceneGame, sceneResult);
-            btnReset.addEventListener("click", {
+            btnResult.addEventListener("click", {
                 viewQuizResults: quizResults,
                 handleEvent: showResult
             }, false);
-            // btnReset.addEventListener("click", init, false);
         }
+
 
         function showResult(e) {
             let str = "";
@@ -219,6 +220,7 @@
             };
             result.classList.add('hidden');
             table.classList.remove('hidden');
+            indexResult.classList.remove('hidden');
             quiz_element = str.split(",")
 
             for (let i = 0; i < (quiz_element.length - 1) / 5; i++) {
@@ -236,8 +238,8 @@
                     let newCell = newRow.insertCell();
                     let newText = document.createTextNode(input_text);
                     newCell.appendChild(newText);
-                }
-            }
+                };
+            };
         };
 
         init();
