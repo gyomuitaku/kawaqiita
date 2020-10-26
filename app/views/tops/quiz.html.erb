@@ -17,12 +17,37 @@
 </section>
 
 <div id="sceneResult" class="result screen">
-    <button id="btnReset">Reset</button>
-    <p id ="showQuizResult"></p>
+    <button id="btnResult">結果を見る</>
 </div>
+
+<section id ="indexResult">
+    <a href = "#">Reset</a>
+    <table border="1" id="targetTable">
+        <thead>
+            <tr>
+                <td>問題No</td>
+                <td>出題Word</td>
+                <td>あなたの解答</td>
+                <td>正解の解答</td>
+                <td>〇/✕</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>
+    </table>
+</section>
+
+<style>
+    body {
+        background: #efdec1;
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+    }
+</style>
 
 <script>
     (function() {
+        let table = document.getElementById("targetTable");
         const sceneTop = document.getElementById("sceneTop");
         const sceneGame = document.getElementById("sceneGame");
         const sceneResult = document.getElementById("sceneResult");
@@ -32,10 +57,10 @@
         const btnStart10 = document.getElementById("btnStart-10");
         const btnStart30 = document.getElementById("btnStart-30");
         const btnStart100 = document.getElementById("btnStart-100");
-        const btnReset = document.getElementById("btnReset");
+        const btnResult = document.getElementById("btnResult");
+        const indexResult = document.getElementById("indexResult");
         const btn = document.getElementById('btn');
         const result = document.getElementById('result');
-        const showQuizResult = document.getElementById('showQuizResult');
         const scoreLabel = document.querySelector('#result > p');
         let isAnswered;
         //use gon
@@ -48,19 +73,11 @@
             success: 0,
             correctInArray: [],
         };
-        // --------------------------------------------
-        // let quizResult = {
-        //     en_word: "",
-        //     user_answer: "",
-        //     answer: "",
-        //     status: 0,
-        //     user_id: 0,
-        // };
 
-        let quizResult = function() {
-            this.en_word = "";
-            this.user_answer = "";
-            this.answer = "";
+        let quizResult = function(en_word, user_answer, answer) {
+            this.en_word = en_word;
+            this.user_answer = user_answer;
+            this.answer = answer;
             this.status = 0;
             this.user_id = 0;
         }
@@ -73,12 +90,10 @@
             state.totalCount = 0;
             state.correctInArray = [];
 
-            // quizResult.en_word = "";
-            // quizResult.user_answer = "";
-            // quizResult.answer = "";
-
             changeScene(sceneResult, sceneTop);
             result.classList.add('hidden');
+            table.classList.add('hidden');
+            indexResult.classList.add('hidden');
             // 非同期なので引数は特殊
             btnStart10.addEventListener("click", {
                 count: 10,
@@ -101,7 +116,7 @@
         }
 
         function showQuestion() {
-            var str = "";
+            let str = "";
             question[state.gameCount].choice.forEach(function(value) {
                 str += '<li class="questionChoice">' + value + "</li>";
             });
@@ -120,7 +135,6 @@
                         }
                         isAnswered = true;
                         state.answer = this.textContent;
-                        // quiz.en_word = question[state.gameCount].text;
                         checkAnswer(question[state.gameCount], choice);
                     },
                     false
@@ -129,7 +143,8 @@
         }
 
         function checkAnswer(question, choice) {
-            let quiz = new quizResult();
+
+            let quiz = new quizResult(question.text, state.answer, question.answer);
             if (question.answer === state.answer) {
                 correctAnswer(choice);
                 quiz.status = 1;
@@ -138,16 +153,7 @@
                 quiz.status = 0;
             }
             state.gameCount++;
-            // ---------------------------
-            quiz.en_word = question.text;
-            quiz.user_answer = state.answer;
-            quiz.answer = question.answer;
-            // quizResult.user_id
-
             quizResults.push(quiz)
-
-
-            // ---------------------------
             if (state.gameCount < state.totalCount) {
                 btn.classList.remove('disabled');
             } else {
@@ -188,7 +194,7 @@
         }
 
         function gameStart(e) {
-            state.totalCount = this.count
+            state.totalCount = this.count;
             changeScene(sceneTop, sceneGame);
             showQuestion();
             choiceQuestion();
@@ -198,47 +204,44 @@
             scoreLabel.textContent = `Score: ${state.success} / ${state.totalCount}`;
             result.classList.remove('hidden');
             changeScene(sceneGame, sceneResult);
-            btnReset.addEventListener("click", {
+            btnResult.addEventListener("click", {
                 viewQuizResults: quizResults,
                 handleEvent: showResult
             }, false);
-
-            // btnReset.addEventListener("click", init, false);
         }
-        // let quizResult = {
-        //             en_word: "",
-        //             user_answer: "",
-        //             answer: "",
-        //             status: 0,
-        //             user_id: 0,
-        //         };
-        // let hash = {
-        //   key0: "value0",
-        //   key1: "value1"
-        // };
 
-        // for (let key in hash) {
-        //   alert('key:' + key + ' value:' + hash[key]);
-        // }
 
         function showResult(e) {
-            var str = "";
+            let str = "";
             for (let i = 0; i < this.viewQuizResults.length; i++) {
                 for (let key in this.viewQuizResults[i]) {
-                    str += this.viewQuizResults[i][key] + "\n";
+                    str += this.viewQuizResults[i][key] + ",";
                 }
             };
-            showQuizResult.innerHTML = str;
+            result.classList.add('hidden');
+            table.classList.remove('hidden');
+            indexResult.classList.remove('hidden');
+            quiz_element = str.split(",")
+
+            for (let i = 0; i < (quiz_element.length - 1) / 5; i++) {
+                let newRow = table.insertRow();
+                for (let j = 0; j < 5; j++) {
+                    if (j === 0) {
+                        input_text = i + 1;
+                        let newCell = newRow.insertCell();
+                        let newText = document.createTextNode(input_text);
+                        newCell.appendChild(newText);
+                    } else if (j == 4) {
+                        break;
+                    }
+                    input_text = quiz_element[i * 5 + j]
+                    let newCell = newRow.insertCell();
+                    let newText = document.createTextNode(input_text);
+                    newCell.appendChild(newText);
+                };
+            };
         };
 
         init();
     })();
 </script>
-
-<style>
-    body {
-        background: #efdec1;
-        font-size: 14px;
-        font-family: Verdana, sans-serif;
-    }
-</style>
