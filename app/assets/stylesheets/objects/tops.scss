@@ -49,7 +49,7 @@ li {
   cursor: pointer;
 }
 
-#btn, #result > button {
+#btn, #result > button, #sceneresult > button {
   background: #3498db;
   padding: 8px;
   border-radius: 4px;
@@ -123,6 +123,10 @@ li {
 
 #result.hidden {
   transform: translateY(-500px);
+}
+
+#targetTable.hidden ,#indexResult.hidden{
+  display: none;
 }
 
 #result > p {
