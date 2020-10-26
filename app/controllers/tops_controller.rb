@@ -15,7 +15,7 @@ class TopsController < ApplicationController
       gon.questions = Quiz.generate(2, 2001)
     else
       num = params[:select_num].to_i
-      gon.questions = Quiz.generate(num, num+499)
+      gon.questions = Quiz.generate(num, num+99)
     end
   end
 
