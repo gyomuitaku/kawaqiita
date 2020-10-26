@@ -1,7 +1,7 @@
 class TopsController < ApplicationController
 
   def home
-  
+
   end
 
   def top
@@ -11,7 +11,15 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    gon.questions = Quiz.generate
+    if params[:select_num] == nil
+      gon.questions = Quiz.generate(2, 2001)
+    else
+      num = params[:select_num].to_i
+      gon.questions = Quiz.generate(num, num+499)
+    end
+  end
+
+  def select
   end
 
   def kakutan

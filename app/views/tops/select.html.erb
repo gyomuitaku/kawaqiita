@@ -1,0 +1,16 @@
+<div class="container-fluid mt-5">
+  <div class="row text-center">
+    <div class="col-3">
+      <%= link_to "1 ~ 500", quiz_path(params: {select_num: 2}), class: "btn btn-info btn-sm " %>
+    </div>
+    <div class="col-3">
+      <%= link_to "500 ~ 1000", quiz_path(params: {select_num: 502}), class: "btn btn-info btm-sm" %>
+    </div>
+    <div class="col-3">
+      <%= link_to "1000 ~ 1500", quiz_path(params: {select_num: 1002}), class: "btn btn-info btm-sm" %>
+    </div>
+    <div class="col-3">
+      <%= link_to "1500 ~ 2000", quiz_path(params: {select_num: 1502}), class: "btn btn-info btn-sm" %>
+    </div>
+  </div>
+</div>
