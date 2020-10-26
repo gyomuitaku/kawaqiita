@@ -66,3 +66,4 @@ gem 'bootstrap-sass'
 gem "pry-byebug"
 gem 'roo'
 gem 'gon'
+gem 'jquery-rails'
