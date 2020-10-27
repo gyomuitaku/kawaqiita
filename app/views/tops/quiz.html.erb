@@ -79,7 +79,7 @@
             this.user_answer = user_answer;
             this.answer = answer;
             this.status = 0;
-            this.user_id = 0;
+            this.user_id = gon.user_id;
         }
 
         let quizResults = [];
@@ -208,7 +208,7 @@
                 // 実行したいactionへのpathに置き換えてください。
                 // 例えば users_controller の create アクションなどの場合は
                 // /users/create などとなると思います。
-                url: '/quiz',
+                url: '/results',
                 // GET, POST, PUT, DELETEなどを設定します。
                 type: 'POST',
                 // urlにつけるパラメータを指定します。
@@ -260,11 +260,3 @@
         init();
     })();
 </script>
-
-<style>
-    body {
-        background: #efdec1;
-        font-size: 14px;
-        font-family: Verdana, sans-serif;
-    }
-</style>
