@@ -11,9 +11,9 @@
 	{
 		const tbody = document.createElement('tbody');
         const word = gon.words;
-		for (let i = 0; i < 50; i++) {
+		for (let i = 0; i < 26; i++) {
 			let tr = document.createElement('tr');
-			for (let j = 0; j < 2; j++) {
+			for (let j = 0; j < 4; j++) {
 				if(i === 0){
 					let th = document.createElement('th');
 					if(j % 2 == 0) {
@@ -23,13 +23,21 @@
 					}
 	                tr.appendChild(th);
 				}else{
-					if(j % 2 == 0) {
+					if(j === 0) {
 						let td = document.createElement('td');
 						td.textContent = word[i].english;
 					 	tr.appendChild(td);
-					}else{
+					}else if(j === 2){
+						let td = document.createElement('td')
+						td.textContent = word[i+25].english;
+						tr.appendChild(td);
+					}else if(j === 1){
 						let td = document.createElement('td')
 						td.textContent = word[i].japanese;
+						tr.appendChild(td);
+					}else{
+						let td = document.createElement('td')
+						td.textContent = word[i+25].japanese;
 						tr.appendChild(td);
 					}
 				}
