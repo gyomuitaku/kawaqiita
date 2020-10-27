@@ -13,15 +13,41 @@
 </div>
 
 <section id="result" class="hidden">
-<p></p>
+    <p></p>
 </section>
 
 <div id="sceneResult" class="result screen">
-    <button id="btnReset">Reset</button>
+    <button id="btnResult">結果を見る</>
 </div>
+
+<section id="indexResult">
+    <a href="#">Reset</a>
+    <table border="1" id="targetTable">
+        <thead>
+            <tr>
+                <td>問題No</td>
+                <td>出題Word</td>
+                <td>あなたの解答</td>
+                <td>正解の解答</td>
+                <td>〇/✕</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>
+    </table>
+</section>
+
+<style>
+    body {
+        background: #efdec1;
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+    }
+</style>
 
 <script>
     (function() {
+        let table = document.getElementById("targetTable");
         const sceneTop = document.getElementById("sceneTop");
         const sceneGame = document.getElementById("sceneGame");
         const sceneResult = document.getElementById("sceneResult");
@@ -31,7 +57,8 @@
         const btnStart10 = document.getElementById("btnStart-10");
         const btnStart30 = document.getElementById("btnStart-30");
         const btnStart100 = document.getElementById("btnStart-100");
-        const btnReset = document.getElementById("btnReset");
+        const btnResult = document.getElementById("btnResult");
+        const indexResult = document.getElementById("indexResult");
         const btn = document.getElementById('btn');
         const result = document.getElementById('result');
         const scoreLabel = document.querySelector('#result > p');
@@ -44,16 +71,29 @@
             gameCount: 0,
             totalCount: 0,
             success: 0,
-            correctInArray: []
+            correctInArray: [],
         };
 
+        let quizResult = function(en_word, user_answer, answer) {
+            this.en_word = en_word;
+            this.user_answer = user_answer;
+            this.answer = answer;
+            this.status = 0;
+            this.user_id = gon.user_id;
+        }
+
+        let quizResults = [];
+        // -------------------------------------------------
         function init() {
             state.gameCount = 0;
             state.success = 0;
             state.totalCount = 0;
-            state.correctInArray = []
+            state.correctInArray = [];
+
             changeScene(sceneResult, sceneTop);
             result.classList.add('hidden');
+            table.classList.add('hidden');
+            indexResult.classList.add('hidden');
             // 非同期なので引数は特殊
             btnStart10.addEventListener("click", {
                 count: 10,
@@ -76,7 +116,7 @@
         }
 
         function showQuestion() {
-            var str = "";
+            let str = "";
             question[state.gameCount].choice.forEach(function(value) {
                 str += '<li class="questionChoice">' + value + "</li>";
             });
@@ -95,20 +135,25 @@
                         }
                         isAnswered = true;
                         state.answer = this.textContent;
-                        checkAnswer(question[state.gameCount].answer, choice);
+                        checkAnswer(question[state.gameCount], choice);
                     },
                     false
                 );
             });
         }
 
-        function checkAnswer(answer, choice) {
-            if (answer === state.answer) {
+        function checkAnswer(question, choice) {
+
+            let quiz = new quizResult(question.text, state.answer, question.answer);
+            if (question.answer === state.answer) {
                 correctAnswer(choice);
+                quiz.status = 1;
             } else {
-                incorrectAnswer(choice, answer);
+                incorrectAnswer(choice, question.answer);
+                quiz.status = 0;
             }
             state.gameCount++;
+            quizResults.push(quiz)
             if (state.gameCount < state.totalCount) {
                 btn.classList.remove('disabled');
             } else {
@@ -149,7 +194,7 @@
         }
 
         function gameStart(e) {
-            state.totalCount = this.count
+            state.totalCount = this.count;
             changeScene(sceneTop, sceneGame);
             showQuestion();
             choiceQuestion();
@@ -159,17 +204,59 @@
             scoreLabel.textContent = `Score: ${state.success} / ${state.totalCount}`;
             result.classList.remove('hidden');
             changeScene(sceneGame, sceneResult);
-            btnReset.addEventListener("click", init, false);
+            $.ajax({
+                // 実行したいactionへのpathに置き換えてください。
+                // 例えば users_controller の create アクションなどの場合は
+                // /users/create などとなると思います。
+                url: '/results',
+                // GET, POST, PUT, DELETEなどを設定します。
+                type: 'POST',
+                // urlにつけるパラメータを指定します。
+                data: {
+                    // JSの変数の中のデータをRailsに渡します。
+                    // Rails からは parmas[:hoge] で受け取れます。
+                    quizResults: quizResults
+                },
+            })
+
+            btnResult.addEventListener("click", {
+                viewQuizResults: quizResults,
+                handleEvent: showResult
+            }, false);
         }
+
+
+        function showResult(e) {
+            let str = "";
+            for (let i = 0; i < this.viewQuizResults.length; i++) {
+                for (let key in this.viewQuizResults[i]) {
+                    str += this.viewQuizResults[i][key] + ",";
+                }
+            };
+            result.classList.add('hidden');
+            table.classList.remove('hidden');
+            indexResult.classList.remove('hidden');
+            quiz_element = str.split(",")
+
+            for (let i = 0; i < (quiz_element.length - 1) / 5; i++) {
+                let newRow = table.insertRow();
+                for (let j = 0; j < 5; j++) {
+                    if (j === 0) {
+                        input_text = i + 1;
+                        let newCell = newRow.insertCell();
+                        let newText = document.createTextNode(input_text);
+                        newCell.appendChild(newText);
+                    } else if (j == 4) {
+                        break;
+                    }
+                    input_text = quiz_element[i * 5 + j]
+                    let newCell = newRow.insertCell();
+                    let newText = document.createTextNode(input_text);
+                    newCell.appendChild(newText);
+                };
+            };
+        };
 
         init();
     })();
 </script>
-
-<style>
-    body {
-        background: #efdec1;
-        font-size: 14px;
-        font-family: Verdana, sans-serif;
-    }
-</style>
