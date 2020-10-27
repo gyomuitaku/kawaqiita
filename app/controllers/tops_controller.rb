@@ -27,5 +27,7 @@ class TopsController < ApplicationController
     gon.words = Word.generate
     # binding.pry
   end
-
+  def type
+    gon.questions = Quiz.generate
+  end
 end
