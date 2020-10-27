@@ -10,5 +10,7 @@ class TopsController < ApplicationController
   def quiz
     gon.questions = Quiz.generate
   end
-
+  def type
+    gon.questions = Quiz.generate
+  end
 end
