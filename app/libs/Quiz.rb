@@ -6,17 +6,17 @@ class Quiz
         @answer = answer
     end
 
-    def self.generate
+    def self.generate(s,e)
         questions, i = [], 0,
         xlsx = Fileloader.get_lines
-
-        2.upto(xlsx.last_row){ |row|
+        xlsx_choice = (s..e).to_a.sample(100)
+        for row in 1..100 do
             # 98なのは+1したときにindexがオーバーしないようにする
-            choice_array = Array.new(3){ rand 98 }
+            choice_array = Array.new(3){ rand s..e }
             item = []
-            item.push(xlsx.row(row))
+            item.push(xlsx.row(xlsx_choice[row]))
             for j in choice_array do
-                if j != i
+                if j != xlsx_choice[row]
                     item.push(xlsx.row(j))
                 else
                     #  同じ選択肢が入らないように
@@ -24,9 +24,8 @@ class Quiz
                 end
             end
             # shuffleで選択肢をばらばらにする
-            questions.push(Quiz.new(item[0][1],[item[0][2], item[1][2], item[2][2], item[3][2]].shuffle,item[0][2]))
-            i += 1
-        }
+            questions.push(Quiz.new(item[0][1],[item[0][2], item[1][2], item[2][2], item[3][2]].shuffle, item[0][2]))
+        end
         questions
     end
 end
