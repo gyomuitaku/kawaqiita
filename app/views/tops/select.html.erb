@@ -12,12 +12,27 @@
         <div class="text-center mb-5">
             <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
               <% (0..4).each do |j| %>
-                <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
+                <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
               <%end%>
             </select>
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="text-center my-5">
+    <h1>確認問題</h1>
+  </div>
+  <div class="row">
+    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+    <div class="col-3">
+      <div class="text-center mb-5">
+        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
+          <% (0..3).each do |j| %>
+            <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
+          <%end%>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
 <!-- <div class="container-fluid mt-5">
