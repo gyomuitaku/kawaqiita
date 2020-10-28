@@ -10,7 +10,6 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    byebug
     if params[:select_num]
       gon.questions = Quiz.generate(2, 2001)
     else
@@ -28,6 +27,6 @@ class TopsController < ApplicationController
     # binding.pry
   end
   def type
-    gon.questions = Quiz.generate
+    gon.questions = Quiz.generate(2, 10)
   end
 end
