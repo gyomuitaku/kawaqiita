@@ -2,17 +2,22 @@
 <body>
   <p id="text"></p>
   <p id="target">click to start</p>
-    <p><input id="reset" type="button" value="reset"></p>
+  <p id="botan">
+  </p>
+    <%# <p><input id="next" type="button" value="next"class="botan"></p> %>
   <p class="info">
     正解問題数: <span id="score">0</span>,
-    Miss count: <span id="miss">0</span>,
-    Time left: <span id="timer">0.00</span>
+    残り問題数: <span id="total">10</span>,
+
+    問題数: <span id="time">10</span>
+    <table class="table" id="tab"></table>
+    <table class="table" id="answer"></table>
+    <table id="miss"></table>
   </p></body>
 <script>
 {
   const words = gon.questions;
   console.log(words);
-
 
   let word;
   let cnt;
@@ -20,18 +25,30 @@
   let score;
   let miss;
   let plusword;
-  const timeLimit = 10 * 1000;
-  let startTime;
+  let apple;
   let isPlaying = false;
-
+  let total_count;
+  let list;
   const target = document.getElementById('target');
   const text = document.getElementById('text');
 
   const scoreLabel = document.getElementById('score');
   const missLabel = document.getElementById('miss');
-  const timerLabel = document.getElementById('timer');
+  // const timerLabel = document.getElementById('timer');
 
-  const reset = document.getElementById("reset")
+  const total = document.getElementById("total")
+
+  const table = document.getElementById('tab');
+  const answer = document.getElementById('answer');
+
+  // 要素を取得
+//   let top = document.getElementById('top');
+// // 現在の display プロパティの値を保持
+//   const displayOriginal = top.style.display;
+// // none に設定して非表示
+//   top.style.display = 'none';
+// 元に戻して表示
+  
 
 
   function updateTarget() {
@@ -43,68 +60,125 @@
     target.textContent = plusword + placeholder ;
   }
 
-
-  
+  function for_base(para,wordss) {
+    let loc=[];
+    if (wordss ===0){
+    for(let i=1;i<para.length;i++){
+      loc +=para[i].text
+    }}
+    if (wordss ===1){
+    for(let i=1;i<para.length;i++){
+      loc +=para[i].answer
+    }}
+    return loc
+  }
   function updateTimer() {
-    const timeLeft = startTime + timeLimit - Date.now();
-    timerLabel.textContent = (timeLeft / 1000).toFixed(2);
 
-    const timeoutId = setTimeout(() => {
-      updateTimer();
-    }, 10);
-
-    if (timeLeft < 0) {
-      isPlaying = false;
-
-      clearTimeout(timeoutId);
-      timerLabel.textContent = '0.00';
-      setTimeout(() => {
-        showResult();
-      }, 100);
+    if (total_count <= 0) {
+      isPlaying = true;
 
       target.textContent = 'click to replay';
+      total.textContent = total_count;
       text.textContent ="";
+      // let resul =[];
+      // let love =[];
+      // let re =[];
+      // let lo =[];
+      // for(let i=1;i < apple.length;i++){
+      //   resul += apple[i].text 
+      //   love += apple[i].answer
+      // }
+      removebotan()
+      table.textContent =for_base(apple,0)
+      answer.textContent =for_base(apple,1)
+      missLabel.textContent =for_base(list,0)
     }
   }
-
-
-
-
+  function createbotan(params,parama) {
+    const bota ="bottan";
+    let botans;
+    botans =bota +`${params}`
+    botans =document.getElementById("botan");
+    if (botans.hasChildNodes()){
+      const input = document.createElement("input");
+      input.setAttribute("type","button"); 
+		  input.setAttribute("size","50"); 
+      input.setAttribute("id",parama)
+		  input.setAttribute("value",parama);
+      botans.appendChild(input);
+    }
+    
+  }
+  function removebotan() {
+    const botan = document.getElementById("botan");
+	  if (botan.hasChildNodes()){
+		while (botan.firstChild) {
+      botan.removeChild(botan.firstChild);
+    }
+    
+  }}
 
   function showResult() {
-    const accuracy = score + miss === 0 ? 0 : score / (score + miss) * 100;
-    alert(`${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!`);
+    const accuracy = score  === 0 ? 0 : score / (score ) * 100;
+    alert("${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!");
   }
-  reset.addEventListener("click", function (e) {
-    updateTimer();
-  })
+  function plus(lists,word) {
+    lists.push(word)
+  }
+  
+
 
   window.addEventListener('click', () => {
     if (isPlaying === true) {
       return;
     }
     isPlaying = true;
-
+    createbotan("1","next")
+    createbotan("2","reset")
     loc = 0;
     score = 0;
     miss = 0;
     cnt =0;
+    total_count =10;
     plusword ="";
-    
+    apple =[""]
+    list =[""]
     scoreLabel.textContent = score;
-    missLabel.textContent = miss;
     word = words[Math.floor(Math.random() * words.length)];
+    plus(apple,word);
+    total.textContent = total_count;
     cnt =word.text.length;
     updateTarget()
-    startTime = Date.now();
-    updateTimer();
+    if (isPlaying!==false){
+    if (!next.hasChildNodes()){
+          next.addEventListener("click", function (e) {
+            word = words[Math.floor(Math.random() * words.length)];
+            plusword =""
+            total_count --;
+            total.textContent = total_count;
+            cnt =word.text.length;
+            plus(apple,word);
+            plus(list,word)
+            updateTarget();
+            updateTimer();
+        })
+     }
+    }
+    if (!reset.hasChildNodes()){
+      reset.addEventListener("click", function (e) {
+    // timerLabel.textContent = "";
+        text.textContent ="";
+        target.textContent=""
+        alert("処理が終了されますがよろしいですか");
+        window.location.reload();
+      })
+    }
   });
 
   window.addEventListener('keydown', e => {
     if (isPlaying !== true) {
       return;
     }
-
     if (e.key === word.text[loc]) {
       loc++;
       cnt --;
@@ -113,6 +187,10 @@
         target.textContent =word;
         // sleep(200);
         word = words[Math.floor(Math.random() * words.length)];
+        total_count --;
+        total.textContent = total_count;
+        apple.push(word);
+
         loc = 0;
         cnt = word.text.length;
         plusword ="";
@@ -120,9 +198,7 @@
         scoreLabel.textContent = score;
       }
       updateTarget();
-    // } else {
-    //   miss++;
-    //   missLabel.textContent = miss;
+      updateTimer()
     }
   });
   
