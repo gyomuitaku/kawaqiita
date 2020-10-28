@@ -6,10 +6,10 @@ class KakutanPdf < Prawn::Document
 	  # superで初期設定を指定します(ページサイズ、マージン等)
 	  super(
 	    page_size: 'A4',
-	    top_margin: 40,
+	    top_margin: 70,
 	    bottom_margin: 30,
-	    left_margin: 20,
-	    right_margin: 20
+	    left_margin: 70,
+	    right_margin: 20,
 	  )
 
 	  font 'app/assets/fonts/ipaexm.ttf' # fontをパスで指定
@@ -30,11 +30,11 @@ class KakutanPdf < Prawn::Document
 
 	def contents
 		data = []
-		binding.pry
-		for i in 1..50 do
-			data.push([@result.word, @result.meaning])
+		# binding.pry
+		for i in 1..25 do
+			data.push([@result.find(i).word, @result.find(i).meaning, @result.find(i+25).word, @result.find(i+25).meaning])
 		end
-		table data
+		table data.shuffle, cell_style: { size: 14 }
 	end
 
 end
