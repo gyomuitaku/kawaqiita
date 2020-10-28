@@ -1,24 +1,17 @@
-# README
+## サーバ起動手順
+- docker、docker-composeのインストール
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### コマンド
 
-Things you may want to cover:
+#### vagrant upみたいなもの(gem追加してbundle install時にも使う)
+- docker-compose build
+#### postgreデータベースマイグレーション
+- docker-compose run web rake db:create db:migrate
+#### サーバー起動
+- docker-compose up 
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###　削除コマンド(プロジェクト終了時、滅びの呪文)
+- docker-compose down --rmi all --volumes --remove-orphans
+docker-composeで作られた、コンテナ、イメージ、ボリューム、ネットワークそして未定義コンテナ、全てを一括消去するコマンドを説明する。
