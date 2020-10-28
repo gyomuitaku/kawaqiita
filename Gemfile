@@ -67,3 +67,5 @@ gem "pry-byebug"
 gem 'roo'
 gem 'gon'
 gem 'jquery-rails'
+gem 'prawn'
+gem 'prawn-table'
