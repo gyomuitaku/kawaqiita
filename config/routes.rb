@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'kakutan_pdfs/index'
   devise_for :users
   resources :users
   root :to => 'tops#home'
