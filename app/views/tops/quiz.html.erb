@@ -17,12 +17,12 @@
 </section>
 
 <div id="sceneResult" class="result screen">
-    <button id="btnResult">結果を見る</>
+    <button id="btnResult" class ="btn btn-dark" role="button">結果を見る</>
 </div>
 
 <section id="indexResult">
-    <a href="#">Reset</a>
-    <table border="1" id="targetTable">
+    <a href="#" class ="btn btn-dark" role="button">Reset</a>
+    <table border="1" id="targetTable" class ="table table-hover table-dark">
         <thead>
             <tr>
                 <td>問題No</td>
@@ -79,7 +79,7 @@
             this.user_answer = user_answer;
             this.answer = answer;
             this.status = 0;
-            this.user_id = 0;
+            this.user_id = gon.user_id;
         }
 
         let quizResults = [];
@@ -208,7 +208,7 @@
                 // 実行したいactionへのpathに置き換えてください。
                 // 例えば users_controller の create アクションなどの場合は
                 // /users/create などとなると思います。
-                url: '/quiz',
+                url: '/results',
                 // GET, POST, PUT, DELETEなどを設定します。
                 type: 'POST',
                 // urlにつけるパラメータを指定します。
@@ -234,6 +234,7 @@
                 }
             };
             result.classList.add('hidden');
+            btnResult.classList.add('hidden');
             table.classList.remove('hidden');
             indexResult.classList.remove('hidden');
             quiz_element = str.split(",")
@@ -260,11 +261,3 @@
         init();
     })();
 </script>
-
-<style>
-    body {
-        background: #efdec1;
-        font-size: 14px;
-        font-family: Verdana, sans-serif;
-    }
-</style>

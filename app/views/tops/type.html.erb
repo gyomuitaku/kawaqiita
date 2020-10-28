@@ -1,0 +1,142 @@
+
+<body>
+  <p id="text"></p>
+  <p id="target">click to start</p>
+    <p><input id="reset" type="button" value="reset"></p>
+  <p class="info">
+    正解問題数: <span id="score">0</span>,
+    Miss count: <span id="miss">0</span>,
+    Time left: <span id="timer">0.00</span>
+  </p></body>
+<script>
+{
+  const words = gon.questions;
+  console.log(words);
+
+
+  let word;
+  let cnt;
+  let loc;
+  let score;
+  let miss;
+  let plusword;
+  const timeLimit = 10 * 1000;
+  let startTime;
+  let isPlaying = false;
+
+  const target = document.getElementById('target');
+  const text = document.getElementById('text');
+
+  const scoreLabel = document.getElementById('score');
+  const missLabel = document.getElementById('miss');
+  const timerLabel = document.getElementById('timer');
+
+  const reset = document.getElementById("reset")
+
+
+  function updateTarget() {
+    let placeholder = '';
+    for (let i = cnt; i > 0; i--) {
+      placeholder += '_';
+    }
+    text.textContent = word.answer
+    target.textContent = plusword + placeholder ;
+  }
+
+
+  
+  function updateTimer() {
+    const timeLeft = startTime + timeLimit - Date.now();
+    timerLabel.textContent = (timeLeft / 1000).toFixed(2);
+
+    const timeoutId = setTimeout(() => {
+      updateTimer();
+    }, 10);
+
+    if (timeLeft < 0) {
+      isPlaying = false;
+
+      clearTimeout(timeoutId);
+      timerLabel.textContent = '0.00';
+      setTimeout(() => {
+        showResult();
+      }, 100);
+
+      target.textContent = 'click to replay';
+      text.textContent ="";
+    }
+  }
+
+
+
+
+
+  function showResult() {
+    const accuracy = score + miss === 0 ? 0 : score / (score + miss) * 100;
+    alert(`${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!`);
+  }
+  reset.addEventListener("click", function (e) {
+    updateTimer();
+  })
+
+  window.addEventListener('click', () => {
+    if (isPlaying === true) {
+      return;
+    }
+    isPlaying = true;
+
+    loc = 0;
+    score = 0;
+    miss = 0;
+    cnt =0;
+    plusword ="";
+    
+    scoreLabel.textContent = score;
+    missLabel.textContent = miss;
+    word = words[Math.floor(Math.random() * words.length)];
+    cnt =word.text.length;
+    updateTarget()
+    startTime = Date.now();
+    updateTimer();
+  });
+
+  window.addEventListener('keydown', e => {
+    if (isPlaying !== true) {
+      return;
+    }
+
+    if (e.key === word.text[loc]) {
+      loc++;
+      cnt --;
+      plusword +=word.text[loc-1]
+      if (loc === word.text.length) {
+        target.textContent =word;
+        // sleep(200);
+        word = words[Math.floor(Math.random() * words.length)];
+        loc = 0;
+        cnt = word.text.length;
+        plusword ="";
+        score++;
+        scoreLabel.textContent = score;
+      }
+      updateTarget();
+    // } else {
+    //   miss++;
+    //   missLabel.textContent = miss;
+    }
+  });
+  
+}
+// </script>
+<style>
+body {
+  padding-top: 40px;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+}
+
+#target {
+  font-size: 48px;
+  letter-spacing: 3px;
+}
+</style>
