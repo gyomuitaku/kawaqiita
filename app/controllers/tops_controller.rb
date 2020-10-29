@@ -37,6 +37,6 @@ class TopsController < ApplicationController
     # binding.pry
   end
   def type
-    gon.questions = Quiz.type(2, 100)
+    gon.questions = Quiz.type(2, 2000,0)
   end
 end

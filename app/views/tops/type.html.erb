@@ -66,10 +66,10 @@
       var td = document.createElement('td');
     // テーブルの列を 3行追加する
     if (j===0) {
-      td.innerHTML = wor[i].text;
+      td.innerHTML = wor[i][0];
     }
     else if(j===1){
-      td.innerHTML = wor[i].answer;
+      td.innerHTML = wor[i][1];
     }
     tr.appendChild(td);
   }
@@ -89,13 +89,13 @@
     for (let i = cnt; i > 0; i--) {
       placeholder += '_';
     }
-    text.textContent = word.answer
+    text.textContent = word[1]
     target.textContent = plusword + placeholder ;
   }
 
   function for_base(para) {
     let loc=[];
-    for(let i=1;i<para.length;i++){
+    for(let i= 0;i<para.length;i++){
       loc.push(para[i])
     }
     return loc
@@ -108,14 +108,7 @@
       target.textContent = 'F I N I S H';
       total.textContent = total_count;
       text.textContent ="";
-      // let resul =[];
-      // let love =[];
-      // let re =[];
-      // let lo =[];
-      // for(let i=1;i < apple.length;i++){
-      //   resul += apple[i].text 
-      //   love += apple[i].answer
-      // }
+      
       removebotan()
       gameEnd()
       // 元に戻して表示
@@ -124,9 +117,7 @@
       // data-table.style.display = displayOriginal;
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
-      // table.textContent =for_base(apple,0)
-      // answer.textContent =for_base(apple,1)
-      // missLabel.textContent =for_base(list,0)
+      
     }
   }
   function createbotan(params,parama) {
@@ -165,7 +156,7 @@
   function gameEnd() {
     let appai =[]
     let miss =[]
-    for (let i=1;i<apple.length;i++){
+    for (let i=0;i<apple.length;i++){
        appai =apple[i]
       $.ajax({
         url: '/type/results',
@@ -175,7 +166,7 @@
         }
       })
     }
-    for (let i=1;i<list.length;i++){
+    for (let i=0;i<list.length;i++){
        miss =list[i]
       $.ajax({
         url: '/type/results',
@@ -201,23 +192,26 @@
     cnt =0;
     total_count =10;
     plusword ="";
-    apple =[""]
-    list =[""]
+    apple =[]
+    list =[]
     scoreLabel.textContent = score;
     word = words[Math.floor(Math.random() * words.length)];
+    
     total.textContent = total_count;
-    cnt =word.text.length;
+    cnt =word[0].length;
+    
     updateTarget()
     if (isPlaying!==false){
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
+            plus(list,word)
             word = words[Math.floor(Math.random() * words.length)];
             plusword =""
             total_count --;
             total.textContent = total_count;
-            cnt =word.text.length;
+            cnt =word[0].length;
             // plus(apple,word);
-            plus(list,word)
+            
             updateTarget();
             updateTimer();
         })
@@ -238,20 +232,18 @@
     if (isPlaying !== true) {
       return;
     }
-    if (e.key === word.text[loc]) {
+    if (e.key === word[0][loc]) {
       loc++;
       cnt --;
-      plusword +=word.text[loc-1]
-      if (loc === word.text.length) {
-        target.textContent =word;
-        // sleep(200);
+      plusword +=word[0][loc-1]
+      if (loc === word[0].length) {
+        plus(apple,word)
         word = words[Math.floor(Math.random() * words.length)];
         total_count --;
         total.textContent = total_count;
-        apple.push(word);
-
+        
         loc = 0;
-        cnt = word.text.length;
+        cnt = word[0].length;
         plusword ="";
         score++;
         scoreLabel.textContent = score;
