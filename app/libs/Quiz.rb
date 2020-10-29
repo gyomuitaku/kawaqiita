@@ -6,13 +6,13 @@ class Quiz
         @answer = answer
     end
 
-    def self.generate(s,e)
-        questions, i = [], 0,
-        xlsx = Fileloader.get_lines
+    def self.generate(s,e,select_file)
+        questions, i = [], 0
+        xlsx = Fileloader.get_lines(select_file)
         xlsx_choice = (s..e).to_a.sample(100)
-        for row in 1..100 do
+        for row in 0..99 do
             # 98なのは+1したときにindexがオーバーしないようにする
-            choice_array = Array.new(3){ rand s..e }
+            choice_array = Array.new(3){ rand s..(e-1) }
             item = []
             item.push(xlsx.row(xlsx_choice[row]))
             for j in choice_array do
