@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Kawaqiita</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= include_gon %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Kawaqiita</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <!-- Web Fonts -->
+  <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,700" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= include_gon %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Demo Custome Code (demo page only) -->
+  <style type="text/css">
+    /* Button Spaces*/
+    .demo-btn-space .btn,
+    .demo-progress-space .progress {
+      margin-bottom: 10px;
+    }
 
-  <body>
-    <%= yield %>
-  </body>
+    /* About Section */
+    .demo-about-section {
+      position: relative;
+      padding-top: 6.25rem;
+    }
+
+    @media (min-width: 991px) {
+      .demo-about-section {
+        margin-top: -50px;
+        padding-top: 0;
+      }
+    }
+
+    /* Download Section */
+    .demo-download-section {
+      position: relative;
+      z-index: 1;
+      margin: -60px 0;
+    }
+
+    /* Google Fonts */
+    .demo-fonts-box {
+      padding: 30px;
+      line-height: 2;
+      letter-spacing: 2px;
+    }
+
+    .demo-fonts-box__item {
+      line-height: 1;
+    }
+
+    .demo-fonts-box__item-xs {
+      line-height: 1;
+      font-size: 30px;
+    }
+
+    .demo-fonts-box__item-xl {
+      line-height: 1;
+      font-size: 90px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <header role="header">
+    <!-- Navbar -->
+    <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg navbar-transparent navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-white.png" alt="Stream UI Kit" style="width: 100px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <a href="#js-scroll-to-section" class="nav-link" href="#!">
+                <i class="fas fa-cubes u-font-size-90 mr-1"></i> UI Kit Components
+              </a>
+            </li>
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <a class="nav-link" href="#js-scroll-to-demos">
+                <i class="fas fa-cube u-font-size-90 mr-1"></i> Example Pages
+              </a>
+            </li>
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <a class="nav-link" href="https://htmlstream.com/public/preview/stream-ui-kit/docs.html">
+                <i class="fas fa-book u-font-size-90 mr-1"></i> Docs
+              </a>
+            </li>
+          </ul>
+          <div>
+            <a class="btn btn-primary" href="https://htmlstream.com/templates/stream-ui-kit">
+              <i class="fas fa-cloud-download-alt mr-1"></i> Download
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+  </header>
+  <!-- End Header -->
+  <%= yield %>
+</body>
+
 </html>

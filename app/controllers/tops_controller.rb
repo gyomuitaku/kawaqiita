@@ -10,8 +10,8 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    if params[:select_num]
-      gon.questions = Quiz.generate(2, 2001)
+    # if params[:select_num]
+    #   gon.questions = Quiz.generate(2, 2001)
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
     if select_num != nil
