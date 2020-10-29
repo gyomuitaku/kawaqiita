@@ -27,6 +27,6 @@ class TopsController < ApplicationController
     # binding.pry
   end
   def type
-    gon.questions = Quiz.generate(2, 10)
+    gon.questions = Quiz.type(2, 100)
   end
 end
