@@ -1287,5 +1287,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bg-img {
-  background-image: image-url('img1.jpg');
+  background-image: image-url('bg.jpg');
+  background-blend-mode:lighten;
 }
