@@ -13,7 +13,10 @@
     <table class="table" id="tab"></table>
     <table class="table" id="answer"></table>
     <table id="miss"></table>
-  </p></body>
+  </p>
+
+  
+  </body>
 <script>
 {
   // const words = gon.questions;
@@ -88,6 +91,7 @@
       //   love += apple[i].answer
       // }
       removebotan()
+      gameEnd()
       table.textContent =for_base(apple,0)
       answer.textContent =for_base(apple,1)
       missLabel.textContent =for_base(list,0)
@@ -124,6 +128,35 @@
   function plus(lists,word) {
     lists.push(word)
   }
+
+
+  function gameEnd() {
+    let appai =[]
+    let miss =[]
+    for (let i=1;i<apple.length;i++){
+       appai =apple[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          results: appai
+        }
+      })
+    }
+    for (let i=1;i<list.length;i++){
+       miss =list[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          miss: miss
+        }
+      })
+    }
+
+  }
+
+  
   
 
 
@@ -144,7 +177,6 @@
     list =[""]
     scoreLabel.textContent = score;
     word = words[Math.floor(Math.random() * words.length)];
-    plus(apple,word);
     total.textContent = total_count;
     cnt =word.text.length;
     updateTarget()
@@ -156,7 +188,7 @@
             total_count --;
             total.textContent = total_count;
             cnt =word.text.length;
-            plus(apple,word);
+            // plus(apple,word);
             plus(list,word)
             updateTarget();
             updateTimer();
