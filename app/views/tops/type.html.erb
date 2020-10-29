@@ -10,15 +10,25 @@
     残り問題数: <span id="total">10</span>,
 
     問題数: <span id="time">10</span>
-    <table class="table" id="tab"></table>
-    <table class="table" id="answer"></table>
-    <table id="miss"></table>
-  </p></body>
+    <table class='data-table'>
+      <tr><th>英語</th><th>日本語</th></tr>
+    </table> 
+
+    
+    <%# <table class="table" id="answer"></table> %>
+    <table class="data-table">
+      <tr><th>英語</th><th>日本語</th></tr>
+    </table>
+  </p>
+
+  
+  </body>
+
+
 <script>
 {
+  // const words = gon.questions;
   const words = gon.questions;
-  console.log(words);
-
   let word;
   let cnt;
   let loc;
@@ -41,14 +51,37 @@
   const table = document.getElementById('tab');
   const answer = document.getElementById('answer');
 
+  let tables= document.getElementsByClassName('data-table');
+  // 現在の display プロパティの値を保持
+  const displayOriginal = tables[0].style.display;
+  const displayOrigina = tables[1].style.display;
+// none に設定して非表示
+  tables[0].style.display = 'none';
+  tables[1].style.display = 'none';
+  function tr_create(wor,x) {
+    for (var i = 0; i < wor.length; i++) {
+  // テーブルの行を 5行追加する
+    var tr = document.createElement('tr');
+    for (var j = 0; j < 2; j++) {
+      var td = document.createElement('td');
+    // テーブルの列を 3行追加する
+    if (j===0) {
+      td.innerHTML = wor[i].text;
+    }
+    else if(j===1){
+      td.innerHTML = wor[i].answer;
+    }
+    tr.appendChild(td);
+  }
+  tables[x].appendChild(tr);
+  }  
+  }
+
   // 要素を取得
-//   let top = document.getElementById('top');
-// // 現在の display プロパティの値を保持
-//   const displayOriginal = top.style.display;
-// // none に設定して非表示
-//   top.style.display = 'none';
-// 元に戻して表示
-  
+  // let data_table = document.getElementById('data-table');
+
+
+
 
 
   function updateTarget() {
@@ -60,16 +93,11 @@
     target.textContent = plusword + placeholder ;
   }
 
-  function for_base(para,wordss) {
+  function for_base(para) {
     let loc=[];
-    if (wordss ===0){
     for(let i=1;i<para.length;i++){
-      loc +=para[i].text
-    }}
-    if (wordss ===1){
-    for(let i=1;i<para.length;i++){
-      loc +=para[i].answer
-    }}
+      loc.push(para[i])
+    }
     return loc
   }
   function updateTimer() {
@@ -89,9 +117,16 @@
       //   love += apple[i].answer
       // }
       removebotan()
-      table.textContent =for_base(apple,0)
-      answer.textContent =for_base(apple,1)
-      missLabel.textContent =for_base(list,0)
+      gameEnd()
+      // 元に戻して表示
+      tables[0].style.display = displayOriginal;
+      tables[1].style.display = displayOriginal;
+      // data-table.style.display = displayOriginal;
+      tr_create(for_base(apple),0)
+      tr_create(for_base(list),1)
+      // table.textContent =for_base(apple,0)
+      // answer.textContent =for_base(apple,1)
+      // missLabel.textContent =for_base(list,0)
     }
   }
   function createbotan(params,parama) {
@@ -125,8 +160,33 @@
   function plus(lists,word) {
     lists.push(word)
   }
-  
 
+
+  function gameEnd() {
+    let appai =[]
+    let miss =[]
+    for (let i=1;i<apple.length;i++){
+       appai =apple[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          results: appai
+        }
+      })
+    }
+    for (let i=1;i<list.length;i++){
+       miss =list[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          miss: miss
+        }
+      })
+    }
+
+  }
 
   window.addEventListener('click', () => {
     if (isPlaying === true) {
@@ -145,7 +205,6 @@
     list =[""]
     scoreLabel.textContent = score;
     word = words[Math.floor(Math.random() * words.length)];
-    plus(apple,word);
     total.textContent = total_count;
     cnt =word.text.length;
     updateTarget()
@@ -157,7 +216,7 @@
             total_count --;
             total.textContent = total_count;
             cnt =word.text.length;
-            plus(apple,word);
+            // plus(apple,word);
             plus(list,word)
             updateTarget();
             updateTimer();
