@@ -69,3 +69,4 @@ gem 'gon'
 gem 'prawn'
 gem 'prawn-table'
 gem "pg"
+gem "mysql2"
