@@ -3,7 +3,7 @@
 		gyomuitaku
 	</div>
 	<div class="col-xs-6">
-		<% for i in 1..3 do %>
+		<% for i in 1..@page do %>
 			<table id="table" class="table table-striped", border="2">
 				<thead>
 					<tr>
@@ -30,7 +30,7 @@
 	</div>
 
 	<%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
-	    <% for i in 1..3 do %>
+	    <% for i in 1..@page do %>
 		    <% for j in @num_min_pdf..@num_max_pdf do %>
 				<%= f.hidden_field "word_set[words][][english_first]", :value => @word_set[j][0] %>
 				<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_set[j][1] %>
@@ -69,5 +69,17 @@
 	    td_second[i].textContent = tmp_td;
 	  }
     })
+
+    const select = document.getElementById('page');
+
+	select.onchange = function(){
+	  $.ajax({
+	      type: 'POST',
+	      url: '/kakutan',
+	      data: {
+                    page: this.value
+                },
+	  });
+	}
 }
 </script>
