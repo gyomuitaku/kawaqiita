@@ -32,18 +32,24 @@ class TopsController < ApplicationController
   def kakutan
     # gon.words = Word.generate
     @results = Result.all.shuffle
+    @lines = Fileloader.get_lines
     # @kakutanpdf = KakutanPdf.new(@result)
     # @word_set = @kakutanpdf.contents(@result)
     # binding.pry
     word_set = []
-    @results.each do |result|
-      word_set.push([result.word,result.meaning])
+    for i in 2..200 do
+      word_set.push([@lines.row(i)[1], @lines.row(i)[2]])
     end
     @word_set = word_set
     @num_min_table = 0
     @num_max_table = 24
     @num_min_pdf = 0
     @num_max_pdf = 24
+    if params[:page] == nil
+      @page = 1
+    else
+      @page = params[:page].to_i
+    end
   end
 
   def type
