@@ -54,43 +54,20 @@
 	const td_second = document.getElementsByClassName('td_second');
 
 	change.addEventListener("click", function () {
-	  // const tmp_th_first = Array.from(th_first);
-	  // const tmp_td_first = Array.from(td_first);
-	  // const tmp_th_second = Array.from(th_second);
-	  // const tmp_td_second = Array.from(td_second);
-	  let word_th_first = [];
-	  let word_th_second = [];
-	  let word_td_first = [];
-	  let word_td_second = [];
+	  let tmp_th;
+	  let tmp_td;
 
 	  for (let i = 0; i < th_first.length; i++) {
-	  	word_th_first.push([th_first[i]])
-	  }
-
-	  for (let i = 0; i < th_second.length; i++) {
-	  	word_th_second.push([th_second[i]])
+	  	tmp_th = th_first[i].textContent;
+	    th_first[i].textContent = th_second[i].textContent;
+	    th_second[i].textContent = tmp_th;
 	  }
 
 	  for (let i = 0; i < td_first.length; i++) {
-	  	word_td_first.push([td_first[i]])
+	    tmp_td = td_first[i].textContent
+	    td_first[i].textContent = td_second[i].textContent;
+	    td_second[i].textContent = tmp_td;
 	  }
-
-	  for (let i = 0; i < th_second.length; i++) {
-	  	word_td_second.push([td_second[i]])
-	  }
-
-	  for (let i = 0; i < tmp_th_first.length; i++) {
-	    dummy_th[i].textContent = tmp_th_second[i].textContent;
-	    tmp_th_second[i].textContent = tmp_th_first[i].textContent;
-	    tmp_th_first[i].textContent = dummy_th[i].textContent;
-	  }
-
-	  for (let i = 0; i < tmp_td_first.length; i++) {
-	    dummy_td[i].textContent = tmp_td_second[i].textContent;
-	    tmp_td_second[i].textContent = tmp_td_first[i].textContent;
-	    tmp_td_first[i].textContent = dummy_td[i].textContent;
-	  }
-
     })
 }
 </script>
