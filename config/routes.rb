@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "select" => "tops#select"
   post 'results' => "results#create"
   post "kakutan" => "tops#kakutan"
+  post 'type/results' => "results#create_type"
 end
