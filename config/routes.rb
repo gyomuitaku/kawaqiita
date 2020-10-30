@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'kakutan_pdfs/index'
+  post 'kakutan_pdfs/index'
   devise_for :users
   resources :users
   root :to => 'tops#home'
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "kakutan" => "tops#kakutan"
   get "select" => "tops#select"
   post 'results' => "results#create"
+  post "kakutan" => "tops#kakutan"
   post 'type/results' => "results#create_type"
 end
