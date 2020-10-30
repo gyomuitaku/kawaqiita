@@ -3,4 +3,22 @@ class ResultsController < ApplicationController
     Result.save_results(params[:quizResults])
     render json: "ok!"
   end
+  def create_type
+    if params[:results].present?
+      result =Result.new
+      result.word =params[:results][1]
+      result.meaning =params[:results][0]
+      result.is_correct =1
+      result.user_id =1
+      result.save
+    end
+    if params[:miss].present?
+      result =Result.new
+      result.word =params[:miss][1]
+      result.meaning =params[:miss][0]
+      result.is_correct =0
+      result.user_id =1
+      result.save
+    end
+  end
 end
