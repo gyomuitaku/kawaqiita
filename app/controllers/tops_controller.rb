@@ -56,6 +56,19 @@ class TopsController < ApplicationController
   end
 
   def type
-    gon.questions = Quiz.type(2, 2000,0)
+    select_file = params[:select_file].to_i
+    select_num = params[:select_num].to_i
+    quiz_type = params[:quiz_type].to_i
+    if select_num != 0
+      if quiz_type == 0
+        gon.questions = Quiz.type(select_num, select_num+99, select_file)
+      elsif quiz_type == 1
+        gon.questions = Quiz.type(select_num, select_num+499, select_file)
+      else
+        gon.questions = Quiz.type(2, 2001, select_file)
+      end
+    else
+      gon.questions = Quiz.type(2, 2001, select_file)
+    end
   end
 end
