@@ -3,48 +3,83 @@
 		gyomuitaku
 	</div>
 	<div class="col-xs-6">
-		<table id="table" class="table table-striped", border="2">
-		</table>
+		<% for i in 1..@page do %>
+			<table id="table" class="table table-striped", border="2">
+				<thead>
+					<tr>
+						<th class="th_first">英語</th>
+						<th class="th_second">日本語</th>
+						<th class="th_first">英語</th>
+						<th class="th_second">日本語</th>
+					</tr>
+				</thead>
+				<tbody>
+				  <% for j in @num_min_table..@num_max_table do %>
+					<tr>
+						<td class="td_first"><%= @word_set[j][0] %></td>
+						<td class="td_second"><%= @word_set[j][1] %></td>
+						<td class="td_first"><%= @word_set[j+25][0] %></td>
+						<td class="td_second"><%= @word_set[j+25][1] %></td>
+					</tr>
+				  <% end %>
+				</tbody>
+			</table>
+			<% @num_min_table += 50 %>
+			<% @num_max_table += 50 %>
+		<% end %>
 	</div>
-	<%= link_to "PDFを表示", kakutan_pdfs_index_path(format: "pdf") %>
+
+	<%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
+	    <% for i in 1..@page do %>
+		    <% for j in @num_min_pdf..@num_max_pdf do %>
+				<%= f.hidden_field "word_set[words][][english_first]", :value => @word_set[j][0] %>
+				<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_set[j][1] %>
+				<%= f.hidden_field "word_set[words][][english_second]", :value => @word_set[j+25][0] %>
+				<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_set[j+25][1] %>
+			<% end %>
+			<% @num_min_pdf += 50 %>
+			<% @num_max_pdf += 50 %>
+		<% end %>
+		<%= f.select :page, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+		<%= f.submit 'PDFを表示', class: "btn btn-info" %>
+	<% end %>
 </div>
+<button id="change" type="button" class="btn btn-success">和英変換</button>
 <script>
-	{
-		const tbody = document.createElement('tbody');
-        const word = gon.words;
-		for (let i = 0; i < 26; i++) {
-			let tr = document.createElement('tr');
-			for (let j = 0; j < 4; j++) {
-				if(i === 0){
-					let th = document.createElement('th');
-					if(j % 2 == 0) {
-						th.textContent = "英語";
-					}else{
-						th.textContent = "日本語";
-					}
-	                tr.appendChild(th);
-				}else{
-					if(j === 0) {
-						let td = document.createElement('td');
-						td.textContent = word[i].english;
-					 	tr.appendChild(td);
-					}else if(j === 2){
-						let td = document.createElement('td')
-						td.textContent = word[i+25].english;
-						tr.appendChild(td);
-					}else if(j === 1){
-						let td = document.createElement('td')
-						td.textContent = word[i].japanese;
-						tr.appendChild(td);
-					}else{
-						let td = document.createElement('td')
-						td.textContent = word[i+25].japanese;
-						tr.appendChild(td);
-					}
-				}
-			}
-		    tbody.appendChild(tr);
-		}
-		document.getElementById('table').appendChild(tbody);
+{
+	const change = document.getElementById("change")
+	const th_first = document.getElementsByClassName('th_first');
+	const th_second = document.getElementsByClassName('th_second');
+	const td_first = document.getElementsByClassName('td_first');
+	const td_second = document.getElementsByClassName('td_second');
+
+	change.addEventListener("click", function () {
+	  let tmp_th;
+	  let tmp_td;
+
+	  for (let i = 0; i < th_first.length; i++) {
+	  	tmp_th = th_first[i].textContent;
+	    th_first[i].textContent = th_second[i].textContent;
+	    th_second[i].textContent = tmp_th;
+	  }
+
+	  for (let i = 0; i < td_first.length; i++) {
+	    tmp_td = td_first[i].textContent
+	    td_first[i].textContent = td_second[i].textContent;
+	    td_second[i].textContent = tmp_td;
+	  }
+    })
+
+    const select = document.getElementById('page');
+
+	select.onchange = function(){
+	  $.ajax({
+	      type: 'POST',
+	      url: '/kakutan',
+	      data: {
+                    page: this.value
+                },
+	  });
 	}
+}
 </script>
