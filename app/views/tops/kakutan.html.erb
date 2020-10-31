@@ -1,50 +1,50 @@
-<div class="row">
-	<div class="col-xs-2">
-		gyomuitaku
-	</div>
-	<div class="col-xs-6">
-		<% for i in 1..@page do %>
-			<table id="table" class="table table-striped", border="2">
-				<thead>
-					<tr>
-						<th class="th_first">英語</th>
-						<th class="th_second">日本語</th>
-						<th class="th_first">英語</th>
-						<th class="th_second">日本語</th>
-					</tr>
-				</thead>
-				<tbody>
-				  <% for j in @num_min_table..@num_max_table do %>
-					<tr>
-						<td class="td_first"><%= @word_set[j][0] %></td>
-						<td class="td_second"><%= @word_set[j][1] %></td>
-						<td class="td_first"><%= @word_set[j+25][0] %></td>
-						<td class="td_second"><%= @word_set[j+25][1] %></td>
-					</tr>
-				  <% end %>
-				</tbody>
-			</table>
-			<% @num_min_table += 50 %>
-			<% @num_max_table += 50 %>
-		<% end %>
-	</div>
+<style>
+	.mt-6 {
+		padding-top: 100px;
+	}
+</style>
+<div class="container-fluid mt-6">
+	<div class="row">
+		<div class="col-xs-6">
+				<table id="table" class="table table-striped", border="2">
+					<thead>
+						<tr>
+							<th class="th_first">英語</th>
+							<th class="th_second">日本語</th>
+							<th class="th_first">英語</th>
+							<th class="th_second">日本語</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @word_sets.each do |word| %>
+							<tr>
+							    <td class="td_first"><%= word.word_first %></td>
+								<td class="td_second"><%= word.word_second %></td>
+								<td class="td_first"><%= word.word_third %></td>
+								<td class="td_second"><%= word.word_forth %></td>
+							</tr>
+						<% end %>
+					</tbody>
+					</tbody>
+				</table>
+				<%= paginate @word_sets %>
+		</div>
 
-	<%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
-	    <% for i in 1..@page do %>
-		    <% for j in @num_min_pdf..@num_max_pdf do %>
-				<%= f.hidden_field "word_set[words][][english_first]", :value => @word_set[j][0] %>
-				<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_set[j][1] %>
-				<%= f.hidden_field "word_set[words][][english_second]", :value => @word_set[j+25][0] %>
-				<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_set[j+25][1] %>
+		<%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
+		    <% @without_page.each do |word| %>
+				<%= f.hidden_field "word_set[words][][english_first]", :value => word.word_first %>
+				<%= f.hidden_field "word_set[words][][japanese_first]", :value => word.word_second %>
+				<%= f.hidden_field "word_set[words][][english_second]", :value => word.word_third %>
+				<%= f.hidden_field "word_set[words][][japanese_second]", :value => word.word_forth %>
 			<% end %>
-			<% @num_min_pdf += 50 %>
-			<% @num_max_pdf += 50 %>
+			<%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+			<%= f.submit 'PDFを表示', class: "btn btn-info" %>
 		<% end %>
-		<%= f.select :page, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
-		<%= f.submit 'PDFを表示', class: "btn btn-info" %>
-	<% end %>
+
+	</div>
+	<button id="change" type="button" class="btn btn-success">和英変換</button>
+	<button id="shuffle" type="button" class="btn btn-danger">シャッフル</button>
 </div>
-<button id="change" type="button" class="btn btn-success">和英変換</button>
 <script>
 {
 	const change = document.getElementById("change")
@@ -70,16 +70,33 @@
 	  }
     })
 
-    const select = document.getElementById('page');
+    const select = document.getElementById('select_num');
 
-	select.onchange = function(){
+	select.onchange = function(page_num){
+	  page_num = this.value
 	  $.ajax({
 	      type: 'POST',
 	      url: '/kakutan',
 	      data: {
-                    page: this.value
+                    select_num: page_num
                 },
 	  });
+	  return page_num
 	}
+
+	var data = gon.word_set
+	const shuffle = document.getElementById('shuffle')
+
+    shuffle.addEventListener('click', function () {
+		$.ajax({
+			type: 'POST',
+			url: 'word/json',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify(data)
+		});
+	});
+
+
 }
 </script>
