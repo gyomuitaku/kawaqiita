@@ -1,7 +1,6 @@
 <body>
-
   <p id="text"></p>
-  <p id="target"></p>
+  <p id="target">typing question</p>
   <a id="target1" class="btn btn-rounded">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
   <a id="target2" class="btn btn-rounded">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
   <a id="target3" class="btn btn-rounded">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
@@ -11,18 +10,25 @@
   <p class="info">
     正解問題数: <span id="score">0</span>,
     残り問題数: <span id="total">0</span>,
-
     問題数: <span id="time">0</span>
-    <table class='data-table'>
-      <tr><th>英語</th><th>日本語</th></tr>
-    </table> 
-    <%# <table class="table" id="answer"></table> %>
-    <table class="data-table">
-      <tr><th>英語</th><th>日本語</th></tr>
-    </table>
   </p>
+    <div class="container-fluid mx-auto text-center">
+      <div class="row">
+        <div class=col-6>
+          <table class='data-table table table-borderd'>
+            <strong id="good"></strong>
+            <tr><th>英語</th><th>日本語</th></tr>
+          </table> 
+        </div>
+        <div class=col-6>
+          <table class="data-table table table-borderd">
+            <strong id="missing"></strong>
 
-  
+            <tr><th>英語</th><th>日本語</th></tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 
 
@@ -57,12 +63,17 @@
   const answer = document.getElementById('answer');
 
   let tables= document.getElementsByClassName('data-table');
+  const good = document.getElementById('good');
+  const mi = document.getElementById('missing');
+
   // 現在の display プロパティの値を保持
   const displayOriginal = tables[0].style.display;
   const displayOrigina = tables[1].style.display;
+
 // none に設定して非表示
   tables[0].style.display = 'none';
   tables[1].style.display = 'none';
+
   function tr_create(wor,x) {
     for (var i = 0; i < wor.length; i++) {
   // テーブルの行を 5行追加する
@@ -81,13 +92,6 @@
   tables[x].appendChild(tr);
   }  
   }
-
-  // 要素を取得
-  // let data_table = document.getElementById('data-table');
-
-
-
-
 
   function updateTarget() {
     let placeholder = '';
@@ -113,13 +117,13 @@
       target.textContent = 'F I N I S H';
       total.textContent = total_count;
       text.textContent ="";
-      
+      good.textContent ="正解問題"
+      mi.textContent ="不正解問題"
       removebotan()
       gameEnd()
       // 元に戻して表示
       tables[0].style.display = displayOriginal;
       tables[1].style.display = displayOriginal;
-      // data-table.style.display = displayOriginal;
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
       
@@ -242,9 +246,9 @@
       target2.addEventListener("click", {
         name: 20, handleEvent: starts
       }, false);
-      // target3.addEventListener("click", {
-      //   starts("10")
-      // }, false);
+      target3.addEventListener("click", {
+        name: 30, handleEvent: starts
+      }, false);
       
       // btnStart30.addEventListener("click", {
       //   count: 30,
