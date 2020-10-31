@@ -1,20 +1,21 @@
-
 <body>
+
   <p id="text"></p>
-  <p id="target">click to start</p>
+  <p id="target"></p>
+  <a id="target1" class="btn btn-rounded">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target2" class="btn btn-rounded">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target3" class="btn btn-rounded">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
   <p id="botan">
   </p>
     <%# <p><input id="next" type="button" value="next"class="botan"></p> %>
   <p class="info">
     正解問題数: <span id="score">0</span>,
-    残り問題数: <span id="total">10</span>,
+    残り問題数: <span id="total">0</span>,
 
-    問題数: <span id="time">10</span>
+    問題数: <span id="time">0</span>
     <table class='data-table'>
       <tr><th>英語</th><th>日本語</th></tr>
     </table> 
-
-    
     <%# <table class="table" id="answer"></table> %>
     <table class="data-table">
       <tr><th>英語</th><th>日本語</th></tr>
@@ -40,7 +41,11 @@
   let total_count;
   let list;
   const target = document.getElementById('target');
+  const target1 = document.getElementById('target1');
+  const target2 = document.getElementById('target2');
+  const target3 = document.getElementById('target3');
   const text = document.getElementById('text');
+  const time = document.getElementById('time');
 
   const scoreLabel = document.getElementById('score');
   const missLabel = document.getElementById('miss');
@@ -178,8 +183,8 @@
     }
 
   }
-
-  window.addEventListener('click', () => {
+  function starts() {
+  // target1.addEventListener('click', () => {
     if (isPlaying === true) {
       return;
     }
@@ -190,16 +195,18 @@
     score = 0;
     miss = 0;
     cnt =0;
-    total_count =10;
+    total_count=this.name
     plusword ="";
     apple =[]
     list =[]
     scoreLabel.textContent = score;
     word = words[Math.floor(Math.random() * words.length)];
-    
+    time.textContent =this.name
     total.textContent = total_count;
     cnt =word[0].length;
-    
+    target1.style.display ="none";
+    target2.style.display ="none";
+    target3.style.display ="none";
     updateTarget()
     if (isPlaying!==false){
     if (!next.hasChildNodes()){
@@ -226,7 +233,35 @@
         window.location.reload();
       })
     }
-  });
+  // });
+  }
+
+      target1.addEventListener("click", {
+        name: 10, handleEvent: starts
+      }, false);
+      target2.addEventListener("click", {
+        name: 20, handleEvent: starts
+      }, false);
+      // target3.addEventListener("click", {
+      //   starts("10")
+      // }, false);
+      
+      // btnStart30.addEventListener("click", {
+      //   count: 30,
+      //   handleEvent: gameStart
+      // }, false);
+      // btnStart100.addEventListener("click", {
+      //   count: 100,
+      //   handleEvent: gameStart
+      // }, false);
+
+
+
+
+
+
+
+
 
   window.addEventListener('keydown', e => {
     if (isPlaying !== true) {
