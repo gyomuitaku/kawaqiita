@@ -1,109 +1,188 @@
 <style>
   body {
-  background: #ededed;
-  font-family: 'Open Sans', sans-serif;
+    background: #ffffff;
+    font-family: 'Open Sans', sans-serif;
   }
+
   .mt-6 {
-    margin-top: 100px;
+    padding-top: 200px;
+  }
+
+  .k {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .custom-select-trigger {
+    padding:0 40px 0 22px;
+    font-size: 17px;
+    line-height: 43px;
   }
 </style>
-<div class="container-fluid mt-6">
-  <div class="text-center">
-    <h1>TEIC</h1>
-  </div>
-  <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+<!-- Blockquotes -->
+<div class="container-fluid">
   <div class="row">
-    <% (0..3).each do |i| %>
-      <div class="col-3">
-        <div class="text-center mb-5">
-            <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
-              <% (0..4).each do |j| %>
-                <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=0"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
-              <%end%>
-            </select>
+    <div class="col-sm-3 text-center border-right bg-secondary">
+      <ul class="nav nav-pills mb-5 text-center mt-6" id="blockquotes-tab" role="tablist">
+        <li class="nav-item k">
+          <a class="nav-link active" id="blockquotes-left-tab-1" data-toggle="pill" href="#blockquotes-left-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
+            TOEIC
+          </a>
+        </li>
+        <li class="nav-item k">
+          <a class="nav-link" id="blockquotes-center-tab-1" data-toggle="pill" href="#blockquotes-center-1" role="tab" aria-controls="blockquotes-center-1" aria-selected="false">
+            論文
+          </a>
+        </li>
+        <li class="nav-item k">
+          <a class="nav-link" id="blockquotes-right-tab-1" data-toggle="pill" href="#blockquotes-right-1" role="tab" aria-controls="blockquotes-right-1" aria-selected="false">
+            小説
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <div class="tab-content mt-5" id="blockquotes-tabContent">
+        <div class="tab-pane fade show active" id="blockquotes-left-1" role="tabpanel" aria-labelledby="blockquotes-left-tab-1">
+          <div id="wrap">
+            <div id="tab1-1" class="tab selected">4択クイズ</div>
+            <div id="tab1-2" class="tab">タイピングテスト</div>
+            <div id="tab1-3" class="tab">pdf印刷</div>
+            <div id="tab1-4" class="tab">辞書</div>
+
+            <div id="container">
+              <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+              <div id="slide" class="">
+                <div id="first" class="box">
+                  <div class="row">
+                    <% (0..3).each do |i| %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
+                          <% (0..4).each do |j| %>
+                          <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=0"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="row">
+                    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
+                          <% (0..3).each do |j| %>
+                          <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=0"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="second" class="box">TAB TWO</div>
+                <div id="third" class="box">TAB THREE</div>
+                <div id="four" class="box">TAB FOUR</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="text-center my-5">
-    <h1>確認問題</h1>
-  </div>
-  <div class="row">
-    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-    <div class="col-3">
-      <div class="text-center mb-5">
-        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
-          <% (0..3).each do |j| %>
-            <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=0"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
-          <%end%>
-        </select>
+        <div class="tab-pane fade" id="blockquotes-center-1" role="tabpanel" aria-labelledby="blockquotes-center-tab-1">
+          <!-- Centered -->
+          <div id="wrap">
+            <div id="tab2-1" class="tab selected">4択クイズ</div>
+            <div id="tab2-2" class="tab">タイピングテスト</div>
+            <div id="tab2-3" class="tab">pdf印刷</div>
+            <div id="tab2-4" class="tab">辞書</div>
+
+            <div id="container">
+              <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+              <div id="slide" class="">
+                <div id="first" class="box">
+                  <div class="row">
+                    <% (0..3).each do |i| %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
+                          <% (0..4).each do |j| %>
+                          <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=0"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="row">
+                    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
+                          <% (0..3).each do |j| %>
+                          <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=0"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="second" class="box">TAB TWO</div>
+                <div id="third" class="box">TAB THREE</div>
+                <div id="four" class="box">TAB FOUR</div>
+              </div>
+            </div>
+          </div>
+          <!-- End Centered -->
+        </div>
+
+        <div class="tab-pane fade" id="blockquotes-right-1" role="tabpanel" aria-labelledby="blockquotes-right-tab-1">
+          <!-- Right Bordered -->
+          <div id="wrap">
+            <div id="tab3-1" class="tab selected">4択クイズ</div>
+            <div id="tab3-2" class="tab">タイピングテスト</div>
+            <div id="tab3-3" class="tab">pdf印刷</div>
+            <div id="tab3-4" class="tab">辞書</div>
+
+            <div id="container">
+              <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+              <div id="slide" class="">
+                <div id="first" class="box">
+                  <div class="row">
+                    <% (0..3).each do |i| %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
+                          <% (0..4).each do |j| %>
+                          <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=0"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="row">
+                    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                    <div class="col-3">
+                      <div class="text-center mb-5">
+                        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
+                          <% (0..3).each do |j| %>
+                          <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=0"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
+                          <%end%>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="second" class="box">TAB TWO</div>
+                <div id="third" class="box">TAB THREE</div>
+                <div id="four" class="box">TAB FOUR</div>
+              </div>
+            </div>
+          </div>
+          <!-- End Right Bordered -->
+        </div>
       </div>
     </div>
   </div>
-  <div class="mt-5 text-center">
-    <h1>論文</h1>
-  </div>
-  <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-  <div class="row">
-    <% (0..3).each do |i| %>
-      <div class="col-3">
-        <div class="text-center mb-5">
-            <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
-              <% (0..4).each do |j| %>
-                <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=1"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
-              <%end%>
-            </select>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="text-center my-5">
-    <h1>確認問題</h1>
-  </div>
-  <div class="row">
-    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-    <div class="col-3">
-      <div class="text-center mb-5">
-        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
-          <% (0..3).each do |j| %>
-            <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=1"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
-          <%end%>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="mt-5 text-center">
-    <h1>小説</h1>
-  </div>
-  <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-  <div class="row">
-    <% (0..3).each do |i| %>
-      <div class="col-3">
-        <div class="text-center mb-5">
-            <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
-              <% (0..4).each do |j| %>
-                <option value="quiz?select_num=<%= (i*500 + j*100 + 2).to_s %>&quiz_type=0&select_file=2"><%= i*500 + j*100 + 1 %> ~ <%= i*500 + j*100 + 100 %></option>
-              <%end%>
-            </select>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="text-center my-5">
-    <h1>確認問題</h1>
-  </div>
-  <div class="row">
-    <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-    <div class="col-3">
-      <div class="text-center mb-5">
-        <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
-          <% (0..3).each do |j| %>
-            <option value="quiz?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=2"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
-          <%end%>
-        </select>
-      </div>
-    </div>
-  </div>
+  <!-- End Blockquotes -->
 </div>
 <!-- <div class="container-fluid mt-5">
   <div class="row text-center">
@@ -123,22 +202,21 @@
 </div>-->
 
 <script>
-
   $(".custom-select").each(function() {
-  var classes = $(this).attr("class"),
-      id      = $(this).attr("id"),
-      name    = $(this).attr("name");
-  var template =  '<div class="' + classes + '">';
-      template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
-      template += '<div class="custom-options">';
-      $(this).find("option").each(function() {
-        template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
-      });
-  template += '</div></div>';
+    var classes = $(this).attr("class"),
+      id = $(this).attr("id"),
+      name = $(this).attr("name");
+    var template = '<div class="' + classes + '">';
+    template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
+    template += '<div class="custom-options">';
+    $(this).find("option").each(function() {
+      template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+    });
+    template += '</div></div>';
 
-  $(this).wrap('<div class="custom-select-wrapper"></div>');
-  $(this).hide();
-  $(this).after(template);
+    $(this).wrap('<div class="custom-select-wrapper"></div>');
+    $(this).hide();
+    $(this).after(template);
   });
   $(".custom-option:first-of-type").hover(function() {
     $(this).parents(".custom-options").addClass("option-hover");
@@ -146,7 +224,7 @@
     $(this).parents(".custom-options").removeClass("option-hover");
   });
   $(".custom-select-trigger").on("click", function() {
-    $('html').one('click',function() {
+    $('html').one('click', function() {
       $(".custom-select").removeClass("opened");
     });
     $(this).parents(".custom-select").toggleClass("opened");
@@ -161,4 +239,33 @@
     $(this).parents(".custom-select").removeClass("opened");
     $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
   });
+  
+  $("#tab1-1").click(moveToFirst);
+  $("#tab1-2").click(moveToSecond);
+  $("#tab1-3").click(moveToThird);
+  $("#tab1-4").click(moveToFour);
+
+  function moveToFirst() {
+    $("#slide").attr('class', 'move-to-first');
+    $(".tab").attr('class', 'tab');
+    $("#tab1-1").attr('class', 'tab selected');
+  }
+
+  function moveToSecond() {
+    $("#slide").attr('class', 'move-to-second');
+    $(".tab").attr('class', 'tab');
+    $("#tab2").attr('class', 'tab selected');
+  }
+
+  function moveToThird() {
+    $("#slide").attr('class', 'move-to-third');
+    $(".tab").attr('class', 'tab');
+    $("#tab3").attr('class', 'tab selected');
+  }
+
+  function moveToFour() {
+    $("#slide").attr('class', 'move-to-four');
+    $(".tab").attr('class', 'tab');
+    $("#tab4").attr('class', 'tab selected');
+  }
 </script>
