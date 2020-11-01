@@ -1,42 +1,36 @@
-  <% if params[:select_file].to_i == 0 %>
-    <h1>TOEIC 2000</h1>
-  <% end %>
-  <p id="text"></p>
-  <p id="target">typing question</p>
-  <a id="target1" class="btn btn-rounded">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
-  <a id="target2" class="btn btn-rounded">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
-  <a id="target3" class="btn btn-rounded">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
-  <p id="botan">
-  </p>
-    <%# <p><input id="next" type="button" value="next"class="botan"></p> %>
-  <p class="info">
-    正解問題数: <span id="score">0</span>,
-    残り問題数: <span id="total">0</span>,
-    問題数: <span id="time">0</span>
-  </p>
-    <div class="container-fluid mx-auto text-center">
+<div class="container-fluid top-type">
+  <p id="text" class="top-var">typing question</p>
+  <p id="target"></p>
+  <a id="target1" class="btn btn-rounded bottan">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target2" class="btn btn-rounded bottan">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target3" class="btn btn-rounded bottan">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <p id="botan"> </p>
+  <strong id="info">
+    正解問題数: <span id="score" class="number">0</span>
+    残り問題数: <span id="total" class="number">0</span>
+    問題数: <span id="time" class="number">0</span>
+  </strong>
+    <div class="container-fluid mx-auto text-center answer">
       <div class="row">
-        <div class=col-6>
-          <table class='data-table table table-borderd'>
-            <strong id="good"></strong>
-            <tr><th>英語</th><th>日本語</th></tr>
+        <div class=col-sm-6>
+          <table class='data-table table table-borderd table-striped thead-dark'style="color:black;">
+            <tr><th id="good" colspan="2"></th></tr>
+            <tr><td>英語</td><td>日本語</td></tr>
           </table>
         </div>
-        <div class=col-6>
-          <table class="data-table table table-borderd">
-            <strong id="missing"></strong>
-
-            <tr><th>英語</th><th>日本語</th></tr>
+        <div class=col-sm-6>
+          <table class="data-table table table-borderd"style="color:black;">
+            <tr><th id="missing"colspan="2"></th></tr>
+            <tr><td>英語</td><td>日本語</td></tr>
           </table>
         </div>
       </div>
     </div>
-  </body>
+</div>
 
 
 <script>
 {
-  // const words = gon.questions;
   const words = gon.questions;
   let word;
   let cnt;
@@ -57,7 +51,6 @@
 
   const scoreLabel = document.getElementById('score');
   const missLabel = document.getElementById('miss');
-  // const timerLabel = document.getElementById('timer');
 
   const total = document.getElementById("total")
 
@@ -78,11 +71,10 @@
 
   function tr_create(wor,x) {
     for (var i = 0; i < wor.length; i++) {
-  // テーブルの行を 5行追加する
     var tr = document.createElement('tr');
     for (var j = 0; j < 2; j++) {
       var td = document.createElement('td');
-    // テーブルの列を 3行追加する
+    // テーブルの列を 2行追加する
     if (j===0) {
       td.innerHTML = wor[i][0];
     }
@@ -131,10 +123,7 @@
 
     }
   }
-  function createbotan(params,parama) {
-    const bota ="bottan";
-    let botans;
-    botans =bota +`${params}`
+  function createbotan(parama) {
     botans =document.getElementById("botan");
     if (botans.hasChildNodes()){
       const input = document.createElement("input");
@@ -190,13 +179,12 @@
 
   }
   function starts() {
-  // target1.addEventListener('click', () => {
     if (isPlaying === true) {
       return;
     }
     isPlaying = true;
-    createbotan("1","next")
-    createbotan("2","reset")
+    createbotan("next")
+    createbotan("reset")
     loc = 0;
     score = 0;
     miss = 0;
@@ -223,8 +211,6 @@
             total_count --;
             total.textContent = total_count;
             cnt =word[0].length;
-            // plus(apple,word);
-
             updateTarget();
             updateTimer();
         })
@@ -232,14 +218,12 @@
     }
     if (!reset.hasChildNodes()){
       reset.addEventListener("click", function (e) {
-    // timerLabel.textContent = "";
         text.textContent ="";
         target.textContent=""
         alert("処理が終了されますがよろしいですか");
         window.location.reload();
       })
     }
-  // });
   }
 
       target1.addEventListener("click", {
@@ -251,23 +235,6 @@
       target3.addEventListener("click", {
         name: 30, handleEvent: starts
       }, false);
-
-      // btnStart30.addEventListener("click", {
-      //   count: 30,
-      //   handleEvent: gameStart
-      // }, false);
-      // btnStart100.addEventListener("click", {
-      //   count: 100,
-      //   handleEvent: gameStart
-      // }, false);
-
-
-
-
-
-
-
-
 
   window.addEventListener('keydown', e => {
     if (isPlaying !== true) {
@@ -296,15 +263,4 @@
 
 }
 </script>
-<style>
-body {
-  padding-top: 0px;
-  font-family: 'Courier New', monospace;
-  text-align: center;
-}
 
-#target {
-  font-size: 48px;
-  letter-spacing: 3px;
-}
-</style>

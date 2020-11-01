@@ -6,7 +6,7 @@ class TopsController < ApplicationController
   def top
     @xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
     @xlsx.default_sheet = @xlsx.sheets[0]
-    @lines = Fileloader.get_lines(0)
+    @lines = Fileloader.get_lines
   end
 
   def quiz
@@ -35,24 +35,26 @@ class TopsController < ApplicationController
   def kakutan
     # gon.words = Word.generate
     @results = Result.all.shuffle
-    @lines = Fileloader.get_lines
+    @lines = Fileloader.get_lines(0)
     # @kakutanpdf = KakutanPdf.new(@result)
     # @word_set = @kakutanpdf.contents(@result)
     # binding.pry
     word_set = []
-    for i in 2..200 do
+    for i in 2..@lines.last_row do
       word_set.push([@lines.row(i)[1], @lines.row(i)[2]])
     end
-    @word_set = word_set
+    gon.word_set = word_set.shuffle
+    @word_sets = WordSet.limit(250).page(params[:page])
+    @without_page = WordSet.limit(250)
+    # binding.pry
+
+    # @word_set_shuffle = Kaminari.paginate_array(word_set.shuffle).page(params[:page]).per(25)
+
     @num_min_table = 0
     @num_max_table = 24
     @num_min_pdf = 0
     @num_max_pdf = 24
-    if params[:page] == nil
-      @page = 1
-    else
-      @page = params[:page].to_i
-    end
+    # binding.pry
   end
 
   def type
