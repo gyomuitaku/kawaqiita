@@ -1,13 +1,13 @@
 <div class="js-parallax u-promo-block top-bg-img">
-  <div class="container-fluid">
+  <div class="container-fluid bg-wite-o">
     <div class=" ">
       <div id="sceneTop" class="top screen">
         <div class="my-5">
-        <% if params[:select_num].to_i != 0 %>
+          <% if params[:select_num].to_i != 0 %>
           <h1><%= params[:select_num].to_i - 2 %> ~ <%= params[:select_num].to_i +  400 * params[:quiz_type].to_i + 98 %></h1>
-        <% else %>
+          <% else %>
           <h1>0 ~ 100</h1>
-        <% end %>
+          <% end %>
         </div>
         <div class="row">
           <div class="col-sm-4">
@@ -41,25 +41,22 @@
       </section>
 
       <div id="sceneResult" class="result screen">
-        <button id="btnResult" class="btn btn-dark" role="button">結果を見る</>
+        <button id="btnResult" class="btn btn-outline-dark mt-6" role="button">結果を見る</button>
       </div>
-
-      <section id="indexResult">
-        <a href="#" class="btn btn-dark" role="button">Reset</a>
-        <table border="1" id="targetTable" class="table table-hover table-dark">
-          <thead>
-            <tr>
+      <div class="container-fluid">
+        <section id="indexResult" class="text-center">
+          <a href="#" class="btn btn-outline-dark mb-3" role="button">Reset</a>
+          <table border="1" id="targetTable" class="table tbl-r05">
+            <tr class="thead">
               <td>問題No</td>
               <td>出題Word</td>
               <td>あなたの解答</td>
               <td>正解の解答</td>
               <td>〇/✕</td>
             </tr>
-          </thead>
-          <tbody>
-          <tbody>
-        </table>
-      </section>
+          </table>
+        </section>
+      </div>
     </div>
   </div>
 </div>
@@ -264,20 +261,31 @@
       table.classList.remove('hidden');
       indexResult.classList.remove('hidden');
       quiz_element = str.split(",")
-
+      var label = ['出題Word', 'あなたの回答', '正解', '正誤']
       for (let i = 0; i < (quiz_element.length - 1) / 5; i++) {
         let newRow = table.insertRow();
         for (let j = 0; j < 5; j++) {
           if (j === 0) {
             input_text = i + 1;
             let newCell = newRow.insertCell();
+            newCell.getAttribute('data-label')
+            newCell.dataset.label = '問題No'
             let newText = document.createTextNode(input_text);
             newCell.appendChild(newText);
           } else if (j == 4) {
             break;
           }
           input_text = quiz_element[i * 5 + j]
+          if (j == 3) {
+            if (input_text == 1){
+              input_text = '〇'
+            } else {
+              input_text = '✕'
+            }
+          }
           let newCell = newRow.insertCell();
+          newCell.getAttribute('data-label')
+          newCell.dataset.label = label[j]
           let newText = document.createTextNode(input_text);
           newCell.appendChild(newText);
         };
