@@ -1,4 +1,6 @@
-<body>
+  <% if params[:select_file].to_i == 0 %>
+    <h1>TOEIC 2000</h1>
+  <% end %>
   <p id="text"></p>
   <p id="target">typing question</p>
   <a id="target1" class="btn btn-rounded">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
@@ -18,7 +20,7 @@
           <table class='data-table table table-borderd'>
             <strong id="good"></strong>
             <tr><th>英語</th><th>日本語</th></tr>
-          </table> 
+          </table>
         </div>
         <div class=col-6>
           <table class="data-table table table-borderd">
@@ -90,7 +92,7 @@
     tr.appendChild(td);
   }
   tables[x].appendChild(tr);
-  }  
+  }
   }
 
   function updateTarget() {
@@ -126,7 +128,7 @@
       tables[1].style.display = displayOriginal;
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
-      
+
     }
   }
   function createbotan(params,parama) {
@@ -136,13 +138,13 @@
     botans =document.getElementById("botan");
     if (botans.hasChildNodes()){
       const input = document.createElement("input");
-      input.setAttribute("type","button"); 
-		  input.setAttribute("size","50"); 
+      input.setAttribute("type","button");
+		  input.setAttribute("size","50");
       input.setAttribute("id",parama)
 		  input.setAttribute("value",parama);
       botans.appendChild(input);
     }
-    
+
   }
   function removebotan() {
     const botan = document.getElementById("botan");
@@ -150,7 +152,7 @@
 		while (botan.firstChild) {
       botan.removeChild(botan.firstChild);
     }
-    
+
   }}
 
   function showResult() {
@@ -222,7 +224,7 @@
             total.textContent = total_count;
             cnt =word[0].length;
             // plus(apple,word);
-            
+
             updateTarget();
             updateTimer();
         })
@@ -249,7 +251,7 @@
       target3.addEventListener("click", {
         name: 30, handleEvent: starts
       }, false);
-      
+
       // btnStart30.addEventListener("click", {
       //   count: 30,
       //   handleEvent: gameStart
@@ -280,7 +282,7 @@
         word = words[Math.floor(Math.random() * words.length)];
         total_count --;
         total.textContent = total_count;
-        
+
         loc = 0;
         cnt = word[0].length;
         plusword ="";
@@ -291,12 +293,12 @@
       updateTimer()
     }
   });
-  
+
 }
-// </script>
+</script>
 <style>
 body {
-  padding-top: 40px;
+  padding-top: 0px;
   font-family: 'Courier New', monospace;
   text-align: center;
 }
