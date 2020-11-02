@@ -1729,3 +1729,9 @@ $color: #37393a;
     margin-right: 10px;
   }
 }
+
+@media (max-width: 768px) {
+  main {
+    font-size: 18px!important;
+  }
+}
