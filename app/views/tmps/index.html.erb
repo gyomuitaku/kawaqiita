@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tmps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tmps.each do |tmp| %>
+      <tr>
+        <td><%= tmp.name %></td>
+        <td><%= tmp.age %></td>
+        <td><%= link_to 'Show', tmp %></td>
+        <td><%= link_to 'Edit', edit_tmp_path(tmp) %></td>
+        <td><%= link_to 'Destroy', tmp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tmp', new_tmp_path %>

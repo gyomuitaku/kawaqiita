@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tmp.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @tmp.age %>
+</p>
+
+<%= link_to 'Edit', edit_tmp_path(@tmp) %> |
+<%= link_to 'Back', tmps_path %>
