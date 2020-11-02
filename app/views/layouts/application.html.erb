@@ -58,23 +58,25 @@
       line-height: 1;
       font-size: 90px;
     }
+
     .nav-link {
       color: rgba(255, 255, 255, 0.9) !important;
     }
-    .nav-link:hover{
+
+    .nav-link:hover {
       color: rgba(255, 255, 255, 1) !important;
     }
   </style>
 </head>
 
 
+<body>
   <header role="header">
     <!-- Navbar -->
-
-    <nav class="js-navbar-scroll navbar navbar-expand-lg navbar-transparent navbar-dark bg-info">
+    <nav class="js-navbar-scroll navbar navbar-expand-lg navbar-transparent navbar-dark fixed-top">
       <div class="container-fluid">
         <%= link_to root_path , class: " navbar-brand" do %>
-          <h1>E-tan</h1>
+        <h1>E-tan</h1>
         <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -83,20 +85,32 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item mr-4 mb-2 mb-lg-0">
-              <a href="#js-scroll-to-section" class="nav-link" href="#!">
-                <i class="fas fa-cubes u-font-size-90 mr-1"></i> UI Kit Components
-              </a>
+              <%= link_to root_path, class: "nav-link" do %>
+              <i class="fas fa-cubes u-font-size-90 mr-1"></i> Home
+              <% end %>
+            </li>
+            <% if user_signed_in? %>
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <%= link_to user_path(current_user), class: "nav-link" do %>
+              <i class="fas fa-cube u-font-size-90 mr-1"></i> My Page
+              <% end %>
             </li>
             <li class="nav-item mr-4 mb-2 mb-lg-0">
-              <a class="nav-link" href="#js-scroll-to-demos">
-                <i class="fas fa-cube u-font-size-90 mr-1"></i> Example Pages
-              </a>
+              <%= link_to "Logout" , destroy_user_session_path, method: :delete,  class: "nav-link" %>
+            </li>
+            <% else %>
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <%= link_to select_path, class: "nav-link" do %>
+              <i class="fas fa-cube u-font-size-90 mr-1"></i> select
+              <% end %>
             </li>
             <li class="nav-item mr-4 mb-2 mb-lg-0">
-              <a class="nav-link" href="https://htmlstream.com/public/preview/stream-ui-kit/docs.html">
-                <i class="fas fa-book u-font-size-90 mr-1"></i> Docs
-              </a>
+              <%= link_to "Sign up" , new_user_registration_path,  class: "nav-link" %>
             </li>
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+              <%= link_to "Login" , new_user_session_path,  class: "nav-link" %>
+            </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -104,7 +118,6 @@
     <!-- End Navbar -->
   </header>
   <!-- End Header -->
-<body>
   <%= yield %>
 </body>
 
