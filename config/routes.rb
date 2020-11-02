@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post "kakutan" => "tops#kakutan"
   post 'type/results' => "results#create_type"
   post 'word/json' => "word_sets#create"
+  post 'translation' =>"translations#count"
 end
