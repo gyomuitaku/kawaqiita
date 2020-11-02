@@ -1566,7 +1566,6 @@ h6 {
     margin: 0 auto;
     margin-top: 10px;
   }
-
 }
 
 $color: #37393a;
@@ -1603,7 +1602,7 @@ $color: #37393a;
   overflow: hidden;
   &:before {
     content: "";
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     height: 100%;
     width: 100%;
     display: block;
@@ -1619,20 +1618,20 @@ $color: #37393a;
     border-bottom: 4px solid darken($color, 10%);
     &:before {
       transform: skewX(-45deg) translateX(210%);
-     transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
     }
   }
 }
 
 .screen {
-  width: 90%!important;
+  width: 90% !important;
 }
 .row {
   height: 20vh;
 }
 
 .bg-wite-o {
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 70px 0;
 }
 
@@ -1670,7 +1669,7 @@ $color: #37393a;
   }
 
   .screen {
-    width: 90%!important;
+    width: 90% !important;
   }
 }
 
@@ -1691,10 +1690,10 @@ $color: #37393a;
 
 .btn-sm {
   // background-color: rgba(255,255,255,0.1)!important;
-    padding: 0.25rem 0.5rem!important;
-    font-size: 0.875rem!important;
-    line-height: 1.5!important;
-    border-radius: 0.2rem!important;
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  border-radius: 0.2rem !important;
 }
 
 .tbl-r05 tr:first-child {
@@ -1732,6 +1731,6 @@ $color: #37393a;
 
 @media (max-width: 768px) {
   main {
-    font-size: 18px!important;
+    font-size: 18px !important;
   }
 }
