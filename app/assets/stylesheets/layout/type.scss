@@ -24,6 +24,7 @@
   margin-bottom: 30px;
 }
 .bottan{
+  margin:50px !important;
 }
 
 #info{
@@ -92,6 +93,15 @@
     color:#444444	;
     margin-bottom: 40px;
   }
+  .bottan{
+    margin:30px!important;
+  }
+  .bottan:last-child{
+    margin:30px 30px 30px 60px !important;
+  }
+  // #target3{
+  //   margin:20px 0 20px 60px !important;
+  // }
   #reset{
     font-size: 30px;
     background-color: #333333;
