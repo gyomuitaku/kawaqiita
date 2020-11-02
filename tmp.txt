@@ -1,0 +1,5 @@
+commands:
+    01_node_download:
+        command: 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash . ~/.nvm/nvm.sh'
+    02_node_install:
+        command: 'nvm install 12.16.3'
