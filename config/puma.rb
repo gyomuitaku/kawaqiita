@@ -8,6 +8,10 @@ threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+# to resolve 502 Gateway
+bind "unix:///var/run/puma/my_app.sock" 
+pidfile "/var/run/puma/my_app.sock" 
+
 #
 port        ENV.fetch("PORT") { 3000 }
 
@@ -37,6 +41,3 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 
-# to resolve 502 Gateway
-bind "unix:///var/run/puma/my_app.sock" 
-pidfile "/var/run/puma/my_app.sock" 
