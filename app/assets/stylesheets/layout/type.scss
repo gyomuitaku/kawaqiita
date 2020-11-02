@@ -1,0 +1,122 @@
+.top-type{
+  background-image: image-url("img5.jpg");
+  background-size: cover;
+  background-position: top;
+  min-height: 100vh;
+  background-blend-mode: lighten;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  color:white;
+  padding-top: 75px;
+  background-color:rgba(255,255,255,0.3);
+}
+.data-table{
+  background-color: rgba(255,255,255,0.6)
+}
+.table th ,.table td{
+  border:1px solid black !important;
+  background-color:rgba(255,255,255,0.6);
+}
+
+
+.top-var{
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.bottan{
+}
+
+#info{
+  color: black;
+  display: block;
+  margin-top:60px;
+}
+#target {
+  font-size: 48px;
+  letter-spacing: 3px;
+  color:black;
+  font-family: 'Courier New', monospace;
+}
+#next,#reset{
+  font-size: 25px;
+  margin:30px;
+  background-color: #333333;
+  color: white;
+}
+#next:hover,#reset:hover{
+  -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+#text{
+  font-size: 75px;
+  letter-spacing: 3px;
+  font-family:cursive;
+  color:#444444	;
+  margin-bottom: 40px;
+}
+
+.bottan:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+    color:white;
+    background-color:white !important;
+}
+.answer{
+  margin-top:30px;
+  padding: 20px;
+}
+@media (max-width: 700px) {
+  #text{
+    font-size:55px;
+    letter-spacing: 0;
+    font-family:cursive;
+    color:#444444	;
+    margin-bottom: 40px;
+  }
+  #next:hover,#reset:hover{
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+}
+
+@media (max-width: 610px) {
+  #text{
+    font-size: 55px;
+    letter-spacing: 0;
+    font-family:cursive;
+    color:#444444	;
+    margin-bottom: 40px;
+  }
+  #reset{
+    font-size: 30px;
+    background-color: #333333;
+    color: white;
+  }
+  #next:hover,#reset:hover{
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  #next,#reset{
+    line-height: 1em;
+      display: block;
+  }
+  .info{
+    margin-top: 0;
+  }
+  #next{
+    font-size: 37px;
+    background-color: #333333;
+    color: white;
+  }
+  #botan{
+    display: inline-block;
+    margin-right: 78px;
+  }
+
+}
