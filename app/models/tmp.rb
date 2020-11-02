@@ -1,2 +1,0 @@
-class Tmp < ApplicationRecord
-end

@@ -1,0 +1,266 @@
+<div class="container-fluid top-type">
+  <p id="text" class="top-var">typing question</p>
+  <p id="target"></p>
+  <a id="target1" class="btn btn-rounded bottan">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target2" class="btn btn-rounded bottan">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <a id="target3" class="btn btn-rounded bottan">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+  <p id="botan"> </p>
+  <strong id="info">
+    正解問題数: <span id="score" class="number">0</span>
+    残り問題数: <span id="total" class="number">0</span>
+    問題数: <span id="time" class="number">0</span>
+  </strong>
+    <div class="container-fluid mx-auto text-center answer">
+      <div class="row">
+        <div class=col-sm-6>
+          <table class='data-table table table-borderd table-striped thead-dark'style="color:black;">
+            <tr><th id="good" colspan="2"></th></tr>
+            <tr><td>英語</td><td>日本語</td></tr>
+          </table>
+        </div>
+        <div class=col-sm-6>
+          <table class="data-table table table-borderd"style="color:black;">
+            <tr><th id="missing"colspan="2"></th></tr>
+            <tr><td>英語</td><td>日本語</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script>
+{
+  const words = gon.questions;
+  let word;
+  let cnt;
+  let loc;
+  let score;
+  let miss;
+  let plusword;
+  let apple;
+  let isPlaying = false;
+  let total_count;
+  let list;
+  const target = document.getElementById('target');
+  const target1 = document.getElementById('target1');
+  const target2 = document.getElementById('target2');
+  const target3 = document.getElementById('target3');
+  const text = document.getElementById('text');
+  const time = document.getElementById('time');
+
+  const scoreLabel = document.getElementById('score');
+  const missLabel = document.getElementById('miss');
+
+  const total = document.getElementById("total")
+
+  const table = document.getElementById('tab');
+  const answer = document.getElementById('answer');
+
+  let tables= document.getElementsByClassName('data-table');
+  const good = document.getElementById('good');
+  const mi = document.getElementById('missing');
+
+  // 現在の display プロパティの値を保持
+  const displayOriginal = tables[0].style.display;
+  const displayOrigina = tables[1].style.display;
+
+// none に設定して非表示
+  tables[0].style.display = 'none';
+  tables[1].style.display = 'none';
+
+  function tr_create(wor,x) {
+    for (var i = 0; i < wor.length; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 0; j < 2; j++) {
+      var td = document.createElement('td');
+    // テーブルの列を 2行追加する
+    if (j===0) {
+      td.innerHTML = wor[i][0];
+    }
+    else if(j===1){
+      td.innerHTML = wor[i][1];
+    }
+    tr.appendChild(td);
+  }
+  tables[x].appendChild(tr);
+  }
+  }
+
+  function updateTarget() {
+    let placeholder = '';
+    for (let i = cnt; i > 0; i--) {
+      placeholder += '_';
+    }
+    text.textContent = word[1]
+    target.textContent = plusword + placeholder ;
+  }
+
+  function for_base(para) {
+    let loc=[];
+    for(let i= 0;i<para.length;i++){
+      loc.push(para[i])
+    }
+    return loc
+  }
+  function updateTimer() {
+
+    if (total_count <= 0) {
+      isPlaying = true;
+
+      target.textContent = 'F I N I S H';
+      total.textContent = total_count;
+      text.textContent ="";
+      good.textContent ="正解問題"
+      mi.textContent ="不正解問題"
+      removebotan()
+      gameEnd()
+      // 元に戻して表示
+      tables[0].style.display = displayOriginal;
+      tables[1].style.display = displayOriginal;
+      tr_create(for_base(apple),0)
+      tr_create(for_base(list),1)
+
+    }
+  }
+  function createbotan(parama) {
+    botans =document.getElementById("botan");
+    if (botans.hasChildNodes()){
+      const input = document.createElement("input");
+      input.setAttribute("type","button");
+		  input.setAttribute("size","50");
+      input.setAttribute("id",parama)
+		  input.setAttribute("value",parama);
+      botans.appendChild(input);
+    }
+
+  }
+  function removebotan() {
+    const botan = document.getElementById("botan");
+	  if (botan.hasChildNodes()){
+		while (botan.firstChild) {
+      botan.removeChild(botan.firstChild);
+    }
+
+  }}
+
+  function showResult() {
+    const accuracy = score  === 0 ? 0 : score / (score ) * 100;
+    alert("${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!");
+  }
+  function plus(lists,word) {
+    lists.push(word)
+  }
+
+
+  function gameEnd() {
+    let appai =[]
+    let miss =[]
+    for (let i=0;i<apple.length;i++){
+       appai =apple[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          results: appai
+        }
+      })
+    }
+    for (let i=0;i<list.length;i++){
+       miss =list[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          miss: miss
+        }
+      })
+    }
+
+  }
+  function starts() {
+    if (isPlaying === true) {
+      return;
+    }
+    isPlaying = true;
+    createbotan("next")
+    createbotan("reset")
+    loc = 0;
+    score = 0;
+    miss = 0;
+    cnt =0;
+    total_count=this.name
+    plusword ="";
+    apple =[]
+    list =[]
+    scoreLabel.textContent = score;
+    word = words[Math.floor(Math.random() * words.length)];
+    time.textContent =this.name
+    total.textContent = total_count;
+    cnt =word[0].length;
+    target1.style.display ="none";
+    target2.style.display ="none";
+    target3.style.display ="none";
+    updateTarget()
+    if (isPlaying!==false){
+    if (!next.hasChildNodes()){
+          next.addEventListener("click", function (e) {
+            plus(list,word)
+            word = words[Math.floor(Math.random() * words.length)];
+            plusword =""
+            total_count --;
+            total.textContent = total_count;
+            cnt =word[0].length;
+            updateTarget();
+            updateTimer();
+        })
+     }
+    }
+    if (!reset.hasChildNodes()){
+      reset.addEventListener("click", function (e) {
+        text.textContent ="";
+        target.textContent=""
+        alert("処理が終了されますがよろしいですか");
+        window.location.reload();
+      })
+    }
+  }
+
+      target1.addEventListener("click", {
+        name: 10, handleEvent: starts
+      }, false);
+      target2.addEventListener("click", {
+        name: 20, handleEvent: starts
+      }, false);
+      target3.addEventListener("click", {
+        name: 30, handleEvent: starts
+      }, false);
+
+  window.addEventListener('keydown', e => {
+    if (isPlaying !== true) {
+      return;
+    }
+    if (e.key === word[0][loc]) {
+      loc++;
+      cnt --;
+      plusword +=word[0][loc-1]
+      if (loc === word[0].length) {
+        plus(apple,word)
+        word = words[Math.floor(Math.random() * words.length)];
+        total_count --;
+        total.textContent = total_count;
+
+        loc = 0;
+        cnt = word[0].length;
+        plusword ="";
+        score++;
+        scoreLabel.textContent = score;
+      }
+      updateTarget();
+      updateTimer()
+    }
+  });
+
+}
+</script>
+
