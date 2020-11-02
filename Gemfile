@@ -60,7 +60,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'therubyracer'
 gem 'roo'
 gem 'gon'
 gem 'jquery-rails'
@@ -68,6 +67,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'kaminari'
 gem 'bootstrap-sass'
-gem 'bootstrap', '~> 4.5'
 gem 'devise'
 
+# mysql2 is necessary for beanstalk
+gem "mysql2"
