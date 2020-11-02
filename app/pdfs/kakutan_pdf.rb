@@ -1,7 +1,7 @@
 class KakutanPdf < Prawn::Document
 
 	# recordにモデルなどのデータを渡します
-	def initialize(result, page)
+	def initialize(result, page, waei)
 
 	  # superで初期設定を指定します(ページサイズ、マージン等)
 	  super(
@@ -17,6 +17,7 @@ class KakutanPdf < Prawn::Document
 
 	  @result = result # インスタンスを受け取り。コンポーネント作成時などにレコード内のデータを使える
 	  @page = page
+	  @waei = waei
 
 	  header
 	  contents
@@ -42,7 +43,11 @@ class KakutanPdf < Prawn::Document
 			min += 25
 			max += 25
 		end
-		data.unshift(["英語", "日本語", "英語", "日本語"])
+		if @waei == 0
+		    data.unshift(["英語", "日本語", "英語", "日本語"])
+		else
+			data.unshift(["日本語", "英語", "日本語", "英語"])
+	    end
 		table data, header: true, cell_style: { size: 10, height: 28, width: 120 , padding_top: 8, padding_left: 7 }, header: true do |t|
 	      t.before_rendering_page do |page|
 	        page.row(0).border_bottom_width = 3
