@@ -16,7 +16,7 @@
           <table class='data-table table table-borderd table-striped thead-dark'style="color:black;">
             <tr><th id="good" colspan="2"></th></tr>
             <tr><td>英語</td><td>日本語</td></tr>
-          </table> 
+          </table>
         </div>
         <div class=col-sm-6>
           <table class="data-table table table-borderd"style="color:black;">
@@ -84,7 +84,7 @@
     tr.appendChild(td);
   }
   tables[x].appendChild(tr);
-  }  
+  }
   }
 
   function updateTarget() {
@@ -120,20 +120,20 @@
       tables[1].style.display = displayOriginal;
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
-      
+
     }
   }
   function createbotan(parama) {
     botans =document.getElementById("botan");
     if (botans.hasChildNodes()){
       const input = document.createElement("input");
-      input.setAttribute("type","button"); 
-		  input.setAttribute("size","50"); 
+      input.setAttribute("type","button");
+		  input.setAttribute("size","50");
       input.setAttribute("id",parama)
 		  input.setAttribute("value",parama);
       botans.appendChild(input);
     }
-    
+
   }
   function removebotan() {
     const botan = document.getElementById("botan");
@@ -141,7 +141,7 @@
 		while (botan.firstChild) {
       botan.removeChild(botan.firstChild);
     }
-    
+
   }}
 
   function showResult() {
@@ -235,7 +235,7 @@
       target3.addEventListener("click", {
         name: 30, handleEvent: starts
       }, false);
-      
+
   window.addEventListener('keydown', e => {
     if (isPlaying !== true) {
       return;
@@ -249,7 +249,7 @@
         word = words[Math.floor(Math.random() * words.length)];
         total_count --;
         total.textContent = total_count;
-        
+
         loc = 0;
         cnt = word[0].length;
         plusword ="";
@@ -260,6 +260,7 @@
       updateTimer()
     }
   });
-  
+
 }
 </script>
+
