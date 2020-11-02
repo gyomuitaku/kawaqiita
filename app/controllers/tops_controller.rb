@@ -43,17 +43,25 @@ class TopsController < ApplicationController
     for i in 2..@lines.last_row do
       word_set.push([@lines.row(i)[1], @lines.row(i)[2]])
     end
-    gon.word_set = word_set.shuffle
-    @word_sets = WordSet.limit(250).page(params[:page])
-    @without_page = WordSet.limit(250)
+    word_set_shuffle = word_set.shuffle
+    gon.word_set = word_set_shuffle[Range.new(0, 499)]
+    @word_sets = WordSet.all.page(params[:page])
+    @without_page = WordSet.all
+    trans_num = params[:trans_num]
+    # binding.pry
+    if trans_num == nil
+      @trans_num = 0
+    else
+      @trans_num = params[:trans_num]
+    end
     # binding.pry
 
     # @word_set_shuffle = Kaminari.paginate_array(word_set.shuffle).page(params[:page]).per(25)
 
-    @num_min_table = 0
-    @num_max_table = 24
-    @num_min_pdf = 0
-    @num_max_pdf = 24
+    # @num_min_table = 0
+    # @num_max_table = 24
+    # @num_min_pdf = 0
+    # @num_max_pdf = 24
     # binding.pry
   end
 
