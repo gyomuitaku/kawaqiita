@@ -73,9 +73,6 @@
 				<% end %>
 			<% end %>
 			<%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
-			<div class="translation">
-		      <%= render partial: 'translation', locals: { trans_num: @trans_num } %>
-		    </div>
 		    <%= f.hidden_field :post_trans_num, :id => 'post_trans_num' %>
 			<%= f.submit 'PDFを表示', class: "btn btn-info", id: "submit" %>
 			<button id="change" type="button" class="btn btn-success">和英変換</button>
@@ -139,10 +136,6 @@
                     trans_num: trans_num
                 },
 	  });
-	  console.log(submit.textContent);
-	  // $(document).ajaxStop(function() {
-	  //     doReload();
-	  // });
       post_trans_num.value = trans_num
 	  return trans_num;
     })
@@ -161,49 +154,15 @@
 	  return page_num
 	}
 
-	// var data = gon.word_set
 	const shuffle = document.getElementById('shuffle');
 
     shuffle.addEventListener('click', function () {
-		// $.ajax({
-		// 	type: 'POST',
-		// 	url: '/kakutan',
-		// 	dataType: 'json',
-		// 	contentType: 'application/json',
-		// 	data: JSON.stringify(data),
-		// 	cache: false
-		// });
         doReload();
 	});
 
 	function doReload() {
 	    window.location.reload();
 	}
-
-
-	// submit.addEventListener('click', function() {
-	// 	document.getElementById('trans_num').value = 1;
-	// });
-
-	// $(function(){
-	//   $('form#postform').on('submit',function(e){
-	//     e.preventDefault();
-	//     var f=$(this);
-	//     var url=f.attr('action');
-	//     var type=f.attr('method');
-	//     var data=new FormData(f.get(0));
-	//     $.ajax({
-	//       "url":url,
-	//       "type":type,
-	//       "data":data,
-	//       "processData": false,
-	//       "contentType": false,
-	//     }).done(function(data){
-	//       console.log(data);
-	//     });
-	//   });
-	// });
-
 
 }
 </script>
