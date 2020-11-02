@@ -58,11 +58,10 @@ class TopsController < ApplicationController
 
     # @word_set_shuffle = Kaminari.paginate_array(word_set.shuffle).page(params[:page]).per(25)
 
-    # @num_min_table = 0
-    # @num_max_table = 24
-    # @num_min_pdf = 0
-    # @num_max_pdf = 24
-    # binding.pry
+    @num_min_table = 0
+    @num_max_table = 24
+    @num_min_pdf = 0
+    @num_max_pdf = 24
   end
 
   def type
