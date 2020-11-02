@@ -39,11 +39,16 @@
 			<% end %>
 			<%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
 			<%= f.submit 'PDFを表示', class: "btn btn-info" %>
+			<button id="change" type="button" class="btn btn-success">和英変換</button>
+			<button id="shuffle" type="button" class="btn btn-danger">シャッフル</button>
+			<%= @trans_num %>
+			<%= params[:trans_num] %>
+			<div class="translation">
+	          <%= render 'translation', trans_num: @trans_num %>
+	        </div>
 		<% end %>
 
 	</div>
-	<button id="change" type="button" class="btn btn-success">和英変換</button>
-	<button id="shuffle" type="button" class="btn btn-danger">シャッフル</button>
 </div>
 <script>
 {
@@ -52,6 +57,7 @@
 	const th_second = document.getElementsByClassName('th_second');
 	const td_first = document.getElementsByClassName('td_first');
 	const td_second = document.getElementsByClassName('td_second');
+	let trans_num = 0;
 
 	change.addEventListener("click", function () {
 	  let tmp_th;
@@ -68,6 +74,18 @@
 	    td_first[i].textContent = td_second[i].textContent;
 	    td_second[i].textContent = tmp_td;
 	  }
+
+	  trans_num += 1
+	  $.ajax({
+	      type: 'POST',
+	      url: '/kakutan',
+	      data: {
+                    trans_num: trans_num
+                },
+	  });
+	  // $(document).ajaxStop(function() {
+	  //     doReload();
+	  // });
     })
 
     const select = document.getElementById('select_num');
@@ -93,9 +111,17 @@
 			url: 'word/json',
 			dataType: 'json',
 			contentType: 'application/json',
-			data: JSON.stringify(data)
+			data: JSON.stringify(data),
+			cache: false
+		});
+        $(document).ajaxStop(function() {
+        	doReload();
 		});
 	});
+
+	function doReload() {
+	    window.location.reload();
+	}
 
 
 }
