@@ -6,7 +6,7 @@ class TopsController < ApplicationController
   def top
     @xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
     @xlsx.default_sheet = @xlsx.sheets[0]
-    @lines = Fileloader.get_lines
+    @lines = Fileloader.get_lines(0)
   end
 
   def quiz
