@@ -54,7 +54,6 @@ class TopsController < ApplicationController
     @num_max_table = 24
     @num_min_pdf = 0
     @num_max_pdf = 24
-    # binding.pry
   end
 
   def type
