@@ -1,23 +1,27 @@
 <div class="container-fluid top-type">
   <p id="text" class="top-var">typing question</p>
   <p id="target"></p>
-  <div class="row">
+  <div class="row row1_1">
     <div class="col-4">
-      <a id="target1" class="btn btn-rounded bottan">10問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+      <a id="target1" class="btn btn-rounded bottan">10問</a>　
     </div>
     <div class="col-4">
-      <a id="target2" class="btn btn-rounded bottan">20問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+      <a id="target2" class="btn btn-rounded bottan">20問</a>　
     </div>
     <div class="col-4">   
-      <a id="target3" class="btn btn-rounded bottan">30問<i class="fas fa-angle-down fa-position-bottom"></i></a>　
+      <a id="target3" class="btn btn-rounded bottan">30問</a>　
     </div>
   </div>
-  <p id="botan"> </p>
-  <strong id="info">
+  <div class="row row1_2">
+    <p id="botan"> </p>
+  </div>
+  <div class="row row1_3">
+    <strong id="info">
     正解問題数: <span id="score" class="number">0</span>
     残り問題数: <span id="total" class="number">0</span>
     問題数: <span id="time" class="number">0</span>
-  </strong>
+    </strong>
+  </div>
     <div class="container-fluid mx-auto text-center answer">
       <div class="row">
         <div class=col-sm-6>
@@ -34,6 +38,7 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 
@@ -68,6 +73,9 @@
   let tables= document.getElementsByClassName('data-table');
   const good = document.getElementById('good');
   const mi = document.getElementById('missing');
+  // const ro1 = document.getElementById('row1_1');
+  // const ro2 = document.getElementById('row1_2');
+  // const ro3 = document.getElementById('row1_3');
 
   // 現在の display プロパティの値を保持
   const displayOriginal = tables[0].style.display;
@@ -128,9 +136,17 @@
       tables[1].style.display = displayOriginal;
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
+      const ro1 = document.getElementsByClassName('row1_1');
+      const ro2 = document.getElementsByClassName('row1_2');
+      const ro3 = document.getElementsByClassName('row1_3');
+      ro1.setAttribute("id","row_all1");
+      ro2.setAttribute("id","row_all2");
+      ro3.setAttribute("id","row_all3");
 
     }
   }
+
+
   function createbotan(parama) {
     botans =document.getElementById("botan");
     if (botans.hasChildNodes()){
@@ -141,7 +157,6 @@
 		  input.setAttribute("value",parama);
       botans.appendChild(input);
     }
-
   }
   function removebotan() {
     const botan = document.getElementById("botan");
@@ -149,17 +164,15 @@
 		while (botan.firstChild) {
       botan.removeChild(botan.firstChild);
     }
-
   }}
 
-  function showResult() {
-    const accuracy = score  === 0 ? 0 : score / (score ) * 100;
-    alert("${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!");
-  }
+  // function showResult() {
+  //   const accuracy = score  === 0 ? 0 : score / (score ) * 100;
+  //   alert("${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!");
+  // }
   function plus(lists,word) {
     lists.push(word)
   }
-
 
   function gameEnd() {
     let appai =[]
