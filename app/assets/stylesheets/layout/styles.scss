@@ -123,8 +123,12 @@ li {
   transform: translateY(-500px);
 }
 
+#btnStart-10.hidden,
+#btnStart-30.hidden,
+#btnStart-100.hidden,
 #targetTable.hidden,
 #btnResult.hidden,
+#testBtn.hidden,
 #indexResult.hidden {
   display: none;
 }
