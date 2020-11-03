@@ -10,6 +10,8 @@ class TopsController < ApplicationController
   end
 
   def quiz
+    @test = [1,params[:select_file].to_i] if params[:test]
+    gon.test = @test
     select_file = params[:select_file].to_i
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
