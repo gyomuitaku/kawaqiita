@@ -1,3 +1,19 @@
-<% 2.upto(@xlsx.last_row) do |row| %>
-   <p><%= @xlsx.cell(row, 2) %> : <%= @xlsx.cell(row, 3) %></p>
-<% end %>
+<div class="container-fluid">
+  <section class="main-visual">
+    <div class="row">
+      <div class="col-sm-5">
+         <h1>Text Text Text Text Text Text Text Text Text Text Text</h1>
+         <p>Text Text Text Text Text Text</p>
+         <%= link_to "Text", select_path, class: "btn btn-info" %><br>
+         <%= link_to  "text", root_path %><%= link_to  "text", root_path %>
+      </div>
+      <div class="col-sm-7">
+      </div>
+    </div>
+  </section>
+  <section class="main-content">
+  </section>
+  <section class="explanation">
+  </section>
+
+</div>
