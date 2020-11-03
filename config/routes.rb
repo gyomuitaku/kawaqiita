@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post 'kakutan_pdfs/index'
+  devise_for :users
+  resources :users
+  root :to => 'tops#home'
+  get "top" => "tops#top"
+  get "quiz" => "tops#quiz"
+  get "type" => "tops#type"
+  get "kakutan" => "tops#kakutan"
+  get "select" => "tops#select"
+  post 'results' => "results#create"
+  post "kakutan" => "tops#kakutan"
+  post 'type/results' => "results#create_type"
+  post 'word/json' => "word_sets#create"
+  post 'translation' =>"translations#count"
 end

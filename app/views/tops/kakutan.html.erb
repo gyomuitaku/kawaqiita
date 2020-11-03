@@ -1,0 +1,168 @@
+<style>
+	.mt-6 {
+		padding-top: 100px;
+	}
+
+	.nav-link {
+		color: black;
+	}
+</style>
+<div class="container-fluid mt-6">
+	<div class="row">
+		<div class="tab-content" id="blockquotes-tabContent">
+			<% for i in 1..10 do %>
+			    <% if i == 1 %>
+				    <div class="tab-pane fade show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
+					  <table id="table" class="table table-striped", border="2">
+						<thead>
+							<tr>
+								<th class="th_first">英語</th>
+								<th class="th_second">日本語</th>
+								<th class="th_first">英語</th>
+								<th class="th_second">日本語</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for j in 0..24 do %>
+								<tr>
+								    <td class="td_first"><%= @word_sets[j][0] %></td>
+									<td class="td_second"><%= @word_sets[j][1] %></td>
+									<td class="td_first"><%= @word_sets[j][2] %></td>
+									<td class="td_second"><%= @word_sets[j][3] %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					  </table>
+					</div>
+				<% else %>
+					<div class="tab-pane fade" id="blockquotes-<%= i.to_s %>" role="tabpanel" aria-labelledby="blockquotes-tab-<%= i.to_s %>">
+					  <div class="tab-pane fade show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
+						  <table id="table" class="table table-striped", border="2">
+							<thead>
+								<tr>
+									<th class="th_first">英語</th>
+									<th class="th_second">日本語</th>
+									<th class="th_first">英語</th>
+									<th class="th_second">日本語</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for j in 0..24 do %>
+									<tr>
+									    <td class="td_first"><%= @word_sets[j+(i-1)*25][0] %></td>
+										<td class="td_second"><%= @word_sets[j+(i-1)*25][1] %></td>
+										<td class="td_first"><%= @word_sets[j+(i-1)*25][2] %></td>
+										<td class="td_second"><%= @word_sets[j+(i-1)*25][3] %></td>
+									</tr>
+								<% end %>
+							</tbody>
+						  </table>
+					  </div>
+				    </div>
+				<% end %>
+			<% end %>
+		</div>
+
+        <%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
+		    <% for i in 1..10 %>
+			    <% for j in 0+(i-1)*25..24+(i-1)*25 do %>
+					<%= f.hidden_field "word_set[words][][english_first]", :value => @word_sets[j][0] %>
+					<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_sets[j][1] %>
+					<%= f.hidden_field "word_set[words][][english_second]", :value => @word_sets[j][2] %>
+					<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_sets[j][3] %>
+				<% end %>
+			<% end %>
+			<%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+		    <%= f.hidden_field :post_trans_num, :id => 'post_trans_num' %>
+			<%= f.submit 'PDFを表示', class: "btn btn-info", id: "submit" %>
+			<button id="change" type="button" class="btn btn-success">和英変換</button>
+			<button id="shuffle" type="button" class="btn btn-danger">シャッフル</button>
+		<% end %>
+
+		<div class="container-fluid">
+		   <ul class="nav nav-pills mx-auto justify-content-between navbar-light bg-light" id="blockquotes-tab" role="tablist" style="width: 80%; ">
+		   	<% for i in 1..10 do %>
+		   	    <% if i == 1 %>
+			      <li class="nav-item">
+			        <a class="nav-link active" id="blockquotes-tab-1" data-toggle="pill" href="#blockquotes-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
+				        <%= i %>
+				    </a>
+			      </li>
+				<% else %>
+				  <li class="nav-item">
+			        <a class="nav-link" id="blockquotes-tab-<%= i %>" data-toggle="pill" href="#blockquotes-<%= i %>" role="tab" aria-controls="blockquotes-<%= i %>" aria-selected="false">
+				        <%= i %>
+				    </a>
+				  </li>
+				<% end %>
+			<% end %>
+		   </ul>
+		</div>
+	</div>
+</div>
+
+<script>
+{
+	const change = document.getElementById("change")
+	const th_first = document.getElementsByClassName('th_first');
+	const th_second = document.getElementsByClassName('th_second');
+	const td_first = document.getElementsByClassName('td_first');
+	const td_second = document.getElementsByClassName('td_second');
+	const submit = document.getElementById('submit');
+	let trans_num = 0;
+
+	change.addEventListener("click", function () {
+	  let tmp_th;
+	  let tmp_td;
+	  let post_trans_num = document.getElementById("post_trans_num")
+
+	  for (let i = 0; i < th_first.length; i++) {
+	  	tmp_th = th_first[i].textContent;
+	    th_first[i].textContent = th_second[i].textContent;
+	    th_second[i].textContent = tmp_th;
+	  }
+
+	  for (let i = 0; i < td_first.length; i++) {
+	    tmp_td = td_first[i].textContent
+	    td_first[i].textContent = td_second[i].textContent;
+	    td_second[i].textContent = tmp_td;
+	  }
+
+	  trans_num += 1
+	  $.ajax({
+	      type: 'POST',
+	      url: '/translation',
+	      data: {
+                    trans_num: trans_num
+                },
+	  });
+      post_trans_num.value = trans_num
+	  return trans_num;
+    })
+
+    const select = document.getElementById('select_num');
+
+	select.onchange = function(page_num){
+	  page_num = this.value
+	  $.ajax({
+	      type: 'POST',
+	      url: '/kakutan',
+	      data: {
+                    select_num: page_num
+                },
+	  });
+	  return page_num
+	}
+
+	const shuffle = document.getElementById('shuffle');
+
+    shuffle.addEventListener('click', function () {
+        doReload();
+	});
+
+	function doReload() {
+	    window.location.reload();
+	}
+
+}
+</script>
