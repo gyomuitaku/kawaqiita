@@ -70,6 +70,6 @@ gem 'devise'
 # this gem is expected to change
 gem 'bootstrap', '~> 4.5'
 # mysql2 is necessary for beanstalk
-# gem "mysql2"
+gem "mysql2"
 
-# gem "mini_racer"
+gem "mini_racer"
