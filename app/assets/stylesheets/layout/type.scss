@@ -1,7 +1,8 @@
 .top-type{
   background-image: image-url("img5.jpg");
   background-size: cover;
-  background-position: top;
+  overflow: scroll;
+  // background-position: top;
   min-height: 100vh;
   background-blend-mode: lighten;
   font-family: 'Courier New', monospace;
@@ -17,6 +18,21 @@
   border:1px solid black !important;
   background-color:rgba(255,255,255,0.6);
 }
+.row{
+  height: 16vh !important;
+}
+.row1_1{
+  height: 0 !important;
+}
+.row1_3{
+  display: block !important;
+  line-height: 13;
+  }
+.row1_2{
+  height: 16vh !important;
+  display: block;
+  margin-top:20px !important;
+}
 
 .top-var{
   display: inline-block;
@@ -28,7 +44,6 @@
 
 #info{
   color: black;
-  display: block;
   margin-top:60px;
 }
 #target {
@@ -39,9 +54,9 @@
 }
 #next,#reset{
   font-size: 25px;
-  margin:30px;
   background-color: #333333;
   color: white;
+  margin: 0 30px;
 }
 #next:hover,#reset:hover{
   -webkit-transform: translateY(-5px);
@@ -87,11 +102,24 @@
 }
 
 @media (max-width: 610px) {
-  .row {
-    height: 28vh !important;
-}
+  #row_all1,#row_all2,#row_all3{
+    height: 0 !important;
+  }
+  .row1_1 {
+    height: 16vh !important;
+    margin: 0 auto !important;
+  }
+  .row1_3{
+    height: 16vh !important;
+    margin: 0 auto !important;
+    line-height: 0;
+    display: block;
+  }
+  .row1_2 {
+    height: 16vh !important;
+    margin: 0 auto !important;
+  }
   #text{
-    font-size: 60px;
     letter-spacing: 0;
     font-family:cursive;
     color:#444444	;
@@ -101,14 +129,10 @@
     margin:0 auto !important;
 
   }
-  // .bottan:last-child{
-  //   margin:30px 30px 30px 60px !important;
-  // }
-  // #target3{
-  //   margin:20px 0 20px 60px !important;
-  // }
+  
   #reset{
     font-size: 30px;
+    margin:30px 0;
     background-color: #333333;
     color: white;
   }
@@ -119,19 +143,19 @@
   }
   #next,#reset{
     line-height: 1em;
-      display: block;
+    display: block;
   }
-  .info{
-    margin-top: 20px !important;
+  #info{
+    margin-top: 0 !important;
   }
   #next{
+    margin: 0px;
     font-size: 37px;
     background-color: #333333;
     color: white;
   }
   #botan{
     display: inline-block;
-    margin-right: 78px;
   }
 
 }
