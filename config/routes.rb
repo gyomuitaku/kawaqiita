@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   post 'kakutan_pdfs/index'
   devise_for :users
-  resources :users
+  resources :users, only: [:show]
   root :to => 'tops#home'
-  get "top" => "tops#top"
   get "quiz" => "tops#quiz"
   get "type" => "tops#type"
   get "kakutan" => "tops#kakutan"
