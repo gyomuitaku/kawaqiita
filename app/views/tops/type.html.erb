@@ -104,7 +104,7 @@
   }
 
   function updateTarget() {
-    let placeholder = '';
+    let placeholder =" ";
     for (let i = cnt; i > 0; i--) {
       placeholder += '_';
     }
@@ -145,8 +145,6 @@
 
     }
   }
-
-
   function createbotan(parama) {
     botans =document.getElementById("botan");
     if (botans.hasChildNodes()){
@@ -166,10 +164,6 @@
     }
   }}
 
-  // function showResult() {
-  //   const accuracy = score  === 0 ? 0 : score / (score ) * 100;
-  //   alert("${score} letters, ${miss} misses, ${accuracy.toFixed(2)}% accuracy!");
-  // }
   function plus(lists,word) {
     lists.push(word)
   }
@@ -228,10 +222,11 @@
           next.addEventListener("click", function (e) {
             plus(list,word)
             word = words[Math.floor(Math.random() * words.length)];
-            plusword =""
             total_count --;
             total.textContent = total_count;
             cnt =word[0].length;
+            loc =0;
+            plusword ="";
             updateTarget();
             updateTimer();
         })
