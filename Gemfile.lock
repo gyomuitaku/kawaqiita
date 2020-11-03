@@ -47,19 +47,16 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (10.0.1.1)
+    autoprefixer-rails (10.0.1.2)
       execjs
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.4.9)
+    bootsnap (1.5.0)
       msgpack (~> 1.0)
     bootstrap (4.5.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.33.0)
@@ -153,8 +150,7 @@ GEM
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
     public_suffix (4.0.6)
-    puma (5.0.4)
-      nio4r (~> 2.0)
+    puma (2.16.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -261,7 +257,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.5)
-  bootstrap-sass
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -275,7 +270,7 @@ DEPENDENCIES
   mini_racer
   prawn
   prawn-table
-  puma
+  puma (~> 2.16.0)
   rails (~> 5.2.4)
   roo
   sass-rails (~> 5.0)

@@ -1,47 +1,38 @@
 <style>
   body {
-    background: #ffffff;
+    background: #d2e6ff99;
     font-family: 'Open Sans', sans-serif;
   }
 
   .mt-6 {
-    padding-top: 200px;
+    padding-top: 20px;
   }
 
   .k {
     width: 100%;
     margin-bottom: 50px;
   }
+
   .custom-select-trigger {
-    padding:0 40px 0 22px;
+    padding: 0 40px 0 22px;
     font-size: 17px;
     line-height: 43px;
   }
+  .nav-link {
+    color: #57a8fffa;
+  }
+  footer {
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: #5a5a5ad6;
+  }
 </style>
 <!-- Blockquotes -->
-<div class="container-fluid">
+<div class="container-fluid mt-6">
   <div class="row">
-    <div class="col-sm-3 text-center border-right bg-secondary">
-      <ul class="nav nav-pills mb-5 text-center mt-6" id="blockquotes-tab" role="tablist">
-        <li class="nav-item k">
-          <a class="nav-link active" id="blockquotes-left-tab-1" data-toggle="pill" href="#blockquotes-left-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
-            TOEIC
-          </a>
-        </li>
-        <li class="nav-item k">
-          <a class="nav-link" id="blockquotes-center-tab-1" data-toggle="pill" href="#blockquotes-center-1" role="tab" aria-controls="blockquotes-center-1" aria-selected="false">
-            論文
-          </a>
-        </li>
-        <li class="nav-item k">
-          <a class="nav-link" id="blockquotes-right-tab-1" data-toggle="pill" href="#blockquotes-right-1" role="tab" aria-controls="blockquotes-right-1" aria-selected="false">
-            小説
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-9">
-      <div class="tab-content mt-5" id="blockquotes-tabContent">
+    <div class="col-12">
+      <div class="tab-content" id="blockquotes-tabContent">
         <div class="tab-pane fade show active" id="blockquotes-left-1" role="tabpanel" aria-labelledby="blockquotes-left-tab-1">
           <div id="wrap1">
             <div id="tab1-1" class="tab selected">4択クイズ</div>
@@ -210,6 +201,28 @@
   </div>
   <!-- End Blockquotes -->
 </div>
+
+<footer class="fixed-bottom">
+  <div class="container-fluid">
+    <ul class="nav nav-pills mx-auto justify-content-between" id="blockquotes-tab" role="tablist" style="width: 80%;">
+      <li class="nav-item">
+        <a class="nav-link active" id="blockquotes-left-tab-1" data-toggle="pill" href="#blockquotes-left-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
+          TOEIC
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="blockquotes-center-tab-1" data-toggle="pill" href="#blockquotes-center-1" role="tab" aria-controls="blockquotes-center-1" aria-selected="false">
+          論文
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="blockquotes-right-tab-1" data-toggle="pill" href="#blockquotes-right-1" role="tab" aria-controls="blockquotes-right-1" aria-selected="false">
+          小説
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
 <!-- <div class="container-fluid mt-5">
   <div class="row text-center">
     <div class="col-3">
@@ -267,11 +280,23 @@
   });
 
 
-  for (let i=1; i<=3; i++){
-    document.getElementById('tab'+i+'-'+'1').addEventListener("click",{handleEvent: moveToFirst, name: i});
-    document.getElementById('tab'+i+'-'+'2').addEventListener("click",{handleEvent: moveToSecond, name: i});
-    document.getElementById('tab'+i+'-'+'3').addEventListener("click",{handleEvent: moveToThird, name: i});
-    document.getElementById('tab'+i+'-'+'4').addEventListener("click",{handleEvent: moveToFour, name: i});
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('tab' + i + '-' + '1').addEventListener("click", {
+      handleEvent: moveToFirst,
+      name: i
+    });
+    document.getElementById('tab' + i + '-' + '2').addEventListener("click", {
+      handleEvent: moveToSecond,
+      name: i
+    });
+    document.getElementById('tab' + i + '-' + '3').addEventListener("click", {
+      handleEvent: moveToThird,
+      name: i
+    });
+    document.getElementById('tab' + i + '-' + '4').addEventListener("click", {
+      handleEvent: moveToFour,
+      name: i
+    });
   }
   // document.getElementById('tab2-1').addEventListener("click",{handleEvent: moveToFirst2});
   // document.getElementById('tab2-2').addEventListener("click",{handleEvent: moveToSecond2});
@@ -284,9 +309,9 @@
 
 
   function moveToFirst() {
-    $("#slide"+this.name).attr('class', 'move-to-first'+this.name);
+    $("#slide" + this.name).attr('class', 'move-to-first' + this.name);
     $(".tab").attr('class', 'tab');
-    $("#tab"+this.name+"-1").attr('class', "tab selected");
+    $("#tab" + this.name + "-1").attr('class', "tab selected");
   }
   // function moveToFirst2() {
   //   $("#slide2").attr('class', 'move-to-first2');
@@ -300,9 +325,9 @@
   // }
 
   function moveToSecond() {
-    $("#slide"+this.name).attr('class', 'move-to-second'+this.name);
+    $("#slide" + this.name).attr('class', 'move-to-second' + this.name);
     $(".tab").attr('class', 'tab');
-    $("#tab"+this.name+"-2").attr('class', 'selected tab');
+    $("#tab" + this.name + "-2").attr('class', 'selected tab');
   }
   // function moveToSecond2() {
   //   $("#slide2").attr('class', 'move-to-second2');
@@ -316,9 +341,9 @@
   // }
 
   function moveToThird() {
-    $("#slide"+this.name).attr('class', 'move-to-third'+this.name);
+    $("#slide" + this.name).attr('class', 'move-to-third' + this.name);
     $(".tab").attr('class', 'tab');
-    $("#tab"+this.name+"-3").attr('class', 'selected tab');
+    $("#tab" + this.name + "-3").attr('class', 'selected tab');
   }
   // function moveToThird2() {
   //   $("#slide2").attr('class', 'move-to-third2');
@@ -332,9 +357,9 @@
   // }
 
   function moveToFour() {
-    $("#slide"+this.name).attr('class', 'move-to-four'+this.name);
+    $("#slide" + this.name).attr('class', 'move-to-four' + this.name);
     $(".tab").attr('class', 'tab');
-    $("#tab"+this.name+"-4").attr('class', 'selected tab');
+    $("#tab" + this.name + "-4").attr('class', 'selected tab');
   }
   // function moveToFour2() {
   //   $("#slide2").attr('class', 'move-to-four2');

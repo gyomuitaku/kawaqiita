@@ -1,7 +1,7 @@
 class WordSetsController < ApplicationController
 	def create
 		WordSet.destroy_all
-        for i in 0..499 do
+        for i in 0..498 do
 	        if i % 2 == 0
 	        	WordSet.create!(
 	        	word_first: params[:_json][i][0],
