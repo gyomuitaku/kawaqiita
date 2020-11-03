@@ -10,8 +10,6 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    # if params[:select_num]
-    #   gon.questions = Quiz.generate(2, 2001)
     select_file = params[:select_file].to_i
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
@@ -34,7 +32,6 @@ class TopsController < ApplicationController
 
   def kakutan
     @lines = Fileloader.get_lines(0)
-
     word_set = []
     for i in 2..@lines.last_row-1 do
       if i % 2 == 0
@@ -42,18 +39,7 @@ class TopsController < ApplicationController
       end
     end
     word_set_shuffle = word_set.shuffle
-    # gon.word_set = word_set_shuffle[Range.new(0, 249)]
-
     @word_sets = word_set_shuffle[Range.new(0, 249)]
-    # @without_page = WordSet.all
-    # binding.pry
-    # trans_num = params[:trans_num]
-    # binding.pry
-    # if trans_num == nil
-    #   @trans_num = 0
-    # else
-    #   @trans_num = params[:trans_num]
-    # end
   end
 
   def type
