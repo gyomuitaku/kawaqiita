@@ -4,7 +4,7 @@ class Result < ApplicationRecord
     def self.save_results(quizResults)
         i = 0
         while (quizResults[i.to_s]) do
-            if quizResults[i.to_s].user_id
+            if !quizResults[i.to_s][:user_id]
                 break
             end
             result = Result.new(word:quizResults[i.to_s][:en_word],
