@@ -18,9 +18,31 @@
     font-size: 17px;
     line-height: 43px;
   }
+
   .nav-link {
     color: #57a8fffa;
   }
+
+  .table_sticky {
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+  }
+
+  .table_sticky thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
+    border-top: #FFFFFF;
+  }
+
+  .overflow {
+    width: 100%;
+    overflow-y: scroll;
+    height: calc(100vh);
+  }
+
   footer {
     width: 100%;
     /* Set the fixed height of the footer here */
@@ -44,9 +66,9 @@
               <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
               <div id="slide1" class="">
                 <div id="first1" class="box">
-                  <div class="row">
+                  <div class="row mt-4">
                     <% (0..3).each do |i| %>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -92,13 +114,36 @@
                           <% (0..3).each do |j| %>
                           <option value="type?select_num=<%= (j*500 + 2).to_s %>&quiz_type=1&select_file=0"><%= j*500 + 1 %> ~ <%= j*500 + 500 %></option>
                           <%end%>
+
                         </select>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div id="third1" class="box">TAB THREE</div>
-                <div id="four1" class="box">TAB FOUR</div>
+                <div id="four1" class="box">
+                  <div class="overflow">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>順位</th>
+                          <th>単語</th>
+                          <th>意味</th>
+                          <th>例文</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% 2.upto(@dec[0].last_row) do |row| %>
+                        <tr>
+                          <% for i in 1..4 %>
+                          <td><%= @dec[0].cell(row, i) %></td>
+                          <% end %>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -143,7 +188,28 @@
                 </div>
                 <div id="second2" class="box">TAB TWO</div>
                 <div id="third2" class="box">TAB THREE</div>
-                <div id="four2" class="box">TAB FOUR</div>
+                <div id="four2" class="box">
+                  <div class="overflow">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>順位</th>
+                          <th>単語</th>
+                          <th>意味</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% 2.upto(@dec[1].last_row) do |row| %>
+                        <tr>
+                          <% for i in 1..3 %>
+                          <td><%= @dec[1].cell(row, i) %></td>
+                          <% end %>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -190,7 +256,28 @@
                 </div>
                 <div id="second3" class="box">TAB TWO</div>
                 <div id="third3" class="box">TAB THREE</div>
-                <div id="four3" class="box">TAB FOUR</div>
+                <div id="four3" class="box">
+                  <div class="overflow">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>順位</th>
+                          <th>単語</th>
+                          <th>意味</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% 2.upto(@dec[2].last_row) do |row| %>
+                        <tr>
+                          <% for i in 1..3 %>
+                          <td><%= @dec[2].cell(row, i) %></td>
+                          <% end %>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -201,7 +288,6 @@
   </div>
   <!-- End Blockquotes -->
 </div>
-
 <footer class="fixed-bottom">
   <div class="container-fluid">
     <ul class="nav nav-pills mx-auto justify-content-between" id="blockquotes-tab" role="tablist" style="width: 80%;">
