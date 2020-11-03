@@ -11,7 +11,6 @@ class TopsController < ApplicationController
 
   def quiz
     # if params[:select_num]
-    #   gon.questions = Quiz.generate(2, 2001)
     select_file = params[:select_file].to_i
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
@@ -42,18 +41,10 @@ class TopsController < ApplicationController
       end
     end
     word_set_shuffle = word_set.shuffle
-    # gon.word_set = word_set_shuffle[Range.new(0, 249)]
 
     @word_sets = word_set_shuffle[Range.new(0, 249)]
-    # @without_page = WordSet.all
-    # binding.pry
-    # trans_num = params[:trans_num]
-    # binding.pry
-    # if trans_num == nil
-    #   @trans_num = 0
-    # else
-    #   @trans_num = params[:trans_num]
-    # end
+    @select_num_array = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    @selected_num = ''
   end
 
   def type
