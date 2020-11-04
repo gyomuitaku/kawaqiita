@@ -37,6 +37,7 @@ class TopsController < ApplicationController
 
   def select
     @dec = Fileloader.dictionary
+    gon.user_level_array = current_user ? {"toeic"=>current_user.toeic_status,"novel"=>current_user.novel_status,"paper"=>current_user.paper_status} : 0
   end
 
   def kakutan
