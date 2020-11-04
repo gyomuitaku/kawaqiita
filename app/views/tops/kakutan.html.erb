@@ -1,8 +1,8 @@
 <div class="container-fluid pt-6 top-kakutan">
 	<div class="row">
-		<div class="col-1">
+		<div class="col-xl-1">
 		</div>
-		<div class="col-7">
+		<div class="col-xl-7">
 			<div class="tab-content overflow" id="blockquotes-tabContent">
 				<% for i in 1..10 do %>
 				    <% if i == 1 %>
@@ -58,7 +58,7 @@
 			</div>
 	    </div>
 
-		<div class="col-3">
+		<div class="col-xl-3">
 	        <%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
 			    <% for i in 1..10 %>
 				    <% for j in 0+(i-1)*25..24+(i-1)*25 do %>
@@ -70,14 +70,14 @@
 				<% end %>
 				<div class="cp_ipselect">
 					<div>
-					    <%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: "pdfの枚数を選んでください"}, {class: "cp_sl06"} %>
+					    <%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: "pdf印刷の枚数を選んでください"}, {class: "cp_sl06"} %>
 					</div>
 					<span class="cp_sl06_highlight"></span>
 					<span class="cp_sl06_selectbar"></span>
 				</div>
 			    <%= f.hidden_field :post_trans_num, :id => 'post_trans_num' %>
 				<%= button_tag :type => "submit", :class =>"btn btn-flat", :id =>"submit" do %>
-				  <span>PDFを表示</span>
+				  <span>PDF表示</span>
 				<% end %>
 				<div>
 				    <button id="change" type="button" class="btn btn-flat"><span>和英変換</span></button>
@@ -86,7 +86,8 @@
 				    <button id="shuffle" type="button" class="btn btn-flat"><span>シャッフル</span></button>
 			    </div>
 			<% end %>
-			<ul class="nav nav-pills mx-auto justify-content-between navbar-light bg-light" id="blockquotes-tab" role="tablist" style="width: 80%; ">
+			<div class="page">ページ</div>
+			<ul class="nav nav-pills mx-auto justify-content-around navbar-light" id="blockquotes-tab" role="tablist">
 		   	 <% for i in 1..10 do %>
 		   	     <% if i == 1 %>
 			       <li class="nav-item">
@@ -104,7 +105,7 @@
 			 <% end %>
 		    </ul>
 		</div>
-		<div class="col-1"></div>
+		<div class="col-xl-1"></div>
 	</div>
 </div>
 
