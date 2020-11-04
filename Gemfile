@@ -62,7 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'roo'
 gem 'gon'
-gem 'jquery-rails'
 gem 'prawn'
 gem 'prawn-table'
 gem 'kaminari'
@@ -70,6 +69,7 @@ gem 'devise'
 # this gem is expected to change
 gem 'bootstrap', '~> 4.5'
 # mysql2 is necessary for beanstalk
-gem "mysql2"
 
+gem "mysql2"
 gem "mini_racer"
+gem 'jquery-rails'

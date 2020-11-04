@@ -12,24 +12,30 @@ class TopsController < ApplicationController
   def quiz
     @test = [1,params[:select_file].to_i] if params[:test]
     gon.test = @test
-    select_file = params[:select_file].to_i
-    select_num = params[:select_num].to_i
-    quiz_type = params[:quiz_type].to_i
-    if select_num != 0
-      if quiz_type == 0
-        gon.questions = Quiz.generate(select_num, select_num+99, select_file)
-      elsif quiz_type == 1
-        gon.questions = Quiz.generate(select_num, select_num+499, select_file)
-      else
-        gon.questions = Quiz.generate(2, 2001, select_file)
-      end
-    else
-      gon.questions = Quiz.generate(2, 2001, select_file)
-    end
+    # select_file = params[:select_file].to_i
+    # select_num = params[:select_num].to_i
+    # quiz_type = params[:quiz_type].to_i
+
+    # 単語の選択
+    gon.questions = Quiz.select_question_type(params[:select_num], params[:quiz_type], params[:select_file])
+
+    # if select_num != 0
+    #   if quiz_type == 0
+    #     gon.questions = Quiz.generate(select_num, select_num+99, select_file)
+    #   elsif quiz_type == 1
+    #     gon.questions = Quiz.generate(select_num, select_num+499, select_file)
+    #   else
+    #     gon.questions = Quiz.generate(2, 2001, select_file)
+    #   end
+    # else
+    #   gon.questions = Quiz.generate(2, 2001, select_file)
+    # end
     gon.user_id = current_user ? current_user.id : nil
+
   end
 
   def select
+    @dec = Fileloader.dictionary
   end
 
   def kakutan
@@ -41,7 +47,10 @@ class TopsController < ApplicationController
       end
     end
     word_set_shuffle = word_set.shuffle
+
     @word_sets = word_set_shuffle[Range.new(0, 249)]
+    @select_num_array = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    @selected_num = ''
   end
 
   def type
