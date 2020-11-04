@@ -1,0 +1,19 @@
+branch-defaults:
+  default:
+    environment: ETan-env
+environment-defaults:
+  ETan-env:
+    branch: null
+    repository: null
+global:
+  application_name: e-tan
+  default_ec2_keyname: null
+  default_platform: Puma with Ruby 2.6 running on 64bit Amazon Linux
+  default_region: ap-northeast-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: hackuser
+  sc: git
+  workspace_type: Application
