@@ -1470,9 +1470,8 @@ h6 {
 .slide-container {
   position: relative;
   width: 100%;
-  min-height: 60vh;
-  overflow-x: hidden;
-  overflow-x: auto;
+  min-height: 130vh;
+  overflow: hidden;
   clear: left;
 }
 
