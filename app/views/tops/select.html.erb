@@ -40,7 +40,7 @@
   .overflow {
     width: 100%;
     overflow-y: scroll;
-    height: calc(100vh);
+    height: calc(70vh);
   }
 
   footer {
@@ -61,11 +61,12 @@
             <div id="tab1-2" class="tab">タイピングテスト</div>
             <div id="tab1-3" class="tab">pdf印刷</div>
             <div id="tab1-4" class="tab">辞書</div>
-            <div id="container">
+            <div class="slide-container">
               <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
               <div id="slide1" class="">
                 <div id="first1" class="box">
-                  <div class="row mt-4">
+                  <h2 class="my-5">確認問題</h2>
+                  <div class="row">
                     <% (0..3).each do |i| %>
                     <div class="col-sm-3">
                       <div class="text-center mb-5">
@@ -78,9 +79,10 @@
                     </div>
                     <% end %>
                   </div>
+                  <h2 class="my-5">まとめ問題</h2>
                   <div class="row">
                     <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
-                    <div class="col-3">
+                    <div class="col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
                           <% (0..3).each do |j| %>
@@ -90,7 +92,7 @@
                       </div>
                     </div>
                     <% importance = ["進級テスト", "重要単語", "応用レベル", "発展レベル"] %>
-                    <div class="col-3">
+                    <div class="col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
                           <% (0..3).each do |j| %>
@@ -102,7 +104,7 @@
                   </div>
                 </div>
                 <div id="second1" class="box">
-                  <div class="row">
+                  <div class="row mt-4">
                     <% (0..3).each do |i| %>
                     <div class="col-3">
                       <div class="text-center mb-5">
@@ -165,11 +167,11 @@
             <div id="tab2-3" class="tab">pdf印刷</div>
             <div id="tab2-4" class="tab">辞書</div>
 
-            <div id="container">
+            <div class="slide-container">
               <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
               <div id="slide2" class="">
                 <div id="first2" class="box2">
-                  <div class="row">
+                  <div class="row mt-4">
                     <% (0..3).each do |i| %>
                     <div class="col-3">
                       <div class="text-center mb-5">
@@ -205,29 +207,29 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div id="second2" class="box">TAB TWO</div>
-              <div id="third2" class="box">TAB THREE</div>
-              <div id="four2" class="box">
-                <div class="overflow">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>順位</th>
-                        <th>単語</th>
-                        <th>意味</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% 2.upto(@dec[1].last_row) do |row| %>
-                      <tr>
-                        <% for i in 1..3 %>
-                        <td><%= @dec[1].cell(row, i) %></td>
+                <div id="second2" class="box">TAB TWO</div>
+                <div id="third2" class="box">TAB THREE</div>
+                <div id="four2" class="box">
+                  <div class="overflow">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>順位</th>
+                          <th>単語</th>
+                          <th>意味</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% 2.upto(@dec[1].last_row) do |row| %>
+                        <tr>
+                          <% for i in 1..3 %>
+                          <td><%= @dec[1].cell(row, i) %></td>
+                          <% end %>
+                        </tr>
                         <% end %>
-                      </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -239,13 +241,13 @@
             <div id="tab3-2" class="tab">タイピングテスト</div>
             <div id="tab3-3" class="tab">pdf印刷</div>
             <div id="tab3-4" class="tab">辞書</div>
-            <div id="container">
+            <div class="slide-container">
               <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
               <div id="slide3" class="">
                 <div id="first3" class="box3">
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-3">
+                    <div class="col-3 mt-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
