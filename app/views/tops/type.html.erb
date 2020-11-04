@@ -1,5 +1,7 @@
 <div class="container-fluid top-type">
   <p id="text" class="top-var">typing question</p>
+  <%# <input type="text" name="name"> %>
+  <input type="text" id="targ" name="target" value="" style="display: block; color: rgb(0, 0, 0);">
   <p id="target"></p>
   <div class="row row1_1">
     <div class="col-4">
@@ -56,6 +58,7 @@
   let total_count;
   let list;
   const target = document.getElementById('target');
+  const targ = document.getElementById('targ');
   const target1 = document.getElementById('target1');
   const target2 = document.getElementById('target2');
   const target3 = document.getElementById('target3');
@@ -80,11 +83,11 @@
   // 現在の display プロパティの値を保持
   const displayOriginal = tables[0].style.display;
   const displayOrigina = tables[1].style.display;
-
+  const displayOrigin = targ.style.display;
 // none に設定して非表示
   tables[0].style.display = 'none';
   tables[1].style.display = 'none';
-
+  targ.style.display ="none"
   function tr_create(wor,x) {
     for (var i = 0; i < wor.length; i++) {
     var tr = document.createElement('tr');
@@ -104,12 +107,15 @@
   }
 
   function updateTarget() {
-    let placeholder =" ";
+    let placeholder ="";
     for (let i = cnt; i > 0; i--) {
       placeholder += '_';
     }
     text.textContent = word[1]
     target.textContent = plusword + placeholder ;
+    if (placeholder.length==word[0].length){
+      $('#targ').val('');
+    }
   }
 
   function for_base(para) {
@@ -200,6 +206,7 @@
     isPlaying = true;
     createbotan("next")
     createbotan("reset")
+    targ.style.display = displayOrigin;
     loc = 0;
     score = 0;
     miss = 0;
@@ -221,6 +228,7 @@
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
             plus(list,word)
+            $('#targ').val('');
             word = words[Math.floor(Math.random() * words.length)];
             total_count --;
             total.textContent = total_count;

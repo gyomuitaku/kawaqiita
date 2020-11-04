@@ -14,4 +14,10 @@ class Fileloader
         return xlsx
     end
 
+    def self.dictionary
+        files = []
+        files.push(Roo::OpenOffice.new('./word/toeic2000.ods'))
+        files.push(Roo::OpenOffice.new('./word/deep.ods'))
+        files.push(Roo::OpenOffice.new('./word/novel.ods'))
+    end
 end
