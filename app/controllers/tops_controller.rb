@@ -3,36 +3,13 @@ class TopsController < ApplicationController
   def home
   end
 
-  def top
-    @xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
-    @xlsx.default_sheet = @xlsx.sheets[0]
-    @lines = Fileloader.get_lines(0)
-  end
-
   def quiz
     quiz_level = 1
     user_id = current_user ? current_user.id : nil
     @test = ["level" => 1,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
     gon.test = @test
-    # select_file = params[:select_file].to_i
-    # select_num = params[:select_num].to_i
-    # quiz_type = params[:quiz_type].to_i
-
     # 単語の選択
     gon.questions = Quiz.select_question_type(params[:select_num], params[:quiz_type], params[:select_file])
-
-    # if select_num != 0
-    #   if quiz_type == 0
-    #     gon.questions = Quiz.generate(select_num, select_num+99, select_file)
-    #   elsif quiz_type == 1
-    #     gon.questions = Quiz.generate(select_num, select_num+499, select_file)
-    #   else
-    #     gon.questions = Quiz.generate(2, 2001, select_file)
-    #   end
-    # else
-    #   gon.questions = Quiz.generate(2, 2001, select_file)
-    # end
-
   end
 
   def select
@@ -40,16 +17,7 @@ class TopsController < ApplicationController
   end
 
   def kakutan
-    @lines = Fileloader.get_lines(0)
-    word_set = []
-    for i in 2..@lines.last_row-1 do
-      if i % 2 == 0
-        word_set.push([@lines.row(i)[1], @lines.row(i)[2], @lines.row(i+1)[1], @lines.row(i+1)[2]])
-      end
-    end
-    word_set_shuffle = word_set.shuffle
-
-    @word_sets = word_set_shuffle[Range.new(0, 249)]
+    @word_sets = Fileloader.pdf_words(params[:select_num], params[:word_range], params[:select_file])
     @select_num_array = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     @selected_num = ''
   end
