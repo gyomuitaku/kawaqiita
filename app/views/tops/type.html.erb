@@ -2,7 +2,7 @@
   <div class="container-fluid top-type">
     <p id="text" class="top-var">typing question</p>
     <%# <input type="text" name="name"> %>
-    <input type="text" id="targ" name="target" value="" style="display: block; margin: 0 auto; color: rgb(0, 0, 0);">
+    <%# <input type="text" id="targ" name="target" value="" style="display: block; margin: 0 auto; color: rgb(0, 0, 0);"> %>
     <p id="target"></p>
     <div class="row row1_1">
       <div class="col-4">
@@ -54,11 +54,11 @@
   let miss;
   let plusword;
   let apple;
-  this.playing = false;
+  Playing = false;
   let total_count;
   let list;
   const target = document.getElementById('target');
-  const targ = document.getElementById('targ');
+  // const targ = document.getElementById('targ');
   const target1 = document.getElementById('target1');
   const target2 = document.getElementById('target2');
   const target3 = document.getElementById('target3');
@@ -83,11 +83,11 @@
   // 現在の display プロパティの値を保持
   const displayOriginal = tables[0].style.display;
   const displayOrigina = tables[1].style.display;
-  const displayOrigin = targ.style.display;
+  // const displayOrigin = targ.style.display;
 // none に設定して非表示
   tables[0].style.display = 'none';
   tables[1].style.display = 'none';
-  targ.style.display ="none"
+  // targ.style.display ="none"
   function tr_create(wor,x) {
     for (var i = 0; i < wor.length; i++) {
     var tr = document.createElement('tr');
@@ -113,9 +113,9 @@
     }
     text.textContent = word[1]
     target.textContent = plusword + placeholder ;
-    if (placeholder.length==word[0].length){
-      $('#targ').val('');
-    }
+    // if (placeholder.length==word[0].length){
+    //   $('#targ').val('');
+    // }
   }
 
   function for_base(para) {
@@ -128,7 +128,7 @@
   function updateTimer() {
 
     if (total_count <= 0) {
-      this.playing = true;
+      Playing = true;
 
       target.textContent = 'F I N I S H';
       total.textContent = total_count;
@@ -140,7 +140,7 @@
       // 元に戻して表示
       tables[0].style.display = displayOriginal;
       tables[1].style.display = displayOriginal;
-      targ.style.display ="none"
+      // targ.style.display ="none"
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
       // const ro1 = document.getElementsByClassName('row1_1');
@@ -175,39 +175,39 @@
     lists.push(word)
   }
 
-  // function gameEnd() {
-  //   let appai =[]
-  //   let miss =[]
-  //   for (let i=0;i<apple.length;i++){
-  //      appai =apple[i]
-  //     $.ajax({
-  //       url: '/type/results',
-  //       type: 'POST',
-  //       data: {
-  //         results: appai
-  //       }
-  //     })
-  //   }
-  //   for (let i=0;i<list.length;i++){
-  //      miss =list[i]
-  //     $.ajax({
-  //       url: '/type/results',
-  //       type: 'POST',
-  //       data: {
-  //         miss: miss
-  //       }
-  //     })
-  //   }
+  function gameEnd() {
+    let appai =[]
+    let miss =[]
+    for (let i=0;i<apple.length;i++){
+       appai =apple[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          results: appai
+        }
+      })
+    }
+    for (let i=0;i<list.length;i++){
+       miss =list[i]
+      $.ajax({
+        url: '/type/results',
+        type: 'POST',
+        data: {
+          miss: miss
+        }
+      })
+    }
 
-  // }
+  }
   function starts() {
-    if (this.playing === true) {
+    if (Playing === true) {
       return;
     }
-    this.playing = true;
+    Playing = true;
     createbotan("next")
     createbotan("reset")
-    targ.style.display = displayOrigin;
+    // targ.style.display = displayOrigin;
     loc = 0;
     score = 0;
     miss = 0;
@@ -225,11 +225,11 @@
     target2.style.display ="none";
     target3.style.display ="none";
     updateTarget()
-    if (this.playing!==false){
+    if (Playing!==false){
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
             plus(list,word)
-            $('#targ').val('');
+            // $('#targ').val('');
             word = words[Math.floor(Math.random() * words.length)];
             total_count --;
             total.textContent = total_count;
@@ -262,7 +262,7 @@
       }, false);
 
   window.addEventListener('keydown', e => {
-    if (this.playing !== true) {
+    if (Playing !== true) {
       return;
     }
     if (e.key === word[0][loc]) {
