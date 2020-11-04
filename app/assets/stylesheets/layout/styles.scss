@@ -1467,10 +1467,10 @@ h6 {
   /* 100vhで、画面の高さいっぱい */
 }
 
-#container {
+.slide-container {
   position: relative;
   width: 100%;
-  min-height: 120vh;
+  min-height: 60vh;
   overflow: hidden;
   clear: left;
 }
