@@ -50,7 +50,8 @@
 	font-size: 18px;
 	border-radius: 0;
 	border: none;
-	border-bottom: 1px solid rgba(0,0,0, 0.3);
+	color: rgba(255,255,255, 0.9);
+	border-bottom: 1px solid rgba(255,255,255, 0.9);
 }
 .cp_sl06:focus {
 	outline: none;
@@ -177,5 +178,28 @@
 }
 
 .navbar-light {
-	opacity: 0.01;
+	width: 80%;
+	background-color:rgba(255,255,255,0.3);
+}
+
+.page {
+	margin-top: 60px;
+}
+
+@media screen and (max-width: 1200px){
+	.top-kakutan {
+	    min-height: 250vh;
+	}
+
+	.btn-flat {
+	    width: 50%;
+	}
+
+	.cp-sl06 {
+	    width: 50%;
+	}
+
+	.cp_ipselect {
+		width: 50%;
+	}
 }
