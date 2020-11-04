@@ -44,8 +44,6 @@ class Quiz
         else
             questions = self.generate(2, 2001, select_file)
         end
-
-        byebug
         questions
     end
 

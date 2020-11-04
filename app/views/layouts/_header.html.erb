@@ -20,6 +20,12 @@
                     </li>
                     <% if user_signed_in? %>
                         <li class="nav-item mr-4 mb-2 mb-lg-0">
+                            <%= link_to select_path, class: "nav-link" do %>
+                                <i class="fas fa-cube u-font-size-90 mr-1"></i>
+                                select
+                            <% end %>
+                        </li>
+                        <li class="nav-item mr-4 mb-2 mb-lg-0">
                             <%= link_to user_path(current_user), class: "nav-link" do %>
                                 <i class="fas fa-cube u-font-size-90 mr-1"></i>
                                 My Page

@@ -3,13 +3,17 @@
         <div class=" ">
             <div id="sceneTop" class="top screen">
                 <div class="my-5">
-                    <% if params[:select_num].to_i != 0 %>
-                        <h1><%= params[:select_num].to_i - 2 %>
+                    <h1>
+                        <% if @test %>
+                            進級テスト
+                            <% elsif params[:select_num].to_i != 0 %>
+                            <%= params[:select_num].to_i - 2 %>
                             ~
-                            <%= params[:select_num].to_i +  400 * params[:quiz_type].to_i + 98 %></h1>
-                    <% else %>
-                        <h1>0 ~ 100</h1>
-                    <% end %>
+                            <%= params[:select_num].to_i +  400 * params[:quiz_type].to_i + 98 %>
+                        <% else %>
+                            0 ~ 100
+                        <% end %>
+                    </h1>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
@@ -29,7 +33,7 @@
                     </div>
                     <div class="col-sm-4 offset-sm-4" id="testbtn">
                         <div class="wrapper_quiz">
-                            <a id="btnStart-50" class="button_quiz">テストスタート！</a>
+                            <a id="btnStart-50" class="button_quiz">テスト開始</a>
                         </div>
                     </div>
 
@@ -43,15 +47,19 @@
             </div>
 
             <section id="result" class="hidden">
-                <p></p>
+                <p class="btn" id="resultText"></p>
+                <p id="resultScore"></p>
+                <button id="btnResult" class="btn btn-outline-dark mt-6" role="button">結果を見る</button>
             </section>
 
-            <div id="sceneResult" class="result screen">
-                <button id="btnResult" class="btn btn-outline-dark mt-6" role="button">結果を見る</button>
+            <div
+                id="sceneResult" class="result screen"><%# <button id="btnResult" class="btn btn-outline-dark mt-6" role="button">結果を見る</button> %>
             </div>
             <div class="container-fluid">
-                <section id="indexResult" class="text-center">
-                    <a href="#" class="btn btn-outline-dark mb-3" role="button">Reset</a>
+                <section
+                    id="indexResult" class="text-center">
+                    <%#　間違えた問題をもう一度行えればなお良い！ %>
+                    <a href="#" class="btn btn-outline-dark mb-3" role="button">Retry!</a>
                     <table border="1" id="targetTable" class="table tbl-r05">
                         <tr class="thead">
                             <td>問題No</td>
@@ -73,7 +81,6 @@
         font-family: Verdana, sans-serif;
     }
 </style>
-
 <script>
     (function () {
             let table = document.getElementById("targetTable");
@@ -88,10 +95,11 @@
             const btnStart100 = document.getElementById("btnStart-100");
             const btnResult = document.getElementById("btnResult");
             const indexResult = document.getElementById("indexResult");
+            const resultText = document.getElementById("resultText");
             const testBtn = document.getElementById("testbtn");
             const btn = document.getElementById('btn');
             const result = document.getElementById('result');
-            const scoreLabel = document.querySelector('#result > p');
+            const scoreLabel = document.getElementById('resultScore');
             let isAnswered;
             // use gon
             const question = gon.questions;
@@ -109,7 +117,7 @@
                 this.user_answer = user_answer;
                 this.answer = answer;
                 this.status = 0;
-                this.user_id = gon.user_id;
+                this.user_id = gon.test[2];
             }
 
             let quizResults = [];
@@ -131,7 +139,7 @@
                     btnStart100.classList.add('hidden');
                     testbtn.classList.remove('hidden');
                     testBtn.addEventListener("click", {
-                        count: 50,
+                        count: 5,
                         handleEvent: gameStart
                     }, false);
 
@@ -244,27 +252,35 @@
 
 
                 function gameEnd() {
-                    scoreLabel.textContent = `Score: ${
+                    if (gon.test) {
+                        resultText.textContent = (state.success >= 4) ? "合格！" : "不合格";
+                        (state.success >= 4) ? resultText.classList.add("btn-outline-success") : resultText.classList.add("btn-outline-warning");
+                        if (gon.test[0]["user_id"] && state.success >= 4) {
+                            $.ajax({
+                                // 実行したいactionへのpathに置き換えてください。
+                                // 例えば users_controller の create アクションなどの場合は
+                                // /users/create などとなると思います。
+                                url: '/user',
+                                // GET, POST, PUT, DELETEなどを設定します。
+                                type: 'POST',
+                                // urlにつけるパラメータを指定します。
+                                data: {
+                                    // JSの変数の中のデータをRailsに渡します。
+                                    // Rails からは parmas[:hoge] で受け取れます。
+                                    datas: gon.test
+                                }
+                            })
+                        }
+                    }
+                    let insertText = `Score: ${
                         state.success
                     } / ${
                         state.totalCount
                     }`;
+                    scoreLabel.textContent = insertText
                     result.classList.remove('hidden');
+
                     changeScene(sceneGame, sceneResult);
-                    // $.ajax({
-                    // // 実行したいactionへのpathに置き換えてください。
-                    // // 例えば users_controller の create アクションなどの場合は
-                    // // /users/create などとなると思います。
-                    // url: '/results',
-                    // // GET, POST, PUT, DELETEなどを設定します。
-                    // type: 'POST',
-                    // // urlにつけるパラメータを指定します。
-                    // data: {
-                    //     // JSの変数の中のデータをRailsに渡します。
-                    //     // Rails からは parmas[:hoge] で受け取れます。
-                    //     quizResults: quizResults
-                    // },
-                    // })
 
                     btnResult.addEventListener("click", {
                         viewQuizResults: quizResults,
