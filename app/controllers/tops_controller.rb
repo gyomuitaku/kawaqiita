@@ -4,9 +4,9 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    quiz_level = 1
+    quiz_level = params[:level]
     user_id = current_user ? current_user.id : nil
-    @test = ["level" => 1,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
+    @test = ["level" => quiz_level,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
     gon.test = @test
     # 単語の選択
     gon.questions = Quiz.select_question_type(params[:select_num], params[:quiz_type], params[:select_file])
@@ -14,6 +14,7 @@ class TopsController < ApplicationController
 
   def select
     @dec = Fileloader.dictionary
+    gon.user_level_array = current_user ? {"toeic"=>current_user.toeic_status,"novel"=>current_user.novel_status,"paper"=>current_user.paper_status} : 0
   end
 
   def kakutan
