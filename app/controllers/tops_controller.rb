@@ -10,6 +10,7 @@ class TopsController < ApplicationController
   end
 
   def quiz
+
     select_file = params[:select_file].to_i
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
@@ -25,9 +26,11 @@ class TopsController < ApplicationController
       gon.questions = Quiz.generate(2, 2001, select_file)
     end
     gon.user_id = current_user ? current_user.id : nil
+
   end
 
   def select
+    @dec = Fileloader.dictionary
   end
 
   def kakutan
@@ -39,7 +42,14 @@ class TopsController < ApplicationController
       end
     end
     word_set_shuffle = word_set.shuffle
+<<<<<<< HEAD
     @word_sets = word_set_shuffle[Range.new(0, 249)]
+=======
+
+    @word_sets = word_set_shuffle[Range.new(0, 249)]
+    @select_num_array = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    @selected_num = ''
+>>>>>>> origin/develop
   end
 
   def type

@@ -1,5 +1,3 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
@@ -62,7 +60,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'roo'
 gem 'gon'
-gem 'jquery-rails'
 gem 'prawn'
 gem 'prawn-table'
 gem 'kaminari'

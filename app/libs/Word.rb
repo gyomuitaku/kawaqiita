@@ -17,4 +17,5 @@ class Word
         end
         words
     end
+
 end
