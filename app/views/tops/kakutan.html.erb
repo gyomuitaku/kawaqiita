@@ -19,10 +19,10 @@
 							<tbody>
 								<% for j in 0..24 do %>
 									<tr>
-									    <td class="td_first"><%= @word_sets[j][0] %></td>
-										<td class="td_second"><%= @word_sets[j][1] %></td>
-										<td class="td_first"><%= @word_sets[j][2] %></td>
-										<td class="td_second"><%= @word_sets[j][3] %></td>
+									    <td class="td_first"><%= @word_sets[j*2][0] %></td>
+										<td class="td_second"><%= @word_sets[j*2][1] %></td>
+										<td class="td_first"><%= @word_sets[j*2+1][0] %></td>
+										<td class="td_second"><%= @word_sets[j*2+1][1] %></td>
 									</tr>
 								<% end %>
 							</tbody>
@@ -43,10 +43,10 @@
 								<tbody>
 									<% for j in 0..24 do %>
 										<tr>
-										    <td class="td_first"><%= @word_sets[j+(i-1)*25][0] %></td>
-											<td class="td_second"><%= @word_sets[j+(i-1)*25][1] %></td>
-											<td class="td_first"><%= @word_sets[j+(i-1)*25][2] %></td>
-											<td class="td_second"><%= @word_sets[j+(i-1)*25][3] %></td>
+										    <td class="td_first"><%= @word_sets[j*2+(i-1)*25][0] %></td>
+											<td class="td_second"><%= @word_sets[j*2+(i-1)*25][1] %></td>
+											<td class="td_first"><%= @word_sets[j*2+1+(i-1)*25][0] %></td>
+											<td class="td_second"><%= @word_sets[j*2+1+(i-1)*25][1] %></td>
 										</tr>
 									<% end %>
 								</tbody>
@@ -62,10 +62,10 @@
 	        <%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
 			    <% for i in 1..10 %>
 				    <% for j in 0+(i-1)*25..24+(i-1)*25 do %>
-						<%= f.hidden_field "word_set[words][][english_first]", :value => @word_sets[j][0] %>
-						<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_sets[j][1] %>
-						<%= f.hidden_field "word_set[words][][english_second]", :value => @word_sets[j][2] %>
-						<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_sets[j][3] %>
+						<%= f.hidden_field "word_set[words][][english_first]", :value => @word_sets[j*2][0] %>
+						<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_sets[j*2][1] %>
+						<%= f.hidden_field "word_set[words][][english_second]", :value => @word_sets[j*2+1][0] %>
+						<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_sets[j*2+1][1] %>
 					<% end %>
 				<% end %>
 				<div class="cp_ipselect">
