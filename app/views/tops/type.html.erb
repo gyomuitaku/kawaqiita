@@ -175,31 +175,31 @@
     lists.push(word)
   }
 
-  function gameEnd() {
-    let appai =[]
-    let miss =[]
-    for (let i=0;i<apple.length;i++){
-       appai =apple[i]
-      $.ajax({
-        url: '/type/results',
-        type: 'POST',
-        data: {
-          results: appai
-        }
-      })
-    }
-    for (let i=0;i<list.length;i++){
-       miss =list[i]
-      $.ajax({
-        url: '/type/results',
-        type: 'POST',
-        data: {
-          miss: miss
-        }
-      })
-    }
+  // function gameEnd() {
+  //   let appai =[]
+  //   let miss =[]
+  //   for (let i=0;i<apple.length;i++){
+  //      appai =apple[i]
+  //     $.ajax({
+  //       url: '/type/results',
+  //       type: 'POST',
+  //       data: {
+  //         results: appai
+  //       }
+  //     })
+  //   }
+  //   for (let i=0;i<list.length;i++){
+  //      miss =list[i]
+  //     $.ajax({
+  //       url: '/type/results',
+  //       type: 'POST',
+  //       data: {
+  //         miss: miss
+  //       }
+  //     })
+  //   }
 
-  }
+  // }
   function starts() {
     if (this.playing === true) {
       return;
