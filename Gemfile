@@ -68,6 +68,6 @@ gem 'devise'
 gem 'bootstrap', '~> 4.5'
 # mysql2 is necessary for beanstalk
 
-# gem "mysql2"
-# gem "mini_racer"
+gem "mysql2"
+gem "mini_racer"
 gem 'jquery-rails'
