@@ -32,6 +32,10 @@ class TopsController < ApplicationController
         gon.questions = Quiz.type(select_num, select_num+99, select_file)
       elsif quiz_type == 1
         gon.questions = Quiz.type(select_num, select_num+499, select_file)
+      elsif quiz_type == 2
+        gon.questions = Quiz.type(select_num, select_num+999, select_file)
+      elsif quiz_type == 3
+        gon.questions = Quiz.type(2, 2001, select_file)
       else
         gon.questions = Quiz.type(2, 2001, select_file)
       end
