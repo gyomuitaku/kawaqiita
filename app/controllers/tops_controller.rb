@@ -10,9 +10,9 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    quiz_level = 1
+    quiz_level = params[:level]
     user_id = current_user ? current_user.id : nil
-    @test = ["level" => 1,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
+    @test = ["level" => quiz_level,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
     gon.test = @test
     # select_file = params[:select_file].to_i
     # select_num = params[:select_num].to_i
