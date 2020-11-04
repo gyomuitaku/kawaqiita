@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post 'word/json' => "word_sets#create"
   post 'translation' =>"translations#count"
   post "user" => "users#update"
+
+
+  get '*path', controller: 'application', action: 'render_404'
 end
