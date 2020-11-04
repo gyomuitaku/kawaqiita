@@ -1471,8 +1471,22 @@ h6 {
   position: relative;
   width: 100%;
   min-height: 60vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-x: auto;
   clear: left;
+}
+
+.btn-outline-success {
+  color: #28a745 !important;
+  &:hover {
+    color: white !important;
+  }
+}
+.btn-outline-warning {
+  color: #ffc107 !important;
+  &:hover {
+    color: white !important;
+  }
 }
 
 .selected {

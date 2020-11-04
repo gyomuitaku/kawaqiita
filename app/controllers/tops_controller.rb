@@ -10,7 +10,9 @@ class TopsController < ApplicationController
   end
 
   def quiz
-    @test = [1,params[:select_file].to_i] if params[:test]
+    quiz_level = 1
+    user_id = current_user ? current_user.id : nil
+    @test = ["level" => 1,"quiz_file"=> params[:select_file], "user_id"=>user_id] if params[:test]
     gon.test = @test
     # select_file = params[:select_file].to_i
     # select_num = params[:select_num].to_i
@@ -30,7 +32,6 @@ class TopsController < ApplicationController
     # else
     #   gon.questions = Quiz.generate(2, 2001, select_file)
     # end
-    gon.user_id = current_user ? current_user.id : nil
 
   end
 
