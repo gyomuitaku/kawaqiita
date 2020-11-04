@@ -54,7 +54,7 @@
   let miss;
   let plusword;
   let apple;
-  let isPlaying = false;
+  this.playing = false;
   let total_count;
   let list;
   const target = document.getElementById('target');
@@ -128,7 +128,7 @@
   function updateTimer() {
 
     if (total_count <= 0) {
-      isPlaying = true;
+      this.playing = true;
 
       target.textContent = 'F I N I S H';
       total.textContent = total_count;
@@ -140,6 +140,7 @@
       // 元に戻して表示
       tables[0].style.display = displayOriginal;
       tables[1].style.display = displayOriginal;
+      targ.style.display ="none"
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
       const ro1 = document.getElementsByClassName('row1_1');
@@ -200,10 +201,10 @@
 
   }
   function starts() {
-    if (isPlaying === true) {
+    if (this.playing === true) {
       return;
     }
-    isPlaying = true;
+    this.playing = true;
     createbotan("next")
     createbotan("reset")
     targ.style.display = displayOrigin;
@@ -224,7 +225,7 @@
     target2.style.display ="none";
     target3.style.display ="none";
     updateTarget()
-    if (isPlaying!==false){
+    if (this.playing!==false){
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
             plus(list,word)
@@ -261,7 +262,7 @@
       }, false);
 
   window.addEventListener('keydown', e => {
-    if (isPlaying !== true) {
+    if (this.playing !== true) {
       return;
     }
     if (e.key === word[0][loc]) {

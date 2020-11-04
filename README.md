@@ -6,9 +6,9 @@ application up and running.
 Things you may want to cover:
 
 - Ruby version
-  2.6.6
+2.6
 - System dependencies
-  ElasticBeanstalk
+
 - Configuration
 
 - Database creation
