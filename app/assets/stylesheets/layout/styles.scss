@@ -1475,6 +1475,19 @@ h6 {
   clear: left;
 }
 
+.btn-outline-success {
+  color: #28a745 !important;
+  &:hover {
+    color: white !important;
+  }
+}
+.btn-outline-warning {
+  color: #ffc107 !important;
+  &:hover {
+    color: white !important;
+  }
+}
+
 .selected {
   background-color: black;
   color: white;
