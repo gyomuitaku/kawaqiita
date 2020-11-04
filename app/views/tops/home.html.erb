@@ -1,3 +1,106 @@
-<div class="container">
-  <%= link_to "新規登録",new_user_registration_path%>
+<style>
+  #main-visual>.row {
+    min-height: 80vh;
+  }
+
+  .top-bg-img {
+    background-size: cover;
+  }
+
+  #main-content>.row {
+    min-height: 50vh;
+  }
+
+  #explanation>.row {
+    min-height: 25vh;
+  }
+
+  .footer {
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+  }
+
+  .container-footer {
+    width: 100%;
+    max-width: 680px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  .container-footer .text-muted {
+    margin: 20px auto;
+  }
+</style>
+
+<section id="main-visual" class="text-center bg-success">
+  <div class="row">
+    <div class="col-sm-5 align-self-center">
+      <h1>Text Text Text Text Text Text Text Text Text Text Text Text Text Text</h1>
+      <p>Text Text Text Text Text Text</p>
+      <%= link_to "Text", select_path, class: "btn btn-info" %><br>
+      <%= link_to  "text", root_path %> <%= link_to  "text", root_path %>
+    </div>
+    <div class="col-sm-7 top-bg-img">
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+  <section id="main-content" class="my-3">
+    <h1 class="text-center my-5">Text Text Text Text Text Text Text Text</h1>
+    <div class="row my-5">
+      <div class="col-sm-6 top-bg-img"></div>
+      <div class="col-sm-6 align-self-center text-center">
+        <h2>4択クイズ</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-6 align-self-center text-center">
+        <h2>タイピングテスト</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+      <div class="col-sm-6 top-bg-img"></div>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-6 top-bg-img"></div>
+      <div class="col-sm-6 align-self-center text-center">
+        <h2>pdf印刷</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+    </div>
+  </section>
+  <section id="explanation" class="my-3">
+    <h1 class="my-5 text-center">仕様技術</h1>
+    <div class="row">
+      <div class="col-sm-3 top-bg-img"></div>
+      <div class="col-sm-9 align-self-center">
+        <h2>機械学習について</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 top-bg-img"></div>
+      <div class="col-sm-9 align-self-center">
+        <h2>単語集が選択可能</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 top-bg-img"></div>
+      <div class="col-sm-9 align-self-center">
+        <h2>進級テストによるモチベーション</h2>
+        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+      </div>
+    </div>
+  </section>
 </div>
+<footer class="footer bg-dark">
+  <div class="container-footer">
+    <p class="text-muted text-center">Place sticky footer content here.</p>
+  </div>
+</footer>
+<script>
+  $('nav').removeClass('fixed-top');
+  $('nav').addClass("bg-dark");
+</script>

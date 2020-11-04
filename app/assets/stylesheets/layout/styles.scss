@@ -1467,10 +1467,10 @@ h6 {
   /* 100vhで、画面の高さいっぱい */
 }
 
-#container {
+.slide-container {
   position: relative;
   width: 100%;
-  height: 1000px;
+  min-height: 60vh;
   overflow: hidden;
   clear: left;
 }
@@ -1497,11 +1497,8 @@ h6 {
   white-space: nowrap;
   position: absolute;
   width: 100%;
-  height: 1000px;
-
-  line-height: 200px;
   text-align: center;
-  font-size: 28pt;
+  font-size: 11pt;
   cursor: pointer;
 }
 #slide1 {
