@@ -6,7 +6,7 @@ class TopsController < ApplicationController
   def top
     @xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
     @xlsx.default_sheet = @xlsx.sheets[0]
-    @lines = Fileloader.get_lines
+    @lines = Fileloader.get_lines(0)
   end
 
   def quiz
@@ -26,9 +26,11 @@ class TopsController < ApplicationController
       gon.questions = Quiz.generate(2, 2001, select_file)
     end
     gon.user_id = current_user ? current_user.id : nil
+
   end
 
   def select
+    @dec = Fileloader.dictionary
   end
 
   def kakutan
