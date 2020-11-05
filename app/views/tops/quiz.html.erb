@@ -60,7 +60,12 @@
                 <section
                     id="indexResult" class="text-center">
                     <%#　間違えた問題をもう一度行えればなお良い！ %>
-                    <a href="#" class="btn btn-outline-dark mb-3" role="button">Retry!</a>
+                    <div class="row h-auto mb-2">
+                        <a id="retry-quiz" class="btn btn-outline-dark text-right">
+                            間違えた問題だけ再テスト
+                        </a>
+                        <a href="#" class="btn btn-outline-dark">別の問題</a>
+                    </div>
                     <table border="1" id="targetTable" class="table tbl-r05">
                         <tr class="thead">
                             <td>問題No</td>
@@ -103,13 +108,16 @@
             const indexResult = document.getElementById("indexResult");
             const resultText = document.getElementById("resultText");
             const testBtn = document.getElementById("testbtn");
+            const retryQuiz = document.getElementById("retry-quiz");
             const btn = document.getElementById('btn');
             const current_quiz_No = document.getElementById('current_quiz_No');
             const result = document.getElementById('result');
             const scoreLabel = document.getElementById('resultScore');
             let isAnswered;
+            let isSetting = 0
+
             // use gon
-            const question = gon.questions;
+            let question = gon.questions;
 
             let state = {
                 answer: "",
@@ -127,14 +135,21 @@
                 this.user_id = gon.test ? gon.test[2] : 1;
             }
 
+            let failedQuiz = function (text, choice, answer) {
+                this.text = text;
+                this.choice = choice;
+                this.answer = answer;
+            }
+            let retryArray = [];
             let quizResults = [];
+
             // -------------------------------------------------
             function init() {
                 state.gameCount = 0;
                 state.success = 0;
                 state.totalCount = 0;
                 state.correctInArray = [];
-
+                btn.textContent = 'Next'
                 changeScene(sceneResult, sceneTop);
                 result.classList.add('hidden');
                 table.classList.add('hidden');
@@ -208,6 +223,10 @@
                     quiz.status = 1;
                 } else {
                     incorrectAnswer(choice, question.answer);
+                    // generate retryquiz
+                    let failedquiz = new failedQuiz(question.text, question.choice, question.answer);
+                    retryArray.push(failedquiz);
+
                     quiz.status = 0;
                 } state.gameCount ++;
                 quizResults.push(quiz)
@@ -232,14 +251,14 @@
                         showQuestion();
                         choiceQuestion();
                     }
-                })
+                }) 
 
 
                     function correctAnswer(choice) {
                         state.success ++;
                         choice.classList.add('correct');
                     }
-
+                
 
 
                 function incorrectAnswer(choice, answer) {
@@ -289,21 +308,23 @@
                     }`;
                     scoreLabel.textContent = insertText
                     result.classList.remove('hidden');
-
+                    btnResult.classList.remove('hidden')
                     changeScene(sceneGame, sceneResult);
-
-                    btnResult.addEventListener("click", {
-                        viewQuizResults: quizResults,
-                        handleEvent: showResult
-                    }, false);
+                    if (isSetting === 0) {
+                        btnResult.addEventListener("click", {
+                            viewQuizResults: quizResults,
+                            handleEvent: showResult
+                        }, false);
+                        isSetting = 1
+                    }
                 }
 
 
                 function showResult(e) {
                     let str = "";
-                    for (let i = 0; i < this.viewQuizResults.length; i++) {
-                        for (let key in this.viewQuizResults[i]) {
-                            str += this.viewQuizResults[i][key] + ",";
+                    for (let i = 0; i < quizResults.length; i++) {
+                        for (let key in quizResults[i]) {
+                            str += quizResults[i][key] + ",";
                         }
                     };
                     result.classList.add('hidden');
@@ -340,6 +361,34 @@
                             newCell.appendChild(newText);
                         };
                     };
+                    // 間違えた問題をやり直す
+                    retryQuiz.classList.remove("hidden");
+                    if ((quiz_element.length - 1) / 5 === state.success) {
+                        retryQuiz.classList.add("hidden");
+                    } else if (isSetting === 1) {
+                        retryQuiz.addEventListener("click", {
+                            retryQuizs: retryArray,
+                            handleEvent: retryQuizFunc
+                        }, false);
+                        isSetting = 2;
+                    }
+
+
+                    function retryQuizFunc(e) {
+                        for (let i = 0; i < state.totalCount; i++) {
+                            table.deleteRow(state.totalCount - i);
+                        };
+
+                        init()
+                        state.totalCount = retryArray.length;
+                        question = retryArray
+
+                        retryArray = [];
+                        quizResults = [];
+                        changeScene(sceneTop, sceneGame);
+                        showQuestion();
+                        choiceQuestion();
+                    }
                 };
 
                 init();
