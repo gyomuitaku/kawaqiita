@@ -19,28 +19,26 @@
   border: 1px solid black !important;
   background-color: rgba(255, 255, 255, 0.6);
 }
-.row{
-  height: 16vh !important;
-}
-.row1_1{
+
+.row1_1 {
   height: 0 !important;
 }
-.row1_3{
+.row1_3 {
   display: block !important;
   line-height: 13;
-  }
-.row1_2{
+}
+.row1_2 {
   height: 16vh !important;
   display: block;
-  margin-top:20px !important;
+  margin-top: 20px !important;
 }
 
-.top-var{
+.top-var {
   display: inline-block;
   margin-bottom: 30px;
 }
-.bottan{
-  margin:50px !important;
+.bottan {
+  margin: 50px !important;
 }
 
 .top-var {
@@ -50,7 +48,7 @@
 
 #info {
   color: black;
-  margin-top:60px;
+  margin-top: 60px;
   display: block;
   margin-top: 60px;
 }
@@ -78,8 +76,8 @@
 #text {
   font-size: 75px;
   letter-spacing: 3px;
-  font-family:cursive;
-  color:#444444	;
+  font-family: cursive;
+  color: #444444;
   margin: 40px;
   font-family: cursive;
   color: #444444;
@@ -101,8 +99,8 @@
   #text {
     font-size: 55px;
     letter-spacing: 0;
-    font-family:cursive;
-    color:#444444	;
+    font-family: cursive;
+    color: #444444;
     font-family: cursive;
     color: #444444;
     margin-bottom: 40px;
@@ -113,21 +111,22 @@
     -ms-transform: translateY(0px);
     transform: translateY(0px);
   }
-  .bottan{
-    margin:30px!important;
+  .bottan {
+    margin: 30px !important;
   }
-
 }
 
 @media (max-width: 610px) {
-  #row_all1,#row_all2,#row_all3{
+  #row_all1,
+  #row_all2,
+  #row_all3 {
     height: 0 !important;
   }
   .row1_1 {
     height: 16vh !important;
     margin: 0 auto !important;
   }
-  .row1_3{
+  .row1_3 {
     height: 16vh !important;
     margin: 0 auto !important;
     line-height: 0;
@@ -137,7 +136,7 @@
     height: 16vh !important;
     margin: 0 auto !important;
   }
-  #text{
+  #text {
   }
 }
 
@@ -149,13 +148,12 @@
     color: #444444;
     margin-bottom: 40px;
   }
-  .bottan{
-    margin:0 auto !important;
-
+  .bottan {
+    margin: 0 auto !important;
   }
   #reset {
     font-size: 30px;
-    margin:30px 0;
+    margin: 30px 0;
     background-color: #333333;
     color: white;
   }
@@ -170,10 +168,10 @@
     line-height: 1em;
     display: block;
   }
-  #info{
+  #info {
     margin-top: 0 !important;
   }
-  #next{
+  #next {
     margin: 0px;
   }
   .info {
