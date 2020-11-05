@@ -11,6 +11,7 @@ class TopsController < ApplicationController
 
   def quiz
 
+
     select_file = params[:select_file].to_i
     select_num = params[:select_num].to_i
     quiz_type = params[:quiz_type].to_i
@@ -26,6 +27,7 @@ class TopsController < ApplicationController
       gon.questions = Quiz.generate(2, 2001, select_file)
     end
     gon.user_id = current_user ? current_user.id : nil
+
 
   end
 

@@ -54,7 +54,8 @@
   let miss;
   let plusword;
   let apple;
-  Playing = false;
+  let Playing = false;
+
   let total_count;
   let list;
   const target = document.getElementById('target');
@@ -205,6 +206,7 @@
       return;
     }
     Playing = true;
+
     createbotan("next")
     createbotan("reset")
     // targ.style.display = displayOrigin;
@@ -226,6 +228,7 @@
     target3.style.display ="none";
     updateTarget()
     if (Playing!==false){
+
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
             plus(list,word)
@@ -263,6 +266,7 @@
 
   window.addEventListener('keydown', e => {
     if (Playing !== true) {
+
       return;
     }
     if (e.key === word[0][loc]) {

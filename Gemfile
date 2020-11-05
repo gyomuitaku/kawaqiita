@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
@@ -68,6 +70,13 @@ gem "jquery-rails"
 # this gem is expected to change
 gem 'bootstrap', '~> 4.5'
 # mysql2 is necessary for beanstalk
-# gem "mysql2"
+# # gem "mysql2"
 
+# # gem "mini_racer"
+
+# gem "mysql2"
 # gem "mini_racer"
+gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'

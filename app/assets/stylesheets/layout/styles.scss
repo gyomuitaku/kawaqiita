@@ -123,8 +123,12 @@ li {
   transform: translateY(-500px);
 }
 
+#btnStart-10.hidden,
+#btnStart-30.hidden,
+#btnStart-100.hidden,
 #targetTable.hidden,
 #btnResult.hidden,
+#testBtn.hidden,
 #indexResult.hidden {
   display: none;
 }
@@ -1463,12 +1467,26 @@ h6 {
   /* 100vhで、画面の高さいっぱい */
 }
 
-#container {
+.slide-container {
   position: relative;
   width: 100%;
-  min-height: 120vh;
-  overflow: hidden;
+  min-height: 60vh;
+  overflow-x: hidden;
+  overflow-x: auto;
   clear: left;
+}
+
+.btn-outline-success {
+  color: #28a745 !important;
+  &:hover {
+    color: white !important;
+  }
+}
+.btn-outline-warning {
+  color: #ffc107 !important;
+  &:hover {
+    color: white !important;
+  }
 }
 
 .selected {

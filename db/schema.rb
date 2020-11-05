@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_082909) do
+ActiveRecord::Schema.define(version: 2020_11_05_062829) do
 
-  create_table "results", force: :cascade do |t|
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
     t.integer "user_id"
-    t.string "word", null: false
-    t.string "meaning", null: false
-    t.boolean "is_correct", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 2020_11_03_082909) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "toeic_status"
+    t.integer "novel_status"
+    t.integer "paper_status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
