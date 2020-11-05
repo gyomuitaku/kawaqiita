@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="back">
+  <div class="container-fluid topsa">
+    <div class="row">
+      <div class="col-lg-6" style="color:white;">
+        <h2>Sign up</h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Sign up" %>
+            </div>
+            <%= link_to "google",user_google_oauth2_omniauth_authorize_path,class:"color-white" %><br />
+            <%= link_to "Log in", new_session_path(resource_name) ,class:"color-white"%><br />
+          <% end %>
+      </div>
+      <div class="col-lg-6" style="color:white; margin-top:30px;">
+        <p>E-tanアプリを使用する際には登録が必要になります。<br>必要事項を記入して登録を行ってください。</p>
+        <p>Please fill in the necessary information and register ,<br>if playing this E-tan app. </p>
+      </div>
+   </div> 
   </div>
+</div>
+<style>
+.color-white{
+  color:white;
+}
+.color-white:hover{
+  color:black;
+}
+.topsa >.row{
+  height:auto;
+  padding:30px;
+  background-color: rgba(117 ,92 ,92 , 0.4);
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+}
+</style>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

@@ -1,8 +1,9 @@
 .top-type {
   background-image: image-url("img5.jpg");
   background-size: cover;
-  overflow: scroll;
-  // background-position: top;
+  background-attachment: fixed; 
+  position: relative;
+  background-position: 50% 0;
   min-height: 100vh;
   background-blend-mode: lighten;
   font-family: "Courier New", monospace;
@@ -19,9 +20,7 @@
   border: 1px solid black !important;
   background-color: rgba(255, 255, 255, 0.6);
 }
-.row{
-  height: 16vh !important;
-}
+
 .row1_1{
   height: 0 !important;
 }
@@ -50,9 +49,7 @@
 
 #info {
   color: black;
-  margin-top:60px;
   display: block;
-  margin-top: 60px;
 }
 #target {
   font-size: 48px;
@@ -124,12 +121,11 @@
     height: 0 !important;
   }
   .row1_1 {
-    height: 16vh !important;
     margin: 0 auto !important;
   }
   .row1_3{
-    height: 16vh !important;
     margin: 0 auto !important;
+    height: auto;
     line-height: 0;
     display: block;
   }
@@ -137,11 +133,6 @@
     height: 16vh !important;
     margin: 0 auto !important;
   }
-  #text{
-  }
-}
-
-@media (max-width: 610px) {
   #text {
     font-size: 55px;
     letter-spacing: 0;
@@ -171,13 +162,10 @@
     display: block;
   }
   #info{
-    margin-top: 0 !important;
+    margin-top: 25px !important;
   }
   #next{
     margin: 0px;
-  }
-  .info {
-    margin-top: 0;
   }
   #next {
     font-size: 37px;

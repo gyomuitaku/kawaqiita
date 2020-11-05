@@ -1,5 +1,5 @@
 class KakutanPdfsController < ApplicationController
-  def index
+def index
     data = []
     if params[:select_num].to_i == 0
       @page = 1
