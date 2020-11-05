@@ -41,6 +41,7 @@
             </div>
 
             <div id="sceneGame" class="game screen container">
+                <p id="current_quiz_No" class="border-bottom text-left">No. 1</p>
                 <p id="textQuestion"></p>
                 <ul id="listAnswer"></ul>
                 <div id="btn" class="disabled">Next</div>
@@ -69,6 +70,11 @@
                             <td>〇/✕</td>
                         </tr>
                     </table>
+                    <div class="text-right">
+                        <a class="btn btn-outline-dark text-right" href="/select">
+                            問題選択に戻る
+                        </a>
+                    </div>
                 </section>
             </div>
         </div>
@@ -98,6 +104,7 @@
             const resultText = document.getElementById("resultText");
             const testBtn = document.getElementById("testbtn");
             const btn = document.getElementById('btn');
+            const current_quiz_No = document.getElementById('current_quiz_No');
             const result = document.getElementById('result');
             const scoreLabel = document.getElementById('resultScore');
             let isAnswered;
@@ -117,7 +124,7 @@
                 this.user_answer = user_answer;
                 this.answer = answer;
                 this.status = 0;
-                this.user_id = gon.test[2];
+                this.user_id = gon.test ? gon.test[2] : 1;
             }
 
             let quizResults = [];
@@ -144,7 +151,7 @@
                     }, false);
 
                 } else {
-                    testbtn.classList.remove('hidden');
+                    testBtn.classList.add('hidden');
                     btnStart10.addEventListener("click", {
                         count: 10,
                         handleEvent: gameStart
@@ -174,6 +181,9 @@
                 });
                 textQuestion.innerHTML = question[state.gameCount].text;
                 listAnswer.innerHTML = str;
+                current_quiz_No.innerHTML = "No. " + (
+                    state.gameCount + 1
+                );
             }
 
             function choiceQuestion() {
