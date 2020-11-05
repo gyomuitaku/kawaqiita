@@ -43,22 +43,46 @@
     height: calc(70vh);
   }
 
+  .row {
+    height: auto;
+  }
+
   footer {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 50px;
     background-color: #5a5a5ad6;
   }
+
+  @media (max-width: 1095px) {
+    .slide-container {
+      min-height:170vh;
+    }
+  }
+  @media (max-width: 640px) {
+    .slide-container {
+      min-height:230vh;
+    }
+  }
+  @media (max-width: 380px) {
+    .tab {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 330px) {
+    .tab {
+      font-size: 10px;
+    }
+  }
+
 </style>
 <!-- Blockquotes -->
 <div class="container-fluid mt-6">
-  <div class="row">
-    <div class="col-12">
       <div class="tab-content" id="blockquotes-tabContent">
         <div class="tab-pane fade show active" id="blockquotes-left-1" role="tabpanel" aria-labelledby="blockquotes-left-tab-1">
           <div id="wrap1">
             <div id="tab1-1" class="tab selected">4択クイズ</div>
-            <div id="tab1-2" class="tab">タイピングテスト</div>
+            <div id="tab1-2" class="tab">タイピング</div>
             <div id="tab1-3" class="tab">pdf印刷</div>
             <div id="tab1-4" class="tab">辞書</div>
             <div class="slide-container">
@@ -68,7 +92,7 @@
                   <h2 class="my-5">確認問題</h2>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -111,7 +135,7 @@
                   <h2 class="my-5">確認問題</h2>
                   <div class="row mt-4">
                     <% (0..3).each do |i| %>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -127,7 +151,7 @@
                   <h2 class="my-5">まとめ問題</h2>
                   <div class="row">
                     <% importance = [500, 1000, 2000] %>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
                           <% (0..3).each do |j| %>
@@ -138,7 +162,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[1] %>>
                           <% (0..1).each do |j| %>
@@ -149,7 +173,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[2] %>>
                           <option value="type?select_num=2&quiz_type=3&select_file=0">0 ~ 2000</option>
@@ -163,7 +187,7 @@
                   <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -243,7 +267,7 @@
           <!-- Centered -->
           <div id="wrap2">
             <div id="tab2-1" class="tab selected">4択クイズ</div>
-            <div id="tab2-2" class="tab">タイピングテスト</div>
+            <div id="tab2-2" class="tab">タイピング</div>
             <div id="tab2-3" class="tab">pdf印刷</div>
             <div id="tab2-4" class="tab">辞書</div>
 
@@ -254,7 +278,7 @@
                   <h2 class="my-5 text-center">確認問題</h2>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -294,10 +318,10 @@
                   </div>
                 </div>
                 <div id="second2" class="box">
-                  <h2 class="my-5">確認問題</h2>
+                  <h2 class="mb-5">確認問題</h2>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -310,10 +334,10 @@
                     </div>
                     <% end %>
                   </div>
-                  <h2 class="my-5">まとめ問題</h2>
+                  <h2 class="mb-5">まとめ問題</h2>
                   <div class="row">
                     <% importance = [500, 1000, 2000] %>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
                           <% (0..3).each do |j| %>
@@ -324,7 +348,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[1] %>>
                           <% (0..1).each do |j| %>
@@ -335,7 +359,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[2] %>>
                           <option value="type?select_num=2&quiz_type=3&select_file=1">0 ~ 2000</option>
@@ -345,11 +369,11 @@
                   </div>
                 </div>
                 <div id="third2" class="box">
-                  <h2 class="my-5">確認問題</h2>
+                  <h2 class="mb-5">確認問題</h2>
                   <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -427,7 +451,7 @@
         <div class="tab-pane fade" id="blockquotes-right-1" role="tabpanel" aria-labelledby="blockquotes-right-tab-1">
           <div id="wrap3">
             <div id="tab3-1" class="tab selected">4択クイズ</div>
-            <div id="tab3-2" class="tab">タイピングテスト</div>
+            <div id="tab3-2" class="tab">タイピング</div>
             <div id="tab3-3" class="tab">pdf印刷</div>
             <div id="tab3-4" class="tab">辞書</div>
             <div class="slide-container">
@@ -437,7 +461,7 @@
                   <h2 class="my-5 text-center">確認問題</h2>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -477,10 +501,10 @@
                   </div>
                 </div>
                 <div id="second3" class="box">
-                  <h2 class="my-5">確認問題</h2>
+                  <h2 class="mb-5">確認問題</h2>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -496,7 +520,7 @@
                   <h2 class="my-5">まとめ問題</h2>
                   <div class="row">
                     <% importance = [500, 1000, 2000] %>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[0] %>>
                           <% (0..3).each do |j| %>
@@ -507,7 +531,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[1] %>>
                           <% (0..1).each do |j| %>
@@ -518,7 +542,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[2] %>>
                           <option value="type?select_num=2&quiz_type=3&select_file=2">0 ~ 2000</option>
@@ -528,11 +552,11 @@
                   </div>
                 </div>
                 <div id="third3" class="box">
-                  <h2 class="my-5">確認問題</h2>
+                  <h2 class="mb-5">確認問題</h2>
                   <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="row">
                     <% (0..3).each do |i| %>
-                    <div class="col-sm-3">
+                    <div class="col-lg-3 col-sm-6">
                       <div class="text-center mb-5">
                         <select name="sources" class="custom-select sources" placeholder=<%= importance[i] %>>
                           <% (0..4).each do |j| %>
@@ -609,8 +633,6 @@
           <!-- End Centered -->
         </div>
       </div>
-    </div>
-  </div>
 </div>
 <!-- End Right Bordered -->
 <!-- End Blockquotes -->
@@ -636,6 +658,7 @@
   </div>
 </footer>
 <script>
+  $('nav').removeClass('fixed-top');
   $(".custom-select").each(function() {
     var classes = $(this).attr("class"),
       id = $(this).attr("id"),
