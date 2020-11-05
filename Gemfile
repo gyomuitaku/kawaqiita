@@ -66,10 +66,15 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'kaminari'
 gem 'devise'
+gem "jquery-rails"
 # this gem is expected to change
 gem 'bootstrap', '~> 4.5'
 # mysql2 is necessary for beanstalk
 
-# gem "mysql2"
-# gem "mini_racer"
+
+gem "mysql2"
+gem "mini_racer"
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'

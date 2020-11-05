@@ -1,4 +1,5 @@
 class WordSetsController < ApplicationController
+
 	def create
 		WordSet.destroy_all
         for i in 0..498 do

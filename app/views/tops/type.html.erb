@@ -1,31 +1,32 @@
-<div class="container-fluid top-type">
-  <p id="text" class="top-var">typing question</p>
-  <%# <input type="text" name="name"> %>
-  <input type="text" id="targ" name="target" value="" style="display: block; color: rgb(0, 0, 0);">
-  <p id="target"></p>
-  <div class="row row1_1">
-    <div class="col-4">
-      <a id="target1" class="btn btn-rounded bottan">10問</a>　
+
+  <div class="container-fluid top-type">
+    <p id="text" class="top-var">typing question</p>
+    <%# <input type="text" name="name"> %>
+    <%# <input type="text" id="targ" name="target" value="" style="display: block; margin: 0 auto; color: rgb(0, 0, 0);"> %>
+    <p id="target"></p>
+    <div class="row row1_1">
+      <div class="col-4">
+        <a id="target1" class="btn btn-rounded bottan">10問</a>　
+      </div>
+      <div class="col-4">
+        <a id="target2" class="btn btn-rounded bottan">20問</a>　
+      </div>
+      <div class="col-4">   
+        <a id="target3" class="btn btn-rounded bottan">30問</a>　
+      </div>
     </div>
-    <div class="col-4">
-      <a id="target2" class="btn btn-rounded bottan">20問</a>　
+    <div class="row row1_2">
+      <p id="botan"> </p>
     </div>
-    <div class="col-4">   
-      <a id="target3" class="btn btn-rounded bottan">30問</a>　
+    <div class="row row1_3">
+      <strong id="info">
+      正解問題数: <span id="score" class="number">0</span>
+      残り問題数: <span id="total" class="number">0</span>
+      問題数: <span id="time" class="number">0</span>
+      </strong>
     </div>
-  </div>
-  <div class="row row1_2">
-    <p id="botan"> </p>
-  </div>
-  <div class="row row1_3">
-    <strong id="info">
-    正解問題数: <span id="score" class="number">0</span>
-    残り問題数: <span id="total" class="number">0</span>
-    問題数: <span id="time" class="number">0</span>
-    </strong>
-  </div>
-    <div class="container-fluid mx-auto text-center answer">
-      <div class="row">
+    <div id="cla" class="container-fluid mx-auto text-center answer">
+      <div id="row1_4"class="row">
         <div class=col-sm-6>
           <table class='data-table table table-borderd table-striped thead-dark'style="color:black;">
             <tr><th id="good" colspan="2"></th></tr>
@@ -41,7 +42,6 @@
       </div>
     </div>
   </div>
-</div>
 
 
 <script>
@@ -54,11 +54,12 @@
   let miss;
   let plusword;
   let apple;
-  let isPlaying = false;
+  let Playing = false;
+
   let total_count;
   let list;
   const target = document.getElementById('target');
-  const targ = document.getElementById('targ');
+  // const targ = document.getElementById('targ');
   const target1 = document.getElementById('target1');
   const target2 = document.getElementById('target2');
   const target3 = document.getElementById('target3');
@@ -83,11 +84,11 @@
   // 現在の display プロパティの値を保持
   const displayOriginal = tables[0].style.display;
   const displayOrigina = tables[1].style.display;
-  const displayOrigin = targ.style.display;
+  // const displayOrigin = targ.style.display;
 // none に設定して非表示
   tables[0].style.display = 'none';
   tables[1].style.display = 'none';
-  targ.style.display ="none"
+  // targ.style.display ="none"
   function tr_create(wor,x) {
     for (var i = 0; i < wor.length; i++) {
     var tr = document.createElement('tr');
@@ -113,9 +114,9 @@
     }
     text.textContent = word[1]
     target.textContent = plusword + placeholder ;
-    if (placeholder.length==word[0].length){
-      $('#targ').val('');
-    }
+    // if (placeholder.length==word[0].length){
+    //   $('#targ').val('');
+    // }
   }
 
   function for_base(para) {
@@ -128,7 +129,7 @@
   function updateTimer() {
 
     if (total_count <= 0) {
-      isPlaying = true;
+      Playing = true;
 
       target.textContent = 'F I N I S H';
       total.textContent = total_count;
@@ -140,15 +141,15 @@
       // 元に戻して表示
       tables[0].style.display = displayOriginal;
       tables[1].style.display = displayOriginal;
-      targ.style.display ="none"
+      // targ.style.display ="none"
       tr_create(for_base(apple),0)
       tr_create(for_base(list),1)
-      const ro1 = document.getElementsByClassName('row1_1');
-      const ro2 = document.getElementsByClassName('row1_2');
-      const ro3 = document.getElementsByClassName('row1_3');
-      ro1.setAttribute("id","row_all1");
-      ro2.setAttribute("id","row_all2");
-      ro3.setAttribute("id","row_all3");
+      // const ro1 = document.getElementsByClassName('row1_1');
+      // const ro2 = document.getElementsByClassName('row1_2');
+      // const ro3 = document.getElementsByClassName('row1_3');
+      // ro1.setAttribute("id","row_all1");
+      // ro2.setAttribute("id","row_all2");
+      // ro3.setAttribute("id","row_all3");
 
     }
   }
@@ -201,13 +202,14 @@
 
   }
   function starts() {
-    if (isPlaying === true) {
+    if (Playing === true) {
       return;
     }
-    isPlaying = true;
+    Playing = true;
+
     createbotan("next")
     createbotan("reset")
-    targ.style.display = displayOrigin;
+    // targ.style.display = displayOrigin;
     loc = 0;
     score = 0;
     miss = 0;
@@ -225,11 +227,12 @@
     target2.style.display ="none";
     target3.style.display ="none";
     updateTarget()
-    if (isPlaying!==false){
+    if (Playing!==false){
+
     if (!next.hasChildNodes()){
           next.addEventListener("click", function (e) {
             plus(list,word)
-            $('#targ').val('');
+            // $('#targ').val('');
             word = words[Math.floor(Math.random() * words.length)];
             total_count --;
             total.textContent = total_count;
@@ -262,7 +265,8 @@
       }, false);
 
   window.addEventListener('keydown', e => {
-    if (isPlaying !== true) {
+    if (Playing !== true) {
+
       return;
     }
     if (e.key === word[0][loc]) {
@@ -289,3 +293,8 @@
 }
 </script>
 
+<style>
+#cla>.row{
+  height: auto;
+}
+</style>
