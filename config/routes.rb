@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   post 'kakutan_pdfs/index'
-  devise_for :users
+  devise_for :users,
+  controllers: {
+    sessions: 'users/sessions',
+    registrations: "users/registrations",
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   resources :users, only: [:show]
   root :to => 'tops#home'
   get "quiz" => "tops#quiz"
