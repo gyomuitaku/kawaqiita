@@ -14,7 +14,7 @@ AWS Elastic Beanstalk
 - Database creation
 RDS(MYSQL8.02)
 - Database initialization
-
+ebxtensions
 - How to run the test suite
 
 - Services (job queues, cache servers, search engines, etc.)
