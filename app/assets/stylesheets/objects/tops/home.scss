@@ -1,0 +1,218 @@
+// @media screen and (min-width:480px) {
+//   /*画面サイズが480pxからはここを読み込む*/
+// p { color:#ededed;}
+// }
+// @media screen and (min-width:768px) and ( max-width:1024px) {
+//   /*画面サイズが768pxから1024pxまではここを読み込む*/
+// p {}
+// }
+// @media screen and (min-width:1024px) {
+//   /*画面サイズが1024pxからはここを読み込む*/
+
+// }
+
+#main-visual {
+  .row {
+    min-height: 80vh;
+    .col-sm-7 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 2.6;
+    @media screen and (max-width:768px) {
+      font-size: 25px;
+    }
+    @media screen and (max-width:670px) {
+      font-size: 20px;
+    }
+  }
+
+  .slide-div {
+    height: 80vh;
+    width: 100%;
+    transition: background-image 3s ease; /*背景画像をゆっくり変化させる*/
+    background-image: image-url("bg-img3.jpg");
+    background-size: cover;
+  }
+  .btn {
+    color: #f5f5f5;
+    @media screen and (max-width:768px) {
+      font-size: 1.0rem;
+    }
+    @media screen and (max-width:670px) {
+      font-size: 0.8rem;
+    }
+    &:hover {
+      color: #1b1e24;
+    }
+  }
+  /* --- 全体のBOX定義 ---------------------------------------- */
+  .box {
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
+    @media screen and (max-width:480px) {
+      height: 80vh;
+    }
+    /* --- 背景の指定 ------------------------------------------- */
+    .bgImg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      animation: bgAnime 28s infinite; /* 4画像 × 各6s = 24s */
+    }
+    /* --- 段差で背景画像のアニメーションを実行 ----------------- */
+    .src1 {
+      background-image: image-url("img1.jpg"); /* 背景の画像を指定 */
+      background-size: cover;
+    }
+    .src2 {
+      background-image: image-url("img3.jpg"); /* 背景の画像を指定 */
+      background-size: cover;
+      animation-delay: 7s;
+    }
+    .src3 {
+      background-image: image-url("img5.jpg"); /* 背景の画像を指定 */
+      background-size: cover;
+      animation-delay: 14s;
+    }
+    .src4 {
+      background-image: image-url("bg-img3.jpg"); /* 背景の画像を指定 */
+      background-size: cover;
+      animation-delay: 21s;
+    }
+    /* --- 前面の文字定義（サンプルのため変更してください） ----- */
+    .boxString {
+      position: absolute;
+      display: inline-block;
+      width: 80%;
+      // background: rgba(255, 255, 255, 0.3); /* 半透明の青 */
+      color: #fff;
+      top: 50%; /* 中央寄せ */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+    }
+  }
+  @keyframes bgAnime {
+    0% {
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+.py-6 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.my-h1 {
+  padding: 1rem 2rem;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  display: inline-block;
+}
+
+#top-bg-img {
+  background-size: cover;
+  background-image: image-url("bg-img3.jpg");
+  background-blend-mode: lighten;
+}
+
+#main-content {
+  .row {
+    height: auto;
+  }
+}
+
+#explanation {
+  .row {
+    height: auto;
+  }
+}
+
+.footer {
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+.container-footer {
+  width: 100%;
+  max-width: 680px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container-footer .text-muted {
+  margin: 20px auto;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: all 2000ms;
+}
+
+.fadein.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.box-line {
+  margin: 2em 0;
+  position: relative;
+  padding: 0.5em 1.5em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+.box-line:before,
+.box-line:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: -webkit-calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: black;
+}
+.box-line:before {
+  left: 10px;
+}
+.box-line:after {
+  right: 10px;
+}
+.box-line p {
+  margin: 0;
+  padding: 0;
+}
+
+.frame {
+  display: inline-block;
+  position: relative;
+}
+
+.frame {
+  display: inline-block;
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+}
