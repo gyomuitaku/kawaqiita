@@ -4,6 +4,7 @@
 
 ## 製品概要
 ### 背景(製品開発のきっかけ、課題等）
+- 英語を勉強していてこんなことを思ったことはありませんか？
 ### 製品説明（具体的な製品の説明）
 ### 特長
 ####1. 特長1
@@ -19,13 +20,25 @@
 ## 開発技術
 ### 活用した技術
 #### API・データ
-* 
-* 
+* Project Gutenberg「プロジェクト・グーテンベルグ」(単語抽出)
+* Papwer With Code(単語抽出)
 
+###本番環境　
+* AWS ElasticBeanstalk
+#### platform
+* Puma(2.16.0) with ruby 2.6.6
+#### 使用サービス(AWS)
+* ElasticBeanstalk CloudWatch Chatbot SNS CodePipeline RDS(MySQL) ELB SSL Route53 Certificate Manager　IAM
 #### フレームワーク・ライブラリ・モジュール
-* 
-* 
-
+* Rails 5.2.4
+* JavaScript
+* jQuery
+* Bootstrap4
+* MySQL8.0.2
+* Google Colaboratory
+* Python3
+* TfidfVectorizer(Pythonの機械学習ライブラリ)
+* Nginx
 #### デバイス
 * 
 * 
