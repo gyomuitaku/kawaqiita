@@ -1491,7 +1491,7 @@ h6 {
 }
 
 .selected {
-  background-color: black;
+  background-color: #2b2b2b;
   color: white;
   border: none;
 }
@@ -1499,7 +1499,7 @@ h6 {
 .tab {
   height: 40px;
   width: 25%;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid #2b2b2b;
   line-height: 40px;
   text-align: center;
   font-size: 15pt;
@@ -1578,7 +1578,7 @@ h6 {
   }
 
   #wrap#{$i} {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 10px;
   }
@@ -1749,4 +1749,12 @@ $color: #37393a;
   main {
     font-size: 18px !important;
   }
+}
+
+.select-bg-img {
+  background-image: image-url("bg-white2.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
 }

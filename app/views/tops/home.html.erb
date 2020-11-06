@@ -1,100 +1,107 @@
-<style>
-  #main-visual>.row {
-    min-height: 80vh;
-  }
-
-  .top-bg-img {
-    background-size: cover;
-  }
-
-  #main-content>.row {
-    min-height: 50vh;
-  }
-
-  #explanation>.row {
-    min-height: 25vh;
-  }
-
-  .footer {
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-  }
-
-  .container-footer {
-    width: 100%;
-    max-width: 680px;
-    padding: 0 15px;
-    margin: 0 auto;
-  }
-
-  .container-footer .text-muted {
-    margin: 20px auto;
-  }
-</style>
-
-<section id="main-visual" class="text-center bg-success">
-  <div class="row">
-    <div class="col-sm-5 align-self-center">
-      <h1>どうしても英単語が覚えられなくて悩んでいる方<br>そんなあなたのためにご用意いたしました</h1>
-      <p>Get started</p>
-      <%
-=begin%>
- <%= link_to "Text", select_path, class: "btn btn-info" %><br>
-      <%= link_to  "text", root_path %> <%= link_to  "text", root_path %>
-<%
-=end%>
-    </div>
-    <div class="col-sm-7 top-bg-img">
+<section id="main-visual" class="text-center">
+  <div class="box">
+    <div class="bgImg src1"></div>
+    <div class="bgImg src2"></div>
+    <div class="bgImg src3"></div>
+    <div class="bgImg src4"></div>
+    <div class="boxString">
+      <div class="align-self-center mainv-fade">
+        <h1>e-tan</h1>
+        <%= link_to "Get started", select_path, class: "btn btn-outline-light" %>
+      </div>
     </div>
   </div>
 </section>
 <div class="container-fluid">
-  <section id="main-content" class="my-3">
-    <h1 class="text-center my-5">勉強方法</h1>
-    <div class="row my-5">
-      <div class="col-sm-6 top-bg-img"></div>
-      <div class="col-sm-6 align-self-center text-center">
-        <h2>4択クイズ</h2>
-        <p>選択肢の中から出題される英語の意味だと思うものを選んでみましょう<br>問題数を10問、30問、100問から選べるので自分の時間に合わせて問題数を選んでみましょう<br>この問題をやり切れば英単語が出された瞬間にその意味を答えれるようになるかも？！</p>
+  <div class="pt-6 text-center">
+    <h4>どうしても英単語が覚えられなくて悩んでいる方<br>そんなあなたのためにご用意いたしました</h4>
+  </div>
+  <section id="main-content" class="mt-5">
+    <div class="text-center fadein">
+      <h1 class="text-center my-h1">勉強方法</h1>
+    </div>
+    <div id="main-content1" class="row py-6 fadein">
+      <div class="col-sm-6 align-self-center">
+        <div class="frame">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
+      </div>
+      <div class="col-sm-6 align-self-center text-left">
+        <div class="box-line">
+          <h2>4択クイズ</h2>
+          <p class="">選択肢の中から出題される英語の意味だと思うものを選んでみましょう<br>問題数を10問、30問、100問から選べるので自分の時間に合わせて問題数を選んでみましょう<br>この問題をやり切れば英単語が出された瞬間にその意味を答えれるようになるかも？！</p>
+        </div>
       </div>
     </div>
-    <div class="row my-5">
-      <div class="col-sm-6 align-self-center text-center">
-        <h2>タイピングテスト</h2>
-        <p>出された日本語に対応する英語を答えましょう<br>英語から日本語よりも逆の方が難しいうえに一つでもスペルを間違えると×になってしまうため難易度はとんでもなく高いです<br>これを全問正解できればあなたはもう単語マスターと言っても過言ではないでしょう</p>
+    <div id="main-content2" class="row py-6 fadein">
+      <div class="col-sm-6 order-sm-2 align-self-center">
+        <div class="frame">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
       </div>
-      <div class="col-sm-6 top-bg-img"></div>
+      <div class="col-sm-6 order-sm-1 align-self-center text-left">
+        <div class="box-line">
+          <h2>タイピングテスト</h2>
+          <p>出された日本語に対応する英語を答えましょう<br>英語から日本語よりも逆の方が難しいうえに一つでもスペルを間違えると×になってしまうため難易度はとんでもなく高いです<br>これを全問正解できればあなたはもう単語マスターと言っても過言ではないでしょう</p>
+        </div>
+      </div>
     </div>
-    <div class="row my-5">
-      <div class="col-sm-6 top-bg-img"></div>
-      <div class="col-sm-6 align-self-center text-center">
-        <h2>pdf印刷</h2>
-        <p>自分だけの英単語問題集をpdfでダウンロードすることができ、英単語を書いて覚えたい人にとっては欠かせないモードになります<br>最大10枚ずつすることができ、一度にたくさん印刷したいというニーズにも答えられるように設計しました<br>和英、英和どちらのテストもできるためどのように問題を出されても対応できるようになるでしょう</p>
+    <div id="main-content3" class="row py-6 fadein">
+      <div class="col-sm-6 align-self-center">
+        <div class="frame">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
+      </div>
+      <div class="col-sm-6 align-self-center text-left">
+        <div class="box-line">
+          <h2>pdf印刷</h2>
+          <p>自分だけの英単語問題集をpdfでダウンロードすることができ、英単語を書いて覚えたい人にとっては欠かせないモードになります<br>最大10枚ずつすることができ、一度にたくさん印刷したいというニーズにも答えられるように設計しました<br>和英、英和どちらのテストもできるためどのように問題を出されても対応できるようになるでしょう</p>
+        </div>
       </div>
     </div>
   </section>
   <section id="explanation" class="my-3">
-    <h1 class="my-5 text-center">仕様技術</h1>
-    <div class="row">
-      <div class="col-sm-3 top-bg-img"></div>
+    <div class="text-center fadein">
+      <h1 class="text-center my-5 my-h1">仕様技術</h1>
+    </div>
+    <div class="row my-5 fadein">
+      <div class="col-sm-3 align-self-center">
+        <div class="frame">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
+      </div>
       <div class="col-sm-9 align-self-center">
-        <h2>機械学習について</h2>
-        <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
+        <div class="box-line">
+          <h2>機械学習について</h2>
+          <p>単語はTFIDF法により出現頻度と希少度の項目から重要度を算出しています
+          小説と論文の2種類で重要度順に並べる方法を採用しており、それらを読む際に必要になるであろう単語の知識を効率的に学ぶことができます。</p>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-3 top-bg-img"></div>
+    <div class="row my-5  fadein">
+      <div class="col-sm-3 align-self-center">
+        <div class="frame">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
+      </div>
       <div class="col-sm-9 align-self-center">
-        <h2>単語集が選択可能</h2>
-        <p>E-TANでは他の英単語アプリではあまり見られないディレクトリ構造を採用したアプリケーションとなっています<br>TOEIC、論文の単語などその時に学習したい英単語を選択肢の中から選ぶことができます</p>
+        <div class="box-line">
+          <h2>単語集が選択可能</h2>
+          <p>E-TANでは他の英単語アプリではあまり見られないディレクトリ構造を採用したアプリケーションとなっています<br>TOEIC、論文の単語などその時に学習したい英単語を選択肢の中から選ぶことができます</p>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-3 top-bg-img"></div>
+    <div class="row my-5  fadein">
+      <div class="col-sm-3 align-self-center">
+        <div class="frame ">
+          <img src="assets/img1.jpg" width="100%" height="100%">
+        </div>
+      </div>
       <div class="col-sm-9 align-self-center">
-        <h2>進級テストによるモチベーション</h2>
-        <p>4択テスト、タイピングテストにはそれぞれ進級テストというものが存在します<br>自分が学習しきったと思ったらその範囲の進級テストを受けてみましょう！<br>進級テストは90%以上とらないと合格できないという厳しい条件ではありますが合格するとマイページに自分の進捗として記載されるので進捗100%を目指してどんどん問題を解いていきましょう！</p>
+        <div class="box-line">
+          <h2>進級テストによるモチベーション</h2>
+          <p>4択テスト、タイピングテストにはそれぞれ進級テストというものが存在します<br>自分が学習しきったと思ったらその範囲の進級テストを受けてみましょう！<br>進級テストは90%以上とらないと合格できないという厳しい条件ではありますが合格するとマイページに自分の進捗として記載されるので進捗100%を目指してどんどん問題を解いていきましょう！</p>
+        </div>
       </div>
     </div>
   </section>
@@ -104,7 +111,27 @@
     <p class="text-muted text-center">Place sticky footer content here.</p>
   </div>
 </footer>
+
+<style>
+  .container-fluid {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+</style>
 <script>
-  $('nav').removeClass('fixed-top');
-  $('nav').addClass("bg-dark");
+  // $('nav').removeClass('fixed-top');
+  // $('nav').addClass("bg-dark");
+
+  $('.mainv-fade').hide().fadeIn(5000);
+
+  $(window).scroll(function() {
+    $('.fadein').each(function() {
+      var elemPos = $(this).offset().top,
+        scroll = $(window).scrollTop(),
+        windowHeight = $(window).height();
+      if (scroll > elemPos - windowHeight + 100) {
+        $(this).addClass('scrollin');
+      }
+    });
+  });
 </script>
