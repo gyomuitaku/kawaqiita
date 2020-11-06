@@ -1,51 +1,73 @@
-<header
-    role="header">
-    <!-- Navbar -->
-    <nav class="js-navbar-scroll navbar navbar-expand-lg navbar-transparent navbar-dark fixed-top">
-        <div class="container-fluid">
-            <%= link_to root_path , class: " navbar-brand" do %>
-                <h1>E-tan</h1>
-            <% end %>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<header role="header">
+  <!-- Navbar -->
+  <nav class="js-navbar-scroll navbar navbar-expand-lg navbar-transparent navbar-dark fixed-top">
+    <div class="container-fluid">
+      <%= link_to root_path , class: " navbar-brand" do %>
+      <h1>E-tan</h1>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item mr-4 mb-2 mb-lg-0">
-                        <%= link_to root_path, class: "nav-link" do %>
-                            <i class="fas fa-cubes u-font-size-90 mr-1"></i>
-                            Home
-                        <% end %>
-                    </li>
-                    <% if user_signed_in? %>
-                        <li class="nav-item mr-4 mb-2 mb-lg-0">
-                            <%= link_to user_path(current_user), class: "nav-link" do %>
-                                <i class="fas fa-cube u-font-size-90 mr-1"></i>
-                                My Page
-                            <% end %>
-                        </li>
-                        <li class="nav-item mr-4 mb-2 mb-lg-0">
-                            <%= link_to "Logout" , destroy_user_session_path, method: :delete,  class: "nav-link" %>
-                        </li>
-                    <% else %>
-                        <li class="nav-item mr-4 mb-2 mb-lg-0">
-                            <%= link_to select_path, class: "nav-link" do %>
-                                <i class="fas fa-cube u-font-size-90 mr-1"></i>
-                                select
-                            <% end %>
-                        </li>
-                        <li class="nav-item mr-4 mb-2 mb-lg-0">
-                            <%= link_to "Sign up" , new_user_registration_path,  class: "nav-link" %>
-                        </li>
-                        <li class="nav-item mr-4 mb-2 mb-lg-0">
-                            <%= link_to "Login" , new_user_session_path,  class: "nav-link" %>
-                        </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- End Navbar -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-cubes u-font-size-90 mr-1"></i>
+            Home
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to select_path, class: "nav-link" do %>
+            <i class="fas fa-cube u-font-size-90 mr-1"></i>
+            select
+            <% end %>
+          </li>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to user_path(current_user), class: "nav-link" do %>
+            <i class="fas fa-cube u-font-size-90 mr-1"></i>
+            My Page
+            <% end %>
+          </li>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to "Logout" , destroy_user_session_path, method: :delete,  class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to select_path, class: "nav-link" do %>
+            <i class="fas fa-cube u-font-size-90 mr-1"></i>
+            select
+            <% end %>
+          </li>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to "Sign up" , new_user_registration_path,  class: "nav-link" %>
+          </li>
+          <li class="nav-item mr-4 mb-lg-0">
+            <%= link_to "Login" , new_user_session_path,  class: "nav-link" %>
+          </li>
+          <% end %>
+        </ul>
+        <ul class="nav nav-pills mx-auto justify-content-between my-d-none d-md-none" id="blockquotes-tab" role="tablist" style="width: 80%;">
+          <li class="nav-item">
+            <a class="nav-link active" id="blockquotes-left-tab-1" data-toggle="pill" href="#blockquotes-left-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
+              TOEIC
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="blockquotes-center-tab-1" data-toggle="pill" href="#blockquotes-center-1" role="tab" aria-controls="blockquotes-center-1" aria-selected="false">
+              論文
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="blockquotes-right-tab-1" data-toggle="pill" href="#blockquotes-right-1" role="tab" aria-controls="blockquotes-right-1" aria-selected="false">
+              小説
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
 </header>
 <!-- End Header -->

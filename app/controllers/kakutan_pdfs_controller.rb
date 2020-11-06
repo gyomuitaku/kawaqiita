@@ -1,7 +1,11 @@
 class KakutanPdfsController < ApplicationController
-  def index
+def index
     data = []
-    @page = params[:select_num].to_i
+    if params[:select_num].to_i == 0
+      @page = 1
+    else
+      @page = params[:select_num].to_i
+    end
     @trans_num = params[:post_trans_num].to_i
     if @trans_num % 2 == 0
       for i in 0..@page*25-1 do

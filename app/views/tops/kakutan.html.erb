@@ -1,103 +1,111 @@
-<style>
-	.mt-6 {
-		padding-top: 100px;
-	}
-
-	.nav-link {
-		color: black;
-	}
-</style>
-<div class="container-fluid mt-6">
+<div class="container-fluid pt-6 top-kakutan">
 	<div class="row">
-		<div class="tab-content" id="blockquotes-tabContent">
-			<% for i in 1..10 do %>
-			    <% if i == 1 %>
-				    <div class="tab-pane fade show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
-					  <table id="table" class="table table-striped", border="2">
-						<thead>
-							<tr>
-								<th class="th_first">英語</th>
-								<th class="th_second">日本語</th>
-								<th class="th_first">英語</th>
-								<th class="th_second">日本語</th>
-							</tr>
-						</thead>
-						<tbody>
-							<% for j in 0..24 do %>
-								<tr>
-								    <td class="td_first"><%= @word_sets[j][0] %></td>
-									<td class="td_second"><%= @word_sets[j][1] %></td>
-									<td class="td_first"><%= @word_sets[j][2] %></td>
-									<td class="td_second"><%= @word_sets[j][3] %></td>
-								</tr>
-							<% end %>
-						</tbody>
-					  </table>
-					</div>
-				<% else %>
-					<div class="tab-pane fade" id="blockquotes-<%= i.to_s %>" role="tabpanel" aria-labelledby="blockquotes-tab-<%= i.to_s %>">
-					  <div class="tab-pane fade show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
+		<div class="col-xl-1">
+		</div>
+		<div class="col-xl-7">
+			<div class="tab-content overflow" id="blockquotes-tabContent">
+				<% for i in 1..10 do %>
+				    <% if i == 1 %>
+					    <div class="tab-pane show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
 						  <table id="table" class="table table-striped", border="2">
 							<thead>
 								<tr>
-									<th class="th_first">英語</th>
-									<th class="th_second">日本語</th>
-									<th class="th_first">英語</th>
-									<th class="th_second">日本語</th>
+									<th class="th_first" style="width:25%;">英語</th>
+									<th class="th_second" style="width:25%;">日本語</th>
+									<th class="th_first" style="width:25%;">英語</th>
+									<th class="th_second" style="width:25%;">日本語</th>
 								</tr>
 							</thead>
 							<tbody>
 								<% for j in 0..24 do %>
 									<tr>
-									    <td class="td_first"><%= @word_sets[j+(i-1)*25][0] %></td>
-										<td class="td_second"><%= @word_sets[j+(i-1)*25][1] %></td>
-										<td class="td_first"><%= @word_sets[j+(i-1)*25][2] %></td>
-										<td class="td_second"><%= @word_sets[j+(i-1)*25][3] %></td>
+									    <td class="td_first"><%= @word_sets[j*2][0] %></td>
+										<td class="td_second"><%= @word_sets[j*2][1] %></td>
+										<td class="td_first"><%= @word_sets[j*2+1][0] %></td>
+										<td class="td_second"><%= @word_sets[j*2+1][1] %></td>
 									</tr>
 								<% end %>
 							</tbody>
 						  </table>
-					  </div>
-				    </div>
+						</div>
+					<% else %>
+						<div class="tab-pane " id="blockquotes-<%= i.to_s %>" role="tabpanel" aria-labelledby="blockquotes-tab-<%= i.to_s %>">
+						  <div class="tab-pane show active" id="blockquotes-1" role="tabpanel" aria-labelledby="blockquotes-tab-1">
+							  <table id="table" class="table table-striped", border="2">
+								<thead>
+									<tr>
+										<th class="th_first" style="width:25%;">英語</th>
+										<th class="th_second" style="width:25%;">日本語</th>
+										<th class="th_first" style="width:25%;">英語</th>
+										<th class="th_second" style="width:25%;">日本語</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for j in 0..24 do %>
+										<tr>
+										    <td class="td_first"><%= @word_sets[j*2+(i-1)*25][0] %></td>
+											<td class="td_second"><%= @word_sets[j*2+(i-1)*25][1] %></td>
+											<td class="td_first"><%= @word_sets[j*2+1+(i-1)*25][0] %></td>
+											<td class="td_second"><%= @word_sets[j*2+1+(i-1)*25][1] %></td>
+										</tr>
+									<% end %>
+								</tbody>
+							  </table>
+						  </div>
+					    </div>
+					<% end %>
 				<% end %>
-			<% end %>
-		</div>
+			</div>
+	    </div>
 
-        <%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
-		    <% for i in 1..10 %>
-			    <% for j in 0+(i-1)*25..24+(i-1)*25 do %>
-					<%= f.hidden_field "word_set[words][][english_first]", :value => @word_sets[j][0] %>
-					<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_sets[j][1] %>
-					<%= f.hidden_field "word_set[words][][english_second]", :value => @word_sets[j][2] %>
-					<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_sets[j][3] %>
+		<div class="col-xl-3">
+	        <%= form_with url: kakutan_pdfs_index_path(format: "pdf"), local: true do |f| %>
+			    <% for i in 1..10 %>
+				    <% for j in 0+(i-1)*25..24+(i-1)*25 do %>
+						<%= f.hidden_field "word_set[words][][english_first]", :value => @word_sets[j*2][0] %>
+						<%= f.hidden_field "word_set[words][][japanese_first]", :value => @word_sets[j*2][1] %>
+						<%= f.hidden_field "word_set[words][][english_second]", :value => @word_sets[j*2+1][0] %>
+						<%= f.hidden_field "word_set[words][][japanese_second]", :value => @word_sets[j*2+1][1] %>
+					<% end %>
 				<% end %>
-			<% end %>
-			<%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
-		    <%= f.hidden_field :post_trans_num, :id => 'post_trans_num' %>
-			<%= f.submit 'PDFを表示', class: "btn btn-info", id: "submit" %>
-			<button id="change" type="button" class="btn btn-success">和英変換</button>
-			<button id="shuffle" type="button" class="btn btn-danger">シャッフル</button>
-		<% end %>
-
-		<div class="container-fluid">
-		   <ul class="nav nav-pills mx-auto justify-content-between navbar-light bg-light" id="blockquotes-tab" role="tablist" style="width: 80%; ">
-		   	<% for i in 1..10 do %>
-		   	    <% if i == 1 %>
-			      <li class="nav-item">
-			        <a class="nav-link active" id="blockquotes-tab-1" data-toggle="pill" href="#blockquotes-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
-				        <%= i %>
-				    </a>
-			      </li>
-				<% else %>
-				  <li class="nav-item">
-			        <a class="nav-link" id="blockquotes-tab-<%= i %>" data-toggle="pill" href="#blockquotes-<%= i %>" role="tab" aria-controls="blockquotes-<%= i %>" aria-selected="false">
-				        <%= i %>
-				    </a>
-				  </li>
+				<div class="cp_ipselect">
+					<div>
+					    <%= f.select :select_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: "pdf印刷の枚数を選んでください"}, {class: "cp_sl06"} %>
+					</div>
+					<span class="cp_sl06_highlight"></span>
+					<span class="cp_sl06_selectbar"></span>
+				</div>
+			    <%= f.hidden_field :post_trans_num, :id => 'post_trans_num' %>
+				<%= button_tag :type => "submit", :class =>"btn btn-flat", :id =>"submit" do %>
+				  <span>PDF表示</span>
 				<% end %>
+				<div>
+				    <button id="change" type="button" class="btn btn-flat"><span>和英変換</span></button>
+				</div>
+				<div>
+				    <button id="shuffle" type="button" class="btn btn-flat"><span>シャッフル</span></button>
+			    </div>
 			<% end %>
-		   </ul>
+			<div class="page">ページ</div>
+			<ul class="nav nav-pills mx-auto justify-content-around navbar-light" id="blockquotes-tab" role="tablist">
+		   	 <% for i in 1..10 do %>
+		   	     <% if i == 1 %>
+			       <li class="nav-item">
+			         <a class="nav-link active" id="blockquotes-tab-1" data-toggle="pill" href="#blockquotes-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
+				         <%= i %>
+				     </a>
+			       </li>
+				 <% else %>
+				   <li class="nav-item">
+			         <a class="nav-link" id="blockquotes-tab-<%= i %>" data-toggle="pill" href="#blockquotes-<%= i %>" role="tab" aria-controls="blockquotes-<%= i %>" aria-selected="false">
+				         <%= i %>
+				     </a>
+				   </li>
+				 <% end %>
+			 <% end %>
+		    </ul>
 		</div>
+		<div class="col-xl-1"></div>
 	</div>
 </div>
 
