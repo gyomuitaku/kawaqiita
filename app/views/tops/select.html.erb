@@ -100,7 +100,7 @@
           <div id="tab1-3" class="tab">pdf印刷</div>
           <div id="tab1-4" class="tab">辞書</div>
           <div class="slide-container">
-            <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+            <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
             <div id="slide1" class="">
               <div id="first1" class="box">
                 <h2 class="my-5">確認問題</h2>
@@ -110,7 +110,7 @@
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -122,12 +122,11 @@
                   </div>
                   <% end %>
                   <h2 class="my-5">まとめ問題</h2>
-                  <% importance = ["500問", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          500問
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
@@ -137,16 +136,15 @@
                       </details>
                     </div>
                   </div>
-                  <% importance = ["進級テスト", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          進級テスト
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                          <%= link_to "レベル~#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "0", test: "1", level: "#{j+1}"}), class: "d-block" %>
+                          <%= link_to "レベル#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "0", test: "1", level: "#{j+1}"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -162,7 +160,7 @@
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -185,7 +183,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "0"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "0"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -199,7 +197,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "0"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "0"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -221,14 +219,14 @@
               </div>
               <div id="third1" class="box">
                 <h2 class="my-5">確認問題</h2>
-                <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                 <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -251,7 +249,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "0"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "0"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -265,7 +263,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "0"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "0"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -300,17 +298,17 @@
           <div id="tab2-4" class="tab">辞書</div>
 
           <div class="slide-container">
-            <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+            <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
             <div id="slide2" class="text-center">
               <div id="first2" class="box2">
-                <h2 class="my-5">確認問題</h2>
+                <h2 class="my-5 text-center">確認問題</h2>
                 <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -321,13 +319,12 @@
                     </div>
                   </div>
                   <% end %>
-                  <h2 class="my-5">まとめ問題</h2>
-                  <% importance = ["500問", "重要単語", "応用レベル", "発展レベル"] %>
+                  <h2 class="my-5 text-center">まとめ問題</h2>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          500問
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
@@ -337,16 +334,15 @@
                       </details>
                     </div>
                   </div>
-                  <% importance = ["進級テスト", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          進級テスト
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                          <%= link_to "レベル~#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "1", test: "1", level: "#{j+1}"}), class: "d-block" %>
+                          <%= link_to "レベル#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "1", test: "1", level: "#{j+1}"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -355,14 +351,14 @@
                 </div>
               </div>
               <div id="second2" class="box">
-                <h2 class="my-5">確認問題</h2>
-                <div class="row mt-4">
+                <h2 class="mb-5">確認問題</h2>
+                <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -385,7 +381,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "1"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "1"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -399,7 +395,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "1"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "1"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -420,15 +416,15 @@
                 </div>
               </div>
               <div id="third2" class="box">
-                <h2 class="my-5">確認問題</h2>
-                <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                <h2 class="mb-5">確認問題</h2>
+                <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                 <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -451,7 +447,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "1"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "1"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -465,7 +461,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "1"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "1"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -498,17 +494,17 @@
           <div id="tab3-3" class="tab">pdf印刷</div>
           <div id="tab3-4" class="tab">辞書</div>
           <div class="slide-container">
-            <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+            <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
             <div id="slide3" class="">
               <div id="first3" class="box3">
-                <h2 class="my-5">確認問題</h2>
+                <h2 class="my-5 text-center">確認問題</h2>
                 <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -519,13 +515,12 @@
                     </div>
                   </div>
                   <% end %>
-                  <h2 class="my-5">まとめ問題</h2>
-                  <% importance = ["500問", "重要単語", "応用レベル", "発展レベル"] %>
+                  <h2 class="my-5 text-center">まとめ問題</h2>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          500問
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
@@ -535,16 +530,15 @@
                       </details>
                     </div>
                   </div>
-                  <% importance = ["進級テスト", "重要単語", "応用レベル", "発展レベル"] %>
                   <div class="col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[0] %>
+                          進級テスト
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                          <%= link_to "レベル~#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "1", test: "2", level: "#{j+1}"}), class: "d-block" %>
+                          <%= link_to "レベル#{j+1}", quiz_path(params: {select_num: (j*500 + 2).to_s, quiz_type: "1", select_file: "1", test: "2", level: "#{j+1}"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -553,14 +547,14 @@
                 </div>
               </div>
               <div id="second3" class="box">
-                <h2 class="my-5">確認問題</h2>
+                <h2 class="mb-5">確認問題</h2>
                 <div class="row mt-4">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -583,7 +577,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "2"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", type_path(params: {select_num: (j*500 + 2).to_s,quiz_type: "1", select_file: "2"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -597,7 +591,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "2"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", type_path(params: {select_num: (j*1000 + 2).to_s,quiz_type: "2", select_file: "2"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -618,15 +612,15 @@
                 </div>
               </div>
               <div id="third3" class="box">
-                <h2 class="my-5">確認問題</h2>
-                <% importance = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
+                <h2 class="mb-5">確認問題</h2>
+                <% importances = ["最重要単語", "重要単語", "応用レベル", "発展レベル"] %>
                 <div class="row">
                   <% (0..3).each do |i| %>
                   <div class="col-lg-3 col-sm-6">
                     <div class="text-center mb-1">
                       <details>
                         <summary>
-                          <%= importance[i] %>
+                          <%= importances[i] %>
                         </summary>
                         <div class="option">
                           <% (0..4).each do |j| %>
@@ -649,7 +643,7 @@
                         </summary>
                         <div class="option">
                           <% (0..3).each do |j| %>
-                            <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "2"}), class: "d-block" %>
+                          <%= link_to "#{j*500 + 1}~#{j*500 + 500}", kakutan_path(params: {select_num: (j*500 + 2).to_s,word_range: "500", select_file: "2"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>
@@ -663,7 +657,7 @@
                         </summary>
                         <div class="option">
                           <% (0..1).each do |j| %>
-                            <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "2"}), class: "d-block" %>
+                          <%= link_to "#{j*1000 + 1}~#{j*1000 + 100}", kakutan_path(params: {select_num: (j*1000 + 2).to_s,word_range: "1000", select_file: "2"}), class: "d-block" %>
                           <% end %>
                         </div>
                       </details>

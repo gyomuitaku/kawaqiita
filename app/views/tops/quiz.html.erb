@@ -161,7 +161,7 @@
                     btnStart100.classList.add('hidden');
                     testbtn.classList.remove('hidden');
                     testBtn.addEventListener("click", {
-                        count: 5,
+                        count: 50,
                         handleEvent: gameStart
                     }, false);
 
@@ -198,7 +198,7 @@
                 listAnswer.innerHTML = str;
                 current_quiz_No.innerHTML = "No. " + (
                     state.gameCount + 1
-                );
+                ) + "/" + state.totalCount;
             }
 
             function choiceQuestion() {
@@ -258,7 +258,7 @@
                         state.success ++;
                         choice.classList.add('correct');
                     }
-
+                
 
 
                 function incorrectAnswer(choice, answer) {
@@ -281,10 +281,10 @@
 
 
                 function gameEnd() {
-                    if (gon.test) {
-                        resultText.textContent = (state.success >= 4) ? "合格！" : "不合格";
-                        (state.success >= 4) ? resultText.classList.add("btn-outline-success") : resultText.classList.add("btn-outline-warning");
-                        if (gon.test[0]["user_id"] && state.success >= 4) {
+                    if (gon.test && isSetting === 0) {
+                        resultText.textContent = (state.success >= 45) ? "合格！" : "不合格";
+                        (state.success >= 45) ? resultText.classList.add("btn-outline-success") : resultText.classList.add("btn-outline-warning");
+                        if (gon.test[0]["user_id"] && state.success >= 45) {
                             $.ajax({
                                 // 実行したいactionへのpathに置き換えてください。
                                 // 例えば users_controller の create アクションなどの場合は
@@ -300,6 +300,8 @@
                                 }
                             })
                         }
+                    } else {
+                        resultText.classList.add("hidden");
                     }
                     let insertText = `Score: ${
                         state.success
