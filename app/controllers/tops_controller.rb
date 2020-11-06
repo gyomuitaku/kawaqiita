@@ -17,6 +17,28 @@ class TopsController < ApplicationController
     gon.user_level_array = current_user ? {"toeic"=>current_user.toeic_status,"novel"=>current_user.novel_status,"paper"=>current_user.paper_status} : 0
   end
 
+
+  def toeic
+    @list =Fileloader.reader(0)
+    @number =0                  
+  end
+  
+  def paper
+    @list =Fileloader.reader(1)
+    @number =1 
+  end
+
+  def novel
+    @list =Fileloader.reader(2)
+    @number =2 
+  end
+
+  def search   
+    if params[:search].present?
+        @list =Fileloader.reads(params[:search],params[:number].to_i)
+    end  
+  end
+
   def kakutan
     @word_sets = Fileloader.pdf_words(params[:select_num], params[:word_range], params[:select_file])
     @select_num_array = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

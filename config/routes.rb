@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   root :to => 'tops#home'
   get "quiz" => "tops#quiz"
+  get "toeic" => "tops#toeic"
+  post "search" => "tops#search"
+  get "novel" => "tops#novel"
+  get "paper" => "tops#paper"
+
   get "type" => "tops#type"
   get "kakutan" => "tops#kakutan"
   get "select" => "tops#select"
