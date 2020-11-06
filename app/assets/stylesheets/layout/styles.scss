@@ -1758,3 +1758,32 @@ $color: #37393a;
   background-attachment: fixed;
   background-position: bottom;
 }
+
+.my-d-none {
+  display: none;
+}
+
+.slide-container {
+  position: relative;
+  width: 100%;
+  min-height: 170vh;
+  overflow: hidden;
+  clear: left;
+}
+
+@media (max-width: 1095px) {
+  .slide-container {
+    min-height: 280vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .slide-container {
+    min-height: 500vh;
+  }
+
+  .select-mx {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

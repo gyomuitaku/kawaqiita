@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>単語</th>
+      <th>意味</th>
+      <th>例文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% list.each do |row| %>
+    <tr>
+      <% for i in 0..3 %>
+      <td><%= row[i] %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
