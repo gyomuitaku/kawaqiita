@@ -34,7 +34,7 @@ class TopsController < ApplicationController
 
   def search   
     if params[:search].present?
-        @list =Fileloader.reads(params[:search],params[:number].to_i)
+        @list =Fileloader.reads(params[:search],params[:number],params[:model])
     end  
   end
 

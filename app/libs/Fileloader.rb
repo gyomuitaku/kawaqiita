@@ -43,12 +43,20 @@ class Fileloader
         word_set[Range.new(0, 499)]
     end
 
-    def self.reads(search,number)
+    def self.reads(search,number,model)
         dis =self.get_lines(number.to_i)
-        list = []      
-        2.upto(dis.last_row) do |row|
-            if dis.cell(row, 2).include? search
-              list.push dis.row(row)
+        list = []           
+        if model == "english"   
+            2.upto(dis.last_row) do |row|
+                if dis.cell(row, 2).include? search
+                    list.push dis.row(row)
+                end
+            end
+        elsif model == "japan"
+            2.upto(dis.last_row) do |row|
+                if dis.cell(row, 3).include? search
+                    list.push dis.row(row)
+                end
             end
         end                
         return list
