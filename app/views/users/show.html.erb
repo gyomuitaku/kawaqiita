@@ -22,11 +22,36 @@
     font-size: 17px;
     line-height: 43px;
   }
+
+  .text-size {
+    font-size: 15px;
+  }
+
+  .my-bg-dark {
+    background-color: #343a40 !important;
+  }
+
+  @media (max-width: 768px) {
+    .my-bg-dark {
+      background-color: rgba(27, 30, 36, 0.56) !important;
+    }
+
+    .nav-link:hover {
+      color: white !important;
+    }
+
+    li {
+      margin: 0;
+    }
+    li > .active {
+        background-color: #5cabff96!important;
+    }
+  }
 </style>
 <!-- Blockquotes -->
 <div class="">
   <div class="row">
-    <div class="col-sm-3 text-center border-right bg-secondary text-light">
+    <div class="col-md-3 text-center border-right bg-secondary text-light d-none d-md-block">
       <ul class="nav nav-pills mb-5 text-center mt-6" id="blockquotes-tab" role="tablist">
         <li class="nav-item k">
           <a class="nav-link active" id="blockquotes-left-tab-1" data-toggle="pill" href="#blockquotes-left-1" role="tab" aria-controls="blockquotes-left-1" aria-selected="true">
@@ -45,16 +70,12 @@
         </li>
       </ul>
     </div>
-    <div class="col-sm-9">
+    <div class="col-md-9 mt-5">
       <div class="tab-content select-bg-color select-mx" id="blockquotes-tabContent">
         <h1 class="my-5">My page</h1>
-        <div class="border-bottom d-inline" style="padding:10px;">あなたのTOEIC英単語レベル：
-          <%= current_user.toeic_status %></div>
-        <div class="border-bottom d-inline" style="padding:10px;">あなたの小説英単語レベル：
-          <%= current_user.novel_status %></div>
-        <div class="border-bottom d-inline" style="padding:10px;">あなたの論文英単語レベル：
-          <%= current_user.paper_status %></div>
         <div class="tab-pane fade show active" id="blockquotes-left-1" role="tabpanel" aria-labelledby="blockquotes-left-tab-1">
+          <div class="border-bottom d-inline text-size mb-1" style="padding:5px;">あなたのTOEIC英単語レベル：
+            <%= current_user.toeic_status %></div>
           <div id="wrap1">
             <div id="tab1-1" class="tab selected">4択クイズ</div>
             <div id="tab1-2" class="tab">タイピング</div>
@@ -253,6 +274,8 @@
           </div>
         </div>
         <div class="tab-pane fade" id="blockquotes-center-1" role="tabpanel" aria-labelledby="blockquotes-center-tab-1">
+          <div class="border-bottom d-inline text-size" style="padding:10px;">あなたの小説英単語レベル：
+            <%= current_user.novel_status %></div>
           <!-- Centered -->
           <div id="wrap2">
             <div id="tab2-1" class="tab selected">4択クイズ</div>
@@ -453,6 +476,8 @@
           </div>
         </div>
         <div class="tab-pane fade" id="blockquotes-right-1" role="tabpanel" aria-labelledby="blockquotes-right-tab-1">
+          <div class="border-bottom d-inline text-size" style="padding:10px;">あなたの論文英単語レベル：
+            <%= current_user.paper_status %></div>
           <div id="wrap3">
             <div id="tab3-1" class="tab selected">4択クイズ</div>
             <div id="tab3-2" class="tab">タイピング</div>
@@ -656,7 +681,8 @@
   </div>
   <script>
     // $('nav').removeClass('fixed-top');
-    $('nav').addClass('bg-dark');
+    $('nav').addClass('my-bg-dark');
+    $('ul').removeClass('my-d-none')
     for (let i = 1; i <= 3; i++) {
       document.getElementById('tab' + i + '-' + '1').addEventListener("click", {
         handleEvent: moveToFirst,
