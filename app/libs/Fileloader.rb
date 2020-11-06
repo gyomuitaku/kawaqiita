@@ -43,4 +43,24 @@ class Fileloader
         word_set[Range.new(0, 499)]
     end
 
+    def self.reads(search,number)
+        dis =self.get_lines(number.to_i)
+        list = []      
+        2.upto(dis.last_row) do |row|
+            if dis.cell(row, 2).include? search
+              list.push dis.row(row)
+            end
+        end                
+        return list
+    end
+
+    def self.reader(number)
+        dis =self.get_lines(number.to_i)
+        list = []      
+        2.upto(dis.last_row) do |row|
+              list.push dis.row(row)
+        end                
+        return list
+    end
+
 end
