@@ -1,24 +1,40 @@
-# README
+# サンプル（プロダクト名）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2020/09/JPHACKS2020_ogp.jpg)](https://www.youtube.com/watch?v=G5rULR53uMk)
 
-Things you may want to cover:
+## 製品概要
+### 背景(製品開発のきっかけ、課題等）
+### 製品説明（具体的な製品の説明）
+### 特長
+####1. 特長1
+####2. 特長2
+####3. 特長3
 
-- Ruby version
+### 解決出来ること
+### 今後の展望
+### 注力したこと（こだわり等）
+* 
+* 
 
-- System dependencies
+## 開発技術
+### 活用した技術
+#### API・データ
+* 
+* 
 
-- Configuration
+#### フレームワーク・ライブラリ・モジュール
+* 
+* 
 
-- Database creation
+#### デバイス
+* 
+* 
 
-- Database initialization
+### 独自技術
+#### ハッカソンで開発した独自機能・技術
+* 独自で開発したものの内容をこちらに記載してください
+* 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
 
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+#### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
+* 
+*
