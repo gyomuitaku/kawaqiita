@@ -55,8 +55,6 @@ class Quiz
         for row in 0..(i-1) do
             item = []
             item.push(xlsx.row(xlsx_choice[row]))
-
-            # shuffleで選択肢をばらばらにする
             questions.push([item[0][1], item[0][2]])
         end
         questions
