@@ -1,7 +1,8 @@
 <div class="form">
-<%= form_with(url: search_path,method: :post) do |f| %>
+  <%= form_with(url: search_path,method: :post) do |f| %>
   <%= f.text_field :search ,id:"search"%>
+  <%= f.select :model , options_for_select({"英語": :english,"日本語": :japan})%>
   <%= f.hidden_field :number ,value: number %>
   <%= f.submit 'Search',id:"submit_bottan"%>
-<% end %>
+  <% end %>
 </div>

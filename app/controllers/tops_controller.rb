@@ -13,7 +13,6 @@ class TopsController < ApplicationController
   end
 
   def select
-    @dec = Fileloader.dictionary
     gon.user_level_array = current_user ? {"toeic"=>current_user.toeic_status,"novel"=>current_user.novel_status,"paper"=>current_user.paper_status} : 0
   end
 
@@ -35,7 +34,7 @@ class TopsController < ApplicationController
 
   def search   
     if params[:search].present?
-        @list =Fileloader.reads(params[:search],params[:number].to_i)
+        @list =Fileloader.reads(params[:search],params[:number],params[:model])
     end  
   end
 
