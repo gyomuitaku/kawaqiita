@@ -1,2 +1,0 @@
-module TmpsHelper
-end
