@@ -75,3 +75,4 @@ gem "mini_racer"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+gem 'sitemap_generator'
