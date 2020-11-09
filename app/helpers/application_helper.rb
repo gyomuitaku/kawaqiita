@@ -10,8 +10,8 @@ module ApplicationHelper
           canonical: request.original_url,
           noindex: ! Rails.env.production?,
           icon: [
-            { href: image_url('favicon.ico') },
-            { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
+            { href: image_url('icon.png') },
+            { href: image_url('icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
           ],
           og: {
             site_name: 'E-tan',
@@ -19,7 +19,7 @@ module ApplicationHelper
             description: 'E-tanは無料で英単語を簡単に暗記するためのサイトです。４択クイズ、辞書、その他の学習ツールを使って、今日から学習を始めましょう…すべて無料です。',
             type: 'website',
             url: request.original_url,
-            image: image_url('ogp.png'),
+            image: image_url('icon.png'),
             locale: 'ja_JP',
           },
         }
