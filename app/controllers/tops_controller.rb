@@ -3,6 +3,9 @@ class TopsController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def quiz
     quiz_level = params[:level]
     user_id = current_user ? current_user.id : nil
