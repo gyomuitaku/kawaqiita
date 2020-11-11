@@ -3,6 +3,9 @@ class TopsController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def quiz
     quiz_level = params[:level]
     user_id = current_user ? current_user.id : nil
@@ -19,23 +22,23 @@ class TopsController < ApplicationController
 
   def toeic
     @list =Fileloader.reader(0)
-    @number =0                  
+    @number =0
   end
-  
+
   def paper
     @list =Fileloader.reader(1)
-    @number =1 
+    @number =1
   end
 
   def novel
     @list =Fileloader.reader(2)
-    @number =2 
+    @number =2
   end
 
-  def search   
+  def search
     if params[:search].present?
         @list =Fileloader.reads(params[:search],params[:number],params[:model])
-    end  
+    end
   end
 
   def kakutan

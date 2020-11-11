@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   post "search" => "tops#search"
   get "novel" => "tops#novel"
   get "paper" => "tops#paper"
-
   get "type" => "tops#type"
   get "kakutan" => "tops#kakutan"
   get "select" => "tops#select"
+  get "about" => "tops#about"
   post 'results' => "results#create"
   post "kakutan" => "tops#kakutan"
   post 'type/results' => "results#create_type"
