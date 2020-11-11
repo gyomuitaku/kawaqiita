@@ -1,0 +1,52 @@
+<div class="back">
+  <div class="container-fluid topsa">
+    <div class="row">
+      <div class="col-lg-6" style="color:white;">
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+<%= link_to "google",user_google_oauth2_omniauth_authorize_path,class:"color-white"  %><br>
+<%= link_to "Sign up", new_registration_path(resource_name),class:"color-white" %><br>
+<%= link_to "Forgot your password?", new_password_path(resource_name),class:"color-white" %>
+</div>
+      <div class="col-lg-6" style="color:white; margin-top:30px;">
+        <p>E-tanアプリを使用する際にはログインが必要になります。<br>必要事項を記入して登録を行ってください。</p>
+        <p>Please fill in the necessary information and log in ,<br>if playing this E-tan app. </p>
+      </div>
+   </div>
+  </div>
+</div>
+<style>
+.color-white{
+  color:white;
+}
+.color-white:hover{
+  color:black;
+}
+.topsa >.row{
+  height:auto;
+  padding:30px;
+  background-color: rgba(117 ,92 ,92 , 0.4);
+}
+</style>
