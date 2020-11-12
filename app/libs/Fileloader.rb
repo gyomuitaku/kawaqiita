@@ -5,10 +5,10 @@ class Fileloader
             xlsx = Roo::OpenOffice.new('./word/toeic2000.ods')
             xlsx.default_sheet = xlsx.sheets[0]
         elsif word_file == 1
-            xlsx = Roo::OpenOffice.new('./word/deep.ods')
+            xlsx = Roo::OpenOffice.new('./word/words_papar3.ods')
             xlsx.default_sheet = xlsx.sheets[0]
         elsif word_file == 2
-            xlsx = Roo::OpenOffice.new('./word/novel.ods')
+            xlsx = Roo::OpenOffice.new('./word/words_novel2.ods')
             xlsx.default_sheet = xlsx.sheets[0]
         end
         return xlsx
@@ -17,8 +17,8 @@ class Fileloader
     def self.dictionary
         files = []
         files.push(Roo::OpenOffice.new('./word/toeic2000.ods'))
-        files.push(Roo::OpenOffice.new('./word/deep.ods'))
-        files.push(Roo::OpenOffice.new('./word/novel.ods'))
+        files.push(Roo::OpenOffice.new('./word/words_papar3.ods'))
+        files.push(Roo::OpenOffice.new('./word/words_novel2.ods'))
     end
 
     def self.pdf_words(select_num, word_range, select_file)
@@ -45,8 +45,8 @@ class Fileloader
 
     def self.reads(search,number,model)
         dis =self.get_lines(number.to_i)
-        list = []           
-        if model == "english"   
+        list = []
+        if model == "english"
             2.upto(dis.last_row) do |row|
                 if dis.cell(row, 2).include? search
                     list.push dis.row(row)
@@ -58,16 +58,16 @@ class Fileloader
                     list.push dis.row(row)
                 end
             end
-        end                
+        end
         return list
     end
 
     def self.reader(number)
         dis =self.get_lines(number.to_i)
-        list = []      
+        list = []
         2.upto(dis.last_row) do |row|
               list.push dis.row(row)
-        end                
+        end
         return list
     end
 
