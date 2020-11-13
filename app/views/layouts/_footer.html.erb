@@ -12,7 +12,7 @@
         <ul class="menu">
           <span>Menu</span>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
 
           <li>
@@ -20,11 +20,11 @@
           </li>
 
           <li>
-            <a href="#">Sign up</a>
+            <%= link_to "Sign up" , new_user_registration_path %>
           </li>
 
           <li>
-            <a href="#">Login </a>
+            <%= link_to "Login" , new_user_session_path %>
           </li>
         </ul>
       </div>
