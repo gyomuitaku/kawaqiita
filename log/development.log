@@ -945,3 +945,369 @@ Processing by TopsController#home as HTML
 Completed 200 OK in 767ms (Views: 742.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:53:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (27.6ms)
+  Rendered layouts/_header.html.erb (11.5ms)
+Completed 200 OK in 5725ms (Views: 5679.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:54:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (27.4ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 838ms (Views: 814.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 10.0.2.2 at 2020-11-13 12:54:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 1070ms (Views: 1022.5ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/users/assets/images/4-quiz.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/typing.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/typing"}
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/4-quiz"}
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/pdf.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/kikaigakusyu.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/pdf"}
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/kikaigakusyu"}
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/test.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/select.png" for 10.0.2.2 at 2020-11-13 12:54:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/test"}
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/select"}
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/select" for 10.0.2.2 at 2020-11-13 12:54:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#select as HTML
+  Rendering tops/select.html.erb within layouts/application
+  Rendered tops/select.html.erb within layouts/application (44.3ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 894ms (Views: 857.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/select" for 10.0.2.2 at 2020-11-13 12:56:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#select as HTML
+  Rendering tops/select.html.erb within layouts/application
+  Rendered tops/select.html.erb within layouts/application (56.8ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 817ms (Views: 779.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:56:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.1ms)
+  Rendered tops/home.html.erb within layouts/application (26.2ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 665ms (Views: 624.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:56:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.2ms)
+  Rendered tops/home.html.erb within layouts/application (27.0ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 781ms (Views: 751.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/select" for 10.0.2.2 at 2020-11-13 12:56:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#select as HTML
+  Rendering tops/select.html.erb within layouts/application
+  Rendered tops/select.html.erb within layouts/application (41.2ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 716ms (Views: 690.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 10.0.2.2 at 2020-11-13 12:56:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 790ms (Views: 788.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/assets/images/pdf.png" for 10.0.2.2 at 2020-11-13 12:56:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/4-quiz.png" for 10.0.2.2 at 2020-11-13 12:56:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/4-quiz"}
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/pdf"}
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/typing.png" for 10.0.2.2 at 2020-11-13 12:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/kikaigakusyu.png" for 10.0.2.2 at 2020-11-13 12:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/typing"}
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/kikaigakusyu"}
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/select.png" for 10.0.2.2 at 2020-11-13 12:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/test.png" for 10.0.2.2 at 2020-11-13 12:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/select"}
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/test"}
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/sign_in" for 10.0.2.2 at 2020-11-13 12:56:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 737ms (Views: 734.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/assets/images/typing.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/typing"}
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/4-quiz.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/4-quiz"}
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/pdf.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/pdf"}
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/kikaigakusyu.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/kikaigakusyu"}
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Started GET "/users/assets/images/test.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/assets/images/select.png" for 10.0.2.2 at 2020-11-13 12:56:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/select"}
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
+Processing by ApplicationController#render_404 as PNG
+  Parameters: {"path"=>"users/assets/images/test"}
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template errors/error_500 with {:locale=>[:en], :formats=>[:png], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vagrant/work/kawaqiita/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views"
+  * "/home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.1/app/views"
+):
+  
+app/controllers/application_controller.rb:14:in `render_500'
