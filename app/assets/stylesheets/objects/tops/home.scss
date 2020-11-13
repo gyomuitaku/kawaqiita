@@ -20,12 +20,12 @@
     }
   }
   h1 {
-    font-size: 30px;
+    font-size: 38px;
     line-height: 2.6;
-    @media screen and (max-width:768px) {
+    @media screen and (max-width: 768px) {
       font-size: 25px;
     }
-    @media screen and (max-width:670px) {
+    @media screen and (max-width: 670px) {
       font-size: 20px;
     }
   }
@@ -39,10 +39,10 @@
   }
   .btn {
     color: #f5f5f5;
-    @media screen and (max-width:768px) {
-      font-size: 1.0rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
     }
-    @media screen and (max-width:670px) {
+    @media screen and (max-width: 670px) {
       font-size: 0.8rem;
     }
     &:hover {
@@ -56,7 +56,7 @@
     height: 100vh;
     margin: auto;
     overflow: hidden;
-    @media screen and (max-width:480px) {
+    @media screen and (max-width: 480px) {
       height: 80vh;
     }
     /* --- 背景の指定 ------------------------------------------- */
@@ -151,23 +151,6 @@
   }
 }
 
-.footer {
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-}
-
-.container-footer {
-  width: 100%;
-  max-width: 680px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.container-footer .text-muted {
-  margin: 20px auto;
-}
-
 .fadein {
   opacity: 0;
   transform: translate(0, 50px);
@@ -215,4 +198,78 @@
 .frame {
   display: inline-block;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+}
+
+.get-started {
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  .btn,
+  a.btn,
+  button.btn {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+  }
+
+  a.btn-flat2 {
+    overflow: hidden;
+    padding: 0.7rem 3rem;
+    color: #fff;
+    background: #000;
+  }
+
+  a.btn-flat2 span {
+    position: relative;
+  }
+
+  a.btn-flat2:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 150%;
+    height: 500%;
+
+    content: "";
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+
+    background: #00b7ee;
+  }
+
+  a.btn-flat2:hover:before {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+}
+
+.gs1{
+  a.btn-flat2 {
+    background: #000000cb;
+  }
+  a.btn-flat2:before {
+    background: #fff;
+  }
 }
