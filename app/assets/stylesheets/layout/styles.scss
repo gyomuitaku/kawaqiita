@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
 ul,
 li {
   margin: 0;
@@ -159,9 +161,9 @@ html {
 body {
   font-weight: 400;
   font-size: 1rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #1b1e24;
+  color: #4a4a4a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga", "kern";
@@ -1786,5 +1788,11 @@ $color: #37393a;
   .select-mx {
     padding-right: 0;
     padding-left: 0;
+  }
+}
+
+#home-footer {
+  .row {
+    height: auto;
   }
 }
