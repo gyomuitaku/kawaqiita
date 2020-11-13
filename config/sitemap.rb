@@ -1,5 +1,6 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://your-e-tan.com/"
+SitemapGenerator::Sitemap.default_host = "https://your-e-tan.com"
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
