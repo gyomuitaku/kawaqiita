@@ -1,0 +1,947 @@
+Started GET "/users/sign_up" for 10.0.2.2 at 2020-11-13 09:30:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.4.4) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.4.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+request_store (1.5.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:31:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.4.4) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.4.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+request_store (1.5.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to DeviseCreateUsers (20201024043151)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201024043151_devise_create_users.rb:5
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201024043151_devise_create_users.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201024043151_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (7.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201024043151"]]
+  ↳ bin/rails:4
+  [1m[35m (25.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateResults (20201026112011)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "results" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "word" varchar NOT NULL, "meaning" varchar NOT NULL, "is_correct" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201026112011_create_results.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201026112011"]]
+  ↳ bin/rails:4
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateWordSets (20201031073719)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "word_sets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "word_first" varchar, "word_second" varchar, "word_third" varchar, "word_forth" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201031073719_create_word_sets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201031073719"]]
+  ↳ bin/rails:4
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to WordSets (20201103082909)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (5.6ms)[0m  [1m[35mDROP TABLE "word_sets"[0m
+  ↳ db/migrate/20201103082909_word_sets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201103082909"]]
+  ↳ bin/rails:4
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to Results (20201103173823)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (6.4ms)[0m  [1m[35mDROP TABLE "results"[0m
+  ↳ db/migrate/20201103173823_results.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201103173823"]]
+  ↳ bin/rails:4
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to AddProgresstatusToUsers (20201103174722)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "users" ADD "progress_status" integer[0m
+  ↳ db/migrate/20201103174722_add_progresstatus_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201103174722"]]
+  ↳ bin/rails:4
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to RemoveProgresstatusToUsers (20201103180441)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "progress_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","progress_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","progress_status" FROM "users"[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at" FROM "ausers"[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20201103180441_remove_progresstatus_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201103180441"]]
+  ↳ bin/rails:4
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to AddUserstatusToUsers (20201103181550)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (7.0ms)[0m  [1m[35mALTER TABLE "users" ADD "toeic_status" integer[0m
+  ↳ db/migrate/20201103181550_add_userstatus_to_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "novel_status" integer[0m
+  ↳ db/migrate/20201103181550_add_userstatus_to_users.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "paper_status" integer[0m
+  ↳ db/migrate/20201103181550_add_userstatus_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201103181550"]]
+  ↳ bin/rails:4
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to Setdefault (20201104155350)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT NULL, "novel_status" integer DEFAULT NULL, "paper_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (5.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT 0, "novel_status" integer DEFAULT NULL, "paper_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT 0, "novel_status" integer DEFAULT NULL, "paper_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT 0, "novel_status" integer DEFAULT 0, "paper_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT 0, "novel_status" integer DEFAULT 0, "paper_status" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime DEFAULT NULL, "remember_created_at" datetime DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "toeic_status" integer DEFAULT 0, "novel_status" integer DEFAULT 0, "paper_status" integer DEFAULT 0)[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status")
+                     SELECT "id","email","encrypted_password","name","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","toeic_status","novel_status","paper_status" FROM "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20201104155350_setdefault.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201104155350"]]
+  ↳ bin/rails:4
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateSnsCredentials (20201105062829)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "sns_credentials" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar, "uid" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_c5d66654bc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20201105062829_create_sns_credentials.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_sns_credentials_on_user_id" ON "sns_credentials" ("user_id")[0m
+  ↳ db/migrate/20201105062829_create_sns_credentials.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201105062829"]]
+  ↳ bin/rails:4
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (4.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-13 09:32:19.141136"], ["updated_at", "2020-11-13 09:32:19.141136"]]
+  ↳ bin/rails:4
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/users/sign_up" for 10.0.2.2 at 2020-11-13 09:32:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 4833ms (Views: 4775.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/users/auth/google_oauth2" for 10.0.2.2 at 2020-11-13 09:35:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/auth/google_oauth2" for 10.0.2.2 at 2020-11-13 09:35:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:36:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (29.4ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+Completed 200 OK in 998ms (Views: 963.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:45:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (41.1ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 762ms (Views: 730.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:50:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (35.6ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 5503ms (Views: 5456.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:56:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 745ms (Views: 719.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 09:58:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered tops/home.html.erb within layouts/application (26.0ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 880ms (Views: 854.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:00:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+Completed 200 OK in 5523ms (Views: 5490.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:01:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (32.7ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 5204ms (Views: 5169.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:05:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.4ms)
+  Rendered tops/home.html.erb within layouts/application (33.5ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 4178ms (Views: 4146.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:05:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (27.3ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 4001ms (Views: 3973.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:06:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered tops/home.html.erb within layouts/application (35.8ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 4743ms (Views: 4709.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:06:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered tops/home.html.erb within layouts/application (26.8ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 4188ms (Views: 4159.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:10:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (29.7ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 4263ms (Views: 4231.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:11:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered tops/home.html.erb within layouts/application (30.8ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 4024ms (Views: 3989.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:12:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (30.2ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 4102ms (Views: 4070.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:13:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (26.9ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 4008ms (Views: 3977.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:14:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 872ms (Views: 828.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:21:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 757ms (Views: 724.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:21:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 699ms (Views: 670.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:23:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 4494ms (Views: 4462.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:23:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (28.2ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 738ms (Views: 712.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:28:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 1093ms (Views: 1057.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:29:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 747ms (Views: 719.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:31:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 687ms (Views: 653.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:38:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 854ms (Views: 817.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:38:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 818ms (Views: 782.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:38:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 705ms (Views: 680.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:39:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 1085ms (Views: 1038.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:39:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 686ms (Views: 658.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:43:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 4150ms (Views: 4117.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:45:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 4291ms (Views: 4259.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:46:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 4520ms (Views: 4484.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:48:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 3977ms (Views: 3947.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:49:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 4005ms (Views: 3976.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:51:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (62.7ms)
+Completed 200 OK in 759ms (Views: 726.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:52:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 819ms (Views: 793.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:53:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 802ms (Views: 777.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 10.0.2.2 at 2020-11-13 10:54:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#about as HTML
+  Rendering tops/about.html.erb within layouts/application
+  Rendered tops/about.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 821ms (Views: 783.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:54:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (39.7ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 1128ms (Views: 1083.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:55:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.8ms)
+  Rendered tops/home.html.erb within layouts/application (36.7ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 881ms (Views: 851.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:57:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (27.7ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 757ms (Views: 726.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:58:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (38.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 892ms (Views: 853.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 10:58:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.1ms)
+  Rendered tops/home.html.erb within layouts/application (31.8ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 798ms (Views: 764.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:02:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (49.5ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 915ms (Views: 884.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:06:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered tops/home.html.erb within layouts/application (36.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 4596ms (Views: 4551.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:08:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.2ms)
+  Rendered tops/home.html.erb within layouts/application (39.9ms)
+  Rendered layouts/_header.html.erb (9.7ms)
+Completed 200 OK in 5211ms (Views: 5177.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:12:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (42.2ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 5244ms (Views: 5208.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:14:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (29.7ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 940ms (Views: 908.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:15:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.1ms)
+  Rendered tops/home.html.erb within layouts/application (84.8ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 877ms (Views: 849.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:17:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.2ms)
+  Rendered tops/home.html.erb within layouts/application (35.1ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 4345ms (Views: 4313.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:22:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.4ms)
+  Rendered tops/home.html.erb within layouts/application (58.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 4924ms (Views: 4886.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:24:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.6ms)
+  Rendered tops/home.html.erb within layouts/application (32.5ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 3977ms (Views: 3949.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:24:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (38.6ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 4794ms (Views: 4765.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:25:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (3.2ms)
+  Rendered tops/home.html.erb within layouts/application (46.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 4483ms (Views: 4453.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:25:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.9ms)
+  Rendered tops/home.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 4649ms (Views: 4616.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:25:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (27.7ms)
+  Rendered layouts/_header.html.erb (13.9ms)
+Completed 200 OK in 4318ms (Views: 4289.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 11:27:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (51.5ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 5517ms (Views: 5483.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:02:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (29.2ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+Completed 200 OK in 5323ms (Views: 5298.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:04:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (6.0ms)
+  Rendered tops/home.html.erb within layouts/application (33.7ms)
+  Rendered layouts/_header.html.erb (9.2ms)
+Completed 200 OK in 4514ms (Views: 4482.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:05:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (34.7ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 4616ms (Views: 4585.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:05:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (33.9ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 729ms (Views: 703.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:11:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (38.7ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 6128ms (Views: 6091.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:18:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (1.6ms)
+  Rendered tops/home.html.erb within layouts/application (53.9ms)
+  Rendered layouts/_header.html.erb (8.2ms)
+Completed 200 OK in 4640ms (Views: 4596.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:22:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered tops/home.html.erb within layouts/application (32.6ms)
+  Rendered layouts/_header.html.erb (8.1ms)
+Completed 200 OK in 4118ms (Views: 4089.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:31:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (3.0ms)
+  Rendered tops/home.html.erb within layouts/application (39.6ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 4919ms (Views: 4889.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:45:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered tops/home.html.erb within layouts/application (40.4ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 1019ms (Views: 986.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2020-11-13 12:46:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopsController#home as HTML
+  Rendering tops/home.html.erb within layouts/application
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered tops/home.html.erb within layouts/application (27.3ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 767ms (Views: 742.1ms | ActiveRecord: 0.0ms)
+
+
