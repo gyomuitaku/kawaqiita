@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<url>
+  <loc>https://your-e-tan.com/</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/select</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/users/sign_up</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/users/sign_in</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/about</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=102</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=202</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=302</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=402</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=602</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=702</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=802</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=902</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1002</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1102</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1202</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1302</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1402</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1602</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=0select_num=1902</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=1quiz_type=1select_file=0select_num=2test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=2quiz_type=1select_file=0select_num=502test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=0select_file=0select_num=502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=0select_file=0select_num=602</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1602word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1702word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1802word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1902word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=2word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=502word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1002word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1502word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=2word_range=1000</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=1002word_range=1000</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=0select_num=2word_range=2000</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/toeic</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=102</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=202</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=302</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=402</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=602</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=702</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=802</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=902</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1002</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1102</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1202</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1302</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1402</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1602</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1702</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1802</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=0select_file=1select_num=1902</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=1select_file=1select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=1select_file=1select_num=502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=1select_file=1select_num=1002</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?quiz_type=1select_file=1select_num=1502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=1quiz_type=1select_file=1select_num=2test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=2quiz_type=1select_file=1select_num=502test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=3quiz_type=1select_file=1select_num=1002test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/quiz?level=4quiz_type=1select_file=1select_num=1502test=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=1select_file=1select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=1select_file=1select_num=502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=1select_file=1select_num=1002</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=1select_file=1select_num=1502</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=2select_file=1select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=2select_file=1select_num=1002</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/type?quiz_type=3select_file=1select_num=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=2word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=102word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=202word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=302word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=402word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=502word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=602word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=702word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=802word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=902word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1002word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1102word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1202word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1302word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1402word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1502word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1602word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1702word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1802word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1902word_range=100</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=2word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=502word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1002word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=1502word_range=500</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://your-e-tan.com/kakutan?select_file=1select_num=2word_range=1000</loc>
+  <priority>0.7</priority>
+</url>
+
+</urlset>
