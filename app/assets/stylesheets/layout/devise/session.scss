@@ -1,17 +1,53 @@
-.back{
-  background-image: url("bg_12.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-  background-position: 50% 0;
-  min-height: 100vh;
-  font-family: cursive;
-  font-size: 20px;
-  text-align: center;
-  height: auto;
-  // margin-top: 30px;
-}
+#session {
+  .main {
+    margin-top: 80px;
+    .container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    h2 {
+      font-size: 2.5rem;
+      padding-bottom: 20px;
 
-.id-link{
-  color: white;
+    }
+    .google-signup-btn {
+      background-image: url(//d3nn82uaxijpm6.cloudfront.net/assets/website/landing-page/icon-google-d0e460839c4717a1dc562f7233331668a2674805b8b2df3eac5ec7fd2d6add46.svg);
+    }
+
+    .my-bg-dark {
+      background-color: #343a40de;
+    }
+
+    .signup-btn {
+      display: block;
+      color: #242428;
+      background-color: #fff;
+      background-size: 24px;
+      background-position: 16px center;
+      background-repeat: no-repeat;
+      font-size: 14px;
+      position: relative;
+      text-align: center;
+      border: 1px solid #dfdfe8;
+      margin-top: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-left: 50px;
+      padding-right: 50px;
+      -webkit-transition: background-color 0.1s ease, border-color 0.1s ease;
+      transition: background-color 0.1s ease, border-color 0.1s ease;
+      will-change: background-color, border-color;
+
+      &:hover {
+        // color: currentColor;
+        background-color: #f7f7fa;
+        border-color: #6d6d78;
+        text-decoration: none;
+      }
+    }
+
+    .login-tab {
+      padding-top: 20px;
+    }
+  }
 }
